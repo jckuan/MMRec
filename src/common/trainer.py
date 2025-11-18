@@ -19,6 +19,9 @@ from logging import getLogger
 from utils.utils import get_local_time, early_stopping, dict2str
 from utils.topk_evaluator import TopKEvaluator
 
+from datetime import datetime
+from torch.utils.tensorboard import SummaryWriter
+from tqdm import tqdm
 
 class AbstractTrainer(object):
     r"""Trainer Class is used to manage the training and evaluation processes of recommender system models.
@@ -108,6 +111,9 @@ class Trainer(AbstractTrainer):
         self.alpha2 = config['alpha2']
         self.beta = config['beta']
 
+        timestamp = datetime.now().strftime("%y%m%d-%H%M")
+        self.writer = SummaryWriter(log_dir=f'runs/{config["dataset"]}_exp_{timestamp}')
+
     def _build_optimizer(self):
         r"""Init the Optimizer
 
@@ -156,9 +162,13 @@ class Trainer(AbstractTrainer):
                 loss = sum(losses)
                 loss_tuple = tuple(per_loss.item() for per_loss in losses)
                 total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
+                # Log individual losses to tensorboard
+                for i, l in enumerate(loss_tuple):
+                    self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
             else:
                 loss = losses
                 total_loss = losses.item() if total_loss is None else total_loss + losses.item()
+                self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
             if self._check_nan(loss):
                 self.logger.info('Loss is nan at epoch: {}, batch index: {}. Exiting.'.format(epoch_idx, batch_idx))
                 return loss, torch.tensor(0.0)
@@ -260,6 +270,9 @@ class Trainer(AbstractTrainer):
             if (epoch_idx + 1) % self.eval_step == 0:
                 valid_start_time = time()
                 valid_score, valid_result = self._valid_epoch(valid_data)
+                # Log metrics to tensorboard
+                for metric, value in valid_result.items():
+                    self.writer.add_scalar(f'Metrics/Valid_{metric}', value, epoch_idx)
                 self.best_valid_score, self.cur_step, stop_flag, update_flag = early_stopping(
                     valid_score, self.best_valid_score, self.cur_step,
                     max_step=self.stopping_step, bigger=self.valid_metric_bigger)
@@ -269,6 +282,9 @@ class Trainer(AbstractTrainer):
                 valid_result_output = 'valid result: \n' + dict2str(valid_result)
                 # test
                 _, test_result = self._valid_epoch(test_data)
+                # Log test metrics to tensorboard
+                for metric, value in test_result.items():
+                    self.writer.add_scalar(f'Metrics/Test_{metric}', value, epoch_idx)
                 if verbose:
                     self.logger.info(valid_score_output)
                     self.logger.info(valid_result_output)
@@ -286,6 +302,8 @@ class Trainer(AbstractTrainer):
                     if verbose:
                         self.logger.info(stop_output)
                     break
+        # Close tensorboard writer
+        self.writer.close()
         return self.best_valid_score, self.best_valid_result, self.best_test_upon_valid
 
 
