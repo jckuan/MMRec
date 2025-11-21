@@ -112,7 +112,7 @@ class Trainer(AbstractTrainer):
         self.beta = config['beta']
 
         timestamp = datetime.now().strftime("%y%m%d-%H%M")
-        self.writer = SummaryWriter(log_dir=f'runs/{config["dataset"]}_exp_{timestamp}')
+        self.writer = SummaryWriter(log_dir=f'runs/{config["dataset"]}_{timestamp}')
 
     def _build_optimizer(self):
         r"""Init the Optimizer
