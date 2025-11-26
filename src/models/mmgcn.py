@@ -52,8 +52,9 @@ class MMGCN(GeneralRecommender):
                              self.aggr_mode, self.concate, num_layer=num_layer, has_id=has_id, device=self.device)
             self.num_modal += 1
 
-        self.id_embedding = nn.init.xavier_normal_(torch.rand((num_user+num_item, dim_x), requires_grad=True)).to(self.device)
-        self.result = nn.init.xavier_normal_(torch.rand((num_user + num_item, dim_x))).to(self.device)
+        # Use nn.Parameter with proper initialization for AMP compatibility
+        self.id_embedding = nn.Parameter(nn.init.xavier_normal_(torch.empty(num_user+num_item, dim_x))).to(self.device)
+        self.result = nn.init.xavier_normal_(torch.empty(num_user + num_item, dim_x)).to(self.device)
 
     def pack_edge_index(self, inter_mat):
         rows = inter_mat.row
@@ -89,7 +90,8 @@ class MMGCN(GeneralRecommender):
         user_score = out[user_tensor]
         item_score = out[item_tensor]
         score = torch.sum(user_score * item_score, dim=1).view(-1, 2)
-        loss = -torch.mean(torch.log(torch.sigmoid(torch.matmul(score, self.weight))))
+        # Add eps for numerical stability in FP16 to prevent log(0) = -inf
+        loss = -torch.mean(torch.log(torch.sigmoid(torch.matmul(score, self.weight)) + 1e-8))
         reg_embedding_loss = (self.id_embedding[user_tensor]**2 + self.id_embedding[item_tensor]**2).mean()
         if self.v_feat is not None:
             reg_embedding_loss += (self.v_gcn.preference**2).mean()
@@ -123,8 +125,8 @@ class GCN(torch.nn.Module):
         self.device = device
 
         if self.dim_latent:
-            self.preference = nn.init.xavier_normal_(torch.rand((num_user, self.dim_latent), requires_grad=True)).to(self.device)
-            #self.preference = nn.Parameter(nn.init.xavier_normal_(torch.rand((num_user, self.dim_latent))))
+            # Use nn.Parameter with proper initialization for AMP compatibility
+            self.preference = nn.Parameter(nn.init.xavier_normal_(torch.empty(num_user, self.dim_latent))).to(self.device)
 
             self.MLP = nn.Linear(self.dim_feat, self.dim_latent)
             self.conv_embed_1 = BaseModel(self.dim_latent, self.dim_latent, aggr=self.aggr_mode)
@@ -136,8 +138,8 @@ class GCN(torch.nn.Module):
             nn.init.xavier_normal_(self.g_layer1.weight)
 
         else:
-            self.preference = nn.init.xavier_normal_(torch.rand((num_user, self.dim_feat), requires_grad=True)).to(self.device)
-            #self.preference = nn.Parameter(nn.init.xavier_normal_(torch.rand((num_user, self.dim_feat))))
+            # Use nn.Parameter with proper initialization for AMP compatibility
+            self.preference = nn.Parameter(nn.init.xavier_normal_(torch.empty(num_user, self.dim_feat))).to(self.device)
 
             self.conv_embed_1 = BaseModel(self.dim_feat, self.dim_feat, aggr=self.aggr_mode)
             nn.init.xavier_normal_(self.conv_embed_1.weight)

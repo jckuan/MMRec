@@ -1,0 +1,1144 @@
+Sat 22 Nov 2025 01:04:48 INFO ██Server: 	bronx
+Sat 22 Nov 2025 01:04:48 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Sat 22 Nov 2025 01:04:48 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=100
+stopping_step=20
+train_batch_size=2048
+learner=adam
+learning_rate=[0.0001, 0.0005, 0.001, 0.005, 0.01]
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[5, 10, 20, 50]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed', 'reg_weight', 'learning_rate']
+inter_file_name=clean_filtered_interactions.csv
+vision_feature_file=clean_audio_feat.npy
+text_feature_file=clean_text_feat.npy
+user_graph_dict_file=user_graph_dict.npy
+n_layers=2
+reg_weight=[0, 1e-05, 0.0001, 0.001, 0.01, 0.1]
+model=MMGCN
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Sat 22 Nov 2025 01:04:50 INFO Music4All
+The number of users: 14125
+Average actions of users: 358.10506194690265
+The number of items: 80735
+Average actions of items: 62.65230693007989
+The number of inters: 5058234
+The sparsity of the dataset: 99.55644384474279%
+Sat 22 Nov 2025 01:04:51 INFO 
+====Training====
+Music4All
+The number of users: 14125
+Average actions of users: 286.08396460176994
+The number of items: 80668
+Average actions of items: 50.09341994347201
+The number of inters: 4040936
+The sparsity of the dataset: 99.64535631898427%
+Sat 22 Nov 2025 01:04:51 INFO 
+====Validation====
+Music4All
+The number of users: 14124
+Average actions of users: 35.36540640045313
+The number of items: 58824
+Average actions of items: 8.491449068407453
+The number of inters: 499501
+The sparsity of the dataset: 99.9398792900849%
+Sat 22 Nov 2025 01:04:51 INFO 
+====Testing====
+Music4All
+The number of users: 14125
+Average actions of users: 36.65819469026549
+The number of items: 59814
+Average actions of items: 8.656786036713813
+The number of inters: 517797
+The sparsity of the dataset: 99.9387130192091%
+Sat 22 Nov 2025 01:05:01 INFO 
+
+=================================
+
+
+Sat 22 Nov 2025 01:05:01 INFO =========1/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.0001)=======
+Sat 22 Nov 2025 01:05:04 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 01:05:04 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 01:21:44 INFO epoch 0 training [time: 999.57s, train loss: inf]
+Sat 22 Nov 2025 01:21:46 INFO epoch 0 evaluating [time: 1.20s, valid_score: 0.011800]
+Sat 22 Nov 2025 01:21:46 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0084    recall@20: 0.0118    recall@50: 0.0200    ndcg@5: 0.0379    ndcg@10: 0.0320    ndcg@20: 0.0250    ndcg@50: 0.0230    precision@5: 0.0353    precision@10: 0.0281    precision@20: 0.0199    precision@50: 0.0136    map@5: 0.0277    map@10: 0.0196    map@20: 0.0110    map@50: 0.0071    
+Sat 22 Nov 2025 01:21:46 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0096    recall@20: 0.0135    recall@50: 0.0217    ndcg@5: 0.0447    ndcg@10: 0.0384    ndcg@20: 0.0297    ndcg@50: 0.0259    precision@5: 0.0414    precision@10: 0.0339    precision@20: 0.0237    precision@50: 0.0154    map@5: 0.0333    map@10: 0.0240    map@20: 0.0135    map@50: 0.0082    
+Sat 22 Nov 2025 01:21:46 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 01:23:51 INFO Loss is nan at epoch: 1, batch index: 300. Exiting.
+Sat 22 Nov 2025 01:23:51 INFO best valid result: recall@5: 0.0053    recall@10: 0.0084    recall@20: 0.0118    recall@50: 0.0200    ndcg@5: 0.0379    ndcg@10: 0.0320    ndcg@20: 0.0250    ndcg@50: 0.0230    precision@5: 0.0353    precision@10: 0.0281    precision@20: 0.0199    precision@50: 0.0136    map@5: 0.0277    map@10: 0.0196    map@20: 0.0110    map@50: 0.0071    
+Sat 22 Nov 2025 01:23:51 INFO test result: recall@5: 0.0059    recall@10: 0.0096    recall@20: 0.0135    recall@50: 0.0217    ndcg@5: 0.0447    ndcg@10: 0.0384    ndcg@20: 0.0297    ndcg@50: 0.0259    precision@5: 0.0414    precision@10: 0.0339    precision@20: 0.0237    precision@50: 0.0154    map@5: 0.0333    map@10: 0.0240    map@20: 0.0135    map@50: 0.0082    
+Sat 22 Nov 2025 01:23:51 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.0001),
+Valid: recall@5: 0.0053    recall@10: 0.0084    recall@20: 0.0118    recall@50: 0.0200    ndcg@5: 0.0379    ndcg@10: 0.0320    ndcg@20: 0.0250    ndcg@50: 0.0230    precision@5: 0.0353    precision@10: 0.0281    precision@20: 0.0199    precision@50: 0.0136    map@5: 0.0277    map@10: 0.0196    map@20: 0.0110    map@50: 0.0071    ,
+Test: recall@5: 0.0059    recall@10: 0.0096    recall@20: 0.0135    recall@50: 0.0217    ndcg@5: 0.0447    ndcg@10: 0.0384    ndcg@20: 0.0297    ndcg@50: 0.0259    precision@5: 0.0414    precision@10: 0.0339    precision@20: 0.0237    precision@50: 0.0154    map@5: 0.0333    map@10: 0.0240    map@20: 0.0135    map@50: 0.0082    
+
+
+
+Sat 22 Nov 2025 01:23:51 INFO =========2/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.0005)=======
+Sat 22 Nov 2025 01:23:52 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 01:23:52 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 01:35:29 INFO epoch 0 training [time: 697.14s, train loss: 310.7647]
+Sat 22 Nov 2025 01:35:32 INFO epoch 0 evaluating [time: 1.18s, valid_score: 0.012700]
+Sat 22 Nov 2025 01:35:32 INFO valid result: 
+recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0127    recall@50: 0.0226    ndcg@5: 0.0352    ndcg@10: 0.0309    ndcg@20: 0.0251    ndcg@50: 0.0242    precision@5: 0.0340    precision@10: 0.0283    precision@20: 0.0212    precision@50: 0.0150    map@5: 0.0259    map@10: 0.0189    map@20: 0.0109    map@50: 0.0072    
+Sat 22 Nov 2025 01:35:32 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0096    recall@20: 0.0144    recall@50: 0.0246    ndcg@5: 0.0409    ndcg@10: 0.0365    ndcg@20: 0.0295    ndcg@50: 0.0270    precision@5: 0.0398    precision@10: 0.0340    precision@20: 0.0251    precision@50: 0.0171    map@5: 0.0306    map@10: 0.0229    map@20: 0.0132    map@50: 0.0082    
+Sat 22 Nov 2025 01:35:32 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 01:35:49 INFO Loss is nan at epoch: 1, batch index: 42. Exiting.
+Sat 22 Nov 2025 01:35:49 INFO best valid result: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0127    recall@50: 0.0226    ndcg@5: 0.0352    ndcg@10: 0.0309    ndcg@20: 0.0251    ndcg@50: 0.0242    precision@5: 0.0340    precision@10: 0.0283    precision@20: 0.0212    precision@50: 0.0150    map@5: 0.0259    map@10: 0.0189    map@20: 0.0109    map@50: 0.0072    
+Sat 22 Nov 2025 01:35:49 INFO test result: recall@5: 0.0056    recall@10: 0.0096    recall@20: 0.0144    recall@50: 0.0246    ndcg@5: 0.0409    ndcg@10: 0.0365    ndcg@20: 0.0295    ndcg@50: 0.0270    precision@5: 0.0398    precision@10: 0.0340    precision@20: 0.0251    precision@50: 0.0171    map@5: 0.0306    map@10: 0.0229    map@20: 0.0132    map@50: 0.0082    
+Sat 22 Nov 2025 01:35:49 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.0005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0127    recall@50: 0.0226    ndcg@5: 0.0352    ndcg@10: 0.0309    ndcg@20: 0.0251    ndcg@50: 0.0242    precision@5: 0.0340    precision@10: 0.0283    precision@20: 0.0212    precision@50: 0.0150    map@5: 0.0259    map@10: 0.0189    map@20: 0.0109    map@50: 0.0072    ,
+Test: recall@5: 0.0056    recall@10: 0.0096    recall@20: 0.0144    recall@50: 0.0246    ndcg@5: 0.0409    ndcg@10: 0.0365    ndcg@20: 0.0295    ndcg@50: 0.0270    precision@5: 0.0398    precision@10: 0.0340    precision@20: 0.0251    precision@50: 0.0171    map@5: 0.0306    map@10: 0.0229    map@20: 0.0132    map@50: 0.0082    
+
+
+
+Sat 22 Nov 2025 01:35:49 INFO =========3/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.001)=======
+Sat 22 Nov 2025 01:35:50 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 01:35:50 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 01:45:07 INFO Loss is nan at epoch: 0, batch index: 1362. Exiting.
+Sat 22 Nov 2025 01:45:07 INFO best valid result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 01:45:07 INFO test result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 01:45:07 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.0005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0127    recall@50: 0.0226    ndcg@5: 0.0352    ndcg@10: 0.0309    ndcg@20: 0.0251    ndcg@50: 0.0242    precision@5: 0.0340    precision@10: 0.0283    precision@20: 0.0212    precision@50: 0.0150    map@5: 0.0259    map@10: 0.0189    map@20: 0.0109    map@50: 0.0072    ,
+Test: recall@5: 0.0056    recall@10: 0.0096    recall@20: 0.0144    recall@50: 0.0246    ndcg@5: 0.0409    ndcg@10: 0.0365    ndcg@20: 0.0295    ndcg@50: 0.0270    precision@5: 0.0398    precision@10: 0.0340    precision@20: 0.0251    precision@50: 0.0171    map@5: 0.0306    map@10: 0.0229    map@20: 0.0132    map@50: 0.0082    
+
+
+
+Sat 22 Nov 2025 01:45:07 INFO =========4/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005)=======
+Sat 22 Nov 2025 01:45:08 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 01:45:08 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 01:49:00 INFO epoch 0 training [time: 231.52s, train loss: 104.7858]
+Sat 22 Nov 2025 01:49:02 INFO epoch 0 evaluating [time: 1.18s, valid_score: 0.012900]
+Sat 22 Nov 2025 01:49:02 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0087    recall@20: 0.0129    recall@50: 0.0226    ndcg@5: 0.0376    ndcg@10: 0.0326    ndcg@20: 0.0262    ndcg@50: 0.0249    precision@5: 0.0352    precision@10: 0.0291    precision@20: 0.0216    precision@50: 0.0152    map@5: 0.0266    map@10: 0.0191    map@20: 0.0110    map@50: 0.0072    
+Sat 22 Nov 2025 01:49:02 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0099    recall@20: 0.0147    recall@50: 0.0247    ndcg@5: 0.0450    ndcg@10: 0.0392    ndcg@20: 0.0313    ndcg@50: 0.0282    precision@5: 0.0417    precision@10: 0.0350    precision@20: 0.0257    precision@50: 0.0173    map@5: 0.0323    map@10: 0.0237    map@20: 0.0137    map@50: 0.0084    
+Sat 22 Nov 2025 01:49:02 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 02:02:26 INFO epoch 1 training [time: 803.86s, train loss: 209.5428]
+Sat 22 Nov 2025 02:02:28 INFO epoch 1 evaluating [time: 1.30s, valid_score: 0.013500]
+Sat 22 Nov 2025 02:02:28 INFO valid result: 
+recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    
+Sat 22 Nov 2025 02:02:28 INFO test result: 
+recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+Sat 22 Nov 2025 02:02:28 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 02:09:47 INFO Loss is nan at epoch: 2, batch index: 1072. Exiting.
+Sat 22 Nov 2025 02:09:47 INFO best valid result: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    
+Sat 22 Nov 2025 02:09:47 INFO test result: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+Sat 22 Nov 2025 02:09:47 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    ,
+Test: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+
+
+
+Sat 22 Nov 2025 02:09:47 INFO =========5/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.01)=======
+Sat 22 Nov 2025 02:09:48 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 02:09:48 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 02:16:03 INFO epoch 0 training [time: 374.87s, train loss: 144.0083]
+Sat 22 Nov 2025 02:16:06 INFO epoch 0 evaluating [time: 1.77s, valid_score: 0.013600]
+Sat 22 Nov 2025 02:16:06 INFO valid result: 
+recall@5: 0.0054    recall@10: 0.0090    recall@20: 0.0136    recall@50: 0.0236    ndcg@5: 0.0388    ndcg@10: 0.0337    ndcg@20: 0.0272    ndcg@50: 0.0258    precision@5: 0.0365    precision@10: 0.0303    precision@20: 0.0226    precision@50: 0.0158    map@5: 0.0279    map@10: 0.0203    map@20: 0.0117    map@50: 0.0076    
+Sat 22 Nov 2025 02:16:06 INFO test result: 
+recall@5: 0.0061    recall@10: 0.0103    recall@20: 0.0151    recall@50: 0.0259    ndcg@5: 0.0457    ndcg@10: 0.0402    ndcg@20: 0.0320    ndcg@50: 0.0290    precision@5: 0.0431    precision@10: 0.0365    precision@20: 0.0266    precision@50: 0.0180    map@5: 0.0334    map@10: 0.0248    map@20: 0.0141    map@50: 0.0088    
+Sat 22 Nov 2025 02:16:06 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 02:19:13 INFO Loss is nan at epoch: 1, batch index: 450. Exiting.
+Sat 22 Nov 2025 02:19:13 INFO best valid result: recall@5: 0.0054    recall@10: 0.0090    recall@20: 0.0136    recall@50: 0.0236    ndcg@5: 0.0388    ndcg@10: 0.0337    ndcg@20: 0.0272    ndcg@50: 0.0258    precision@5: 0.0365    precision@10: 0.0303    precision@20: 0.0226    precision@50: 0.0158    map@5: 0.0279    map@10: 0.0203    map@20: 0.0117    map@50: 0.0076    
+Sat 22 Nov 2025 02:19:13 INFO test result: recall@5: 0.0061    recall@10: 0.0103    recall@20: 0.0151    recall@50: 0.0259    ndcg@5: 0.0457    ndcg@10: 0.0402    ndcg@20: 0.0320    ndcg@50: 0.0290    precision@5: 0.0431    precision@10: 0.0365    precision@20: 0.0266    precision@50: 0.0180    map@5: 0.0334    map@10: 0.0248    map@20: 0.0141    map@50: 0.0088    
+Sat 22 Nov 2025 02:19:13 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    ,
+Test: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+
+
+
+Sat 22 Nov 2025 02:19:13 INFO =========6/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.0001)=======
+Sat 22 Nov 2025 02:19:14 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 02:19:14 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 02:29:47 INFO epoch 0 training [time: 633.01s, train loss: inf]
+Sat 22 Nov 2025 02:29:51 INFO epoch 0 evaluating [time: 1.82s, valid_score: 0.011800]
+Sat 22 Nov 2025 02:29:51 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0118    recall@50: 0.0194    ndcg@5: 0.0372    ndcg@10: 0.0316    ndcg@20: 0.0247    ndcg@50: 0.0225    precision@5: 0.0347    precision@10: 0.0278    precision@20: 0.0197    precision@50: 0.0131    map@5: 0.0272    map@10: 0.0194    map@20: 0.0109    map@50: 0.0070    
+Sat 22 Nov 2025 02:29:51 INFO test result: 
+recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0133    recall@50: 0.0210    ndcg@5: 0.0442    ndcg@10: 0.0380    ndcg@20: 0.0293    ndcg@50: 0.0253    precision@5: 0.0409    precision@10: 0.0336    precision@20: 0.0233    precision@50: 0.0149    map@5: 0.0330    map@10: 0.0239    map@20: 0.0134    map@50: 0.0082    
+Sat 22 Nov 2025 02:29:51 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 02:39:50 INFO Loss is nan at epoch: 1, batch index: 1440. Exiting.
+Sat 22 Nov 2025 02:39:50 INFO best valid result: recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0118    recall@50: 0.0194    ndcg@5: 0.0372    ndcg@10: 0.0316    ndcg@20: 0.0247    ndcg@50: 0.0225    precision@5: 0.0347    precision@10: 0.0278    precision@20: 0.0197    precision@50: 0.0131    map@5: 0.0272    map@10: 0.0194    map@20: 0.0109    map@50: 0.0070    
+Sat 22 Nov 2025 02:39:50 INFO test result: recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0133    recall@50: 0.0210    ndcg@5: 0.0442    ndcg@10: 0.0380    ndcg@20: 0.0293    ndcg@50: 0.0253    precision@5: 0.0409    precision@10: 0.0336    precision@20: 0.0233    precision@50: 0.0149    map@5: 0.0330    map@10: 0.0239    map@20: 0.0134    map@50: 0.0082    
+Sat 22 Nov 2025 02:39:50 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    ,
+Test: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+
+
+
+Sat 22 Nov 2025 02:39:50 INFO =========7/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.0005)=======
+Sat 22 Nov 2025 02:39:51 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 02:39:51 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 02:43:33 INFO epoch 0 training [time: 221.90s, train loss: 126.9138]
+Sat 22 Nov 2025 02:43:36 INFO epoch 0 evaluating [time: 1.65s, valid_score: 0.011500]
+Sat 22 Nov 2025 02:43:36 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0115    recall@50: 0.0186    ndcg@5: 0.0377    ndcg@10: 0.0318    ndcg@20: 0.0245    ndcg@50: 0.0220    precision@5: 0.0351    precision@10: 0.0279    precision@20: 0.0193    precision@50: 0.0126    map@5: 0.0277    map@10: 0.0197    map@20: 0.0111    map@50: 0.0070    
+Sat 22 Nov 2025 02:43:36 INFO test result: 
+recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0129    recall@50: 0.0201    ndcg@5: 0.0444    ndcg@10: 0.0379    ndcg@20: 0.0288    ndcg@50: 0.0247    precision@5: 0.0411    precision@10: 0.0333    precision@20: 0.0226    precision@50: 0.0142    map@5: 0.0333    map@10: 0.0241    map@20: 0.0134    map@50: 0.0081    
+Sat 22 Nov 2025 02:43:36 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 02:46:52 INFO Loss is nan at epoch: 1, batch index: 469. Exiting.
+Sat 22 Nov 2025 02:46:52 INFO best valid result: recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0115    recall@50: 0.0186    ndcg@5: 0.0377    ndcg@10: 0.0318    ndcg@20: 0.0245    ndcg@50: 0.0220    precision@5: 0.0351    precision@10: 0.0279    precision@20: 0.0193    precision@50: 0.0126    map@5: 0.0277    map@10: 0.0197    map@20: 0.0111    map@50: 0.0070    
+Sat 22 Nov 2025 02:46:52 INFO test result: recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0129    recall@50: 0.0201    ndcg@5: 0.0444    ndcg@10: 0.0379    ndcg@20: 0.0288    ndcg@50: 0.0247    precision@5: 0.0411    precision@10: 0.0333    precision@20: 0.0226    precision@50: 0.0142    map@5: 0.0333    map@10: 0.0241    map@20: 0.0134    map@50: 0.0081    
+Sat 22 Nov 2025 02:46:52 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    ,
+Test: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+
+
+
+Sat 22 Nov 2025 02:46:52 INFO =========8/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.001)=======
+Sat 22 Nov 2025 02:46:53 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 02:46:53 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 02:53:57 INFO Loss is nan at epoch: 0, batch index: 1017. Exiting.
+Sat 22 Nov 2025 02:53:57 INFO best valid result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 02:53:57 INFO test result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 02:53:57 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 0, 0.005),
+Valid: recall@5: 0.0051    recall@10: 0.0085    recall@20: 0.0135    recall@50: 0.0241    ndcg@5: 0.0364    ndcg@10: 0.0317    ndcg@20: 0.0267    ndcg@50: 0.0257    precision@5: 0.0341    precision@10: 0.0285    precision@20: 0.0227    precision@50: 0.0162    map@5: 0.0246    map@10: 0.0172    map@20: 0.0102    map@50: 0.0068    ,
+Test: recall@5: 0.0058    recall@10: 0.0100    recall@20: 0.0152    recall@50: 0.0264    ndcg@5: 0.0435    ndcg@10: 0.0386    ndcg@20: 0.0315    ndcg@50: 0.0291    precision@5: 0.0410    precision@10: 0.0352    precision@20: 0.0267    precision@50: 0.0186    map@5: 0.0298    map@10: 0.0217    map@20: 0.0126    map@50: 0.0080    
+
+
+
+Sat 22 Nov 2025 02:53:57 INFO =========9/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005)=======
+Sat 22 Nov 2025 02:53:58 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 02:53:58 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 02:57:20 INFO epoch 0 training [time: 202.55s, train loss: 91.9974]
+Sat 22 Nov 2025 02:57:24 INFO epoch 0 evaluating [time: 1.71s, valid_score: 0.012200]
+Sat 22 Nov 2025 02:57:24 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0085    recall@20: 0.0122    recall@50: 0.0210    ndcg@5: 0.0371    ndcg@10: 0.0319    ndcg@20: 0.0251    ndcg@50: 0.0235    precision@5: 0.0347    precision@10: 0.0285    precision@20: 0.0203    precision@50: 0.0139    map@5: 0.0261    map@10: 0.0188    map@20: 0.0107    map@50: 0.0069    
+Sat 22 Nov 2025 02:57:24 INFO test result: 
+recall@5: 0.0058    recall@10: 0.0097    recall@20: 0.0140    recall@50: 0.0236    ndcg@5: 0.0438    ndcg@10: 0.0382    ndcg@20: 0.0301    ndcg@50: 0.0270    precision@5: 0.0408    precision@10: 0.0342    precision@20: 0.0244    precision@50: 0.0164    map@5: 0.0313    map@10: 0.0231    map@20: 0.0132    map@50: 0.0082    
+Sat 22 Nov 2025 02:57:24 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 03:11:05 INFO epoch 1 training [time: 821.82s, train loss: 215.8635]
+Sat 22 Nov 2025 03:11:10 INFO epoch 1 evaluating [time: 2.14s, valid_score: 0.014500]
+Sat 22 Nov 2025 03:11:10 INFO valid result: 
+recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    
+Sat 22 Nov 2025 03:11:10 INFO test result: 
+recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+Sat 22 Nov 2025 03:11:10 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 03:20:34 INFO Loss is nan at epoch: 2, batch index: 1355. Exiting.
+Sat 22 Nov 2025 03:20:34 INFO best valid result: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    
+Sat 22 Nov 2025 03:20:34 INFO test result: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+Sat 22 Nov 2025 03:20:34 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 03:20:34 INFO =========10/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.01)=======
+Sat 22 Nov 2025 03:20:35 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 03:20:35 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 03:24:52 INFO epoch 0 training [time: 257.27s, train loss: inf]
+Sat 22 Nov 2025 03:24:55 INFO epoch 0 evaluating [time: 1.58s, valid_score: 0.012700]
+Sat 22 Nov 2025 03:24:55 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0221    ndcg@5: 0.0374    ndcg@10: 0.0322    ndcg@20: 0.0258    ndcg@50: 0.0244    precision@5: 0.0350    precision@10: 0.0287    precision@20: 0.0212    precision@50: 0.0147    map@5: 0.0266    map@10: 0.0193    map@20: 0.0110    map@50: 0.0072    
+Sat 22 Nov 2025 03:24:55 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0099    recall@20: 0.0144    recall@50: 0.0248    ndcg@5: 0.0442    ndcg@10: 0.0388    ndcg@20: 0.0308    ndcg@50: 0.0280    precision@5: 0.0412    precision@10: 0.0349    precision@20: 0.0253    precision@50: 0.0173    map@5: 0.0320    map@10: 0.0238    map@20: 0.0135    map@50: 0.0084    
+Sat 22 Nov 2025 03:24:55 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 03:28:27 INFO Loss is nan at epoch: 1, batch index: 508. Exiting.
+Sat 22 Nov 2025 03:28:27 INFO best valid result: recall@5: 0.0052    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0221    ndcg@5: 0.0374    ndcg@10: 0.0322    ndcg@20: 0.0258    ndcg@50: 0.0244    precision@5: 0.0350    precision@10: 0.0287    precision@20: 0.0212    precision@50: 0.0147    map@5: 0.0266    map@10: 0.0193    map@20: 0.0110    map@50: 0.0072    
+Sat 22 Nov 2025 03:28:27 INFO test result: recall@5: 0.0059    recall@10: 0.0099    recall@20: 0.0144    recall@50: 0.0248    ndcg@5: 0.0442    ndcg@10: 0.0388    ndcg@20: 0.0308    ndcg@50: 0.0280    precision@5: 0.0412    precision@10: 0.0349    precision@20: 0.0253    precision@50: 0.0173    map@5: 0.0320    map@10: 0.0238    map@20: 0.0135    map@50: 0.0084    
+Sat 22 Nov 2025 03:28:27 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 03:28:27 INFO =========11/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.0001, 0.0001)=======
+Sat 22 Nov 2025 03:28:28 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 03:28:28 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 03:38:38 INFO epoch 0 training [time: 609.75s, train loss: inf]
+Sat 22 Nov 2025 03:38:42 INFO epoch 0 evaluating [time: 2.06s, valid_score: 0.011800]
+Sat 22 Nov 2025 03:38:42 INFO valid result: 
+recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0118    recall@50: 0.0195    ndcg@5: 0.0374    ndcg@10: 0.0316    ndcg@20: 0.0248    ndcg@50: 0.0226    precision@5: 0.0347    precision@10: 0.0278    precision@20: 0.0198    precision@50: 0.0132    map@5: 0.0274    map@10: 0.0194    map@20: 0.0110    map@50: 0.0071    
+Sat 22 Nov 2025 03:38:42 INFO test result: 
+recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0132    recall@50: 0.0213    ndcg@5: 0.0441    ndcg@10: 0.0378    ndcg@20: 0.0292    ndcg@50: 0.0255    precision@5: 0.0407    precision@10: 0.0333    precision@20: 0.0232    precision@50: 0.0151    map@5: 0.0330    map@10: 0.0239    map@20: 0.0134    map@50: 0.0082    
+Sat 22 Nov 2025 03:38:42 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 03:51:11 INFO Loss is nan at epoch: 1, batch index: 1799. Exiting.
+Sat 22 Nov 2025 03:51:11 INFO best valid result: recall@5: 0.0052    recall@10: 0.0083    recall@20: 0.0118    recall@50: 0.0195    ndcg@5: 0.0374    ndcg@10: 0.0316    ndcg@20: 0.0248    ndcg@50: 0.0226    precision@5: 0.0347    precision@10: 0.0278    precision@20: 0.0198    precision@50: 0.0132    map@5: 0.0274    map@10: 0.0194    map@20: 0.0110    map@50: 0.0071    
+Sat 22 Nov 2025 03:51:11 INFO test result: recall@5: 0.0058    recall@10: 0.0095    recall@20: 0.0132    recall@50: 0.0213    ndcg@5: 0.0441    ndcg@10: 0.0378    ndcg@20: 0.0292    ndcg@50: 0.0255    precision@5: 0.0407    precision@10: 0.0333    precision@20: 0.0232    precision@50: 0.0151    map@5: 0.0330    map@10: 0.0239    map@20: 0.0134    map@50: 0.0082    
+Sat 22 Nov 2025 03:51:11 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 03:51:11 INFO =========12/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.0001, 0.0005)=======
+Sat 22 Nov 2025 03:51:13 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 03:51:13 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 03:52:25 INFO epoch 0 training [time: 72.79s, train loss: 56.4410]
+Sat 22 Nov 2025 03:52:29 INFO epoch 0 evaluating [time: 1.81s, valid_score: 0.011400]
+Sat 22 Nov 2025 03:52:29 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0083    recall@20: 0.0114    recall@50: 0.0179    ndcg@5: 0.0377    ndcg@10: 0.0317    ndcg@20: 0.0244    ndcg@50: 0.0215    precision@5: 0.0352    precision@10: 0.0278    precision@20: 0.0192    precision@50: 0.0122    map@5: 0.0277    map@10: 0.0197    map@20: 0.0110    map@50: 0.0069    
+Sat 22 Nov 2025 03:52:29 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0095    recall@20: 0.0127    recall@50: 0.0194    ndcg@5: 0.0446    ndcg@10: 0.0379    ndcg@20: 0.0287    ndcg@50: 0.0241    precision@5: 0.0414    precision@10: 0.0334    precision@20: 0.0223    precision@50: 0.0137    map@5: 0.0334    map@10: 0.0241    map@20: 0.0134    map@50: 0.0080    
+Sat 22 Nov 2025 03:52:29 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 03:58:31 INFO Loss is nan at epoch: 1, batch index: 869. Exiting.
+Sat 22 Nov 2025 03:58:31 INFO best valid result: recall@5: 0.0053    recall@10: 0.0083    recall@20: 0.0114    recall@50: 0.0179    ndcg@5: 0.0377    ndcg@10: 0.0317    ndcg@20: 0.0244    ndcg@50: 0.0215    precision@5: 0.0352    precision@10: 0.0278    precision@20: 0.0192    precision@50: 0.0122    map@5: 0.0277    map@10: 0.0197    map@20: 0.0110    map@50: 0.0069    
+Sat 22 Nov 2025 03:58:31 INFO test result: recall@5: 0.0059    recall@10: 0.0095    recall@20: 0.0127    recall@50: 0.0194    ndcg@5: 0.0446    ndcg@10: 0.0379    ndcg@20: 0.0287    ndcg@50: 0.0241    precision@5: 0.0414    precision@10: 0.0334    precision@20: 0.0223    precision@50: 0.0137    map@5: 0.0334    map@10: 0.0241    map@20: 0.0134    map@50: 0.0080    
+Sat 22 Nov 2025 03:58:31 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 03:58:31 INFO =========13/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.0001, 0.001)=======
+Sat 22 Nov 2025 03:58:32 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 03:58:32 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 04:06:12 INFO epoch 0 training [time: 459.53s, train loss: 205.8842]
+Sat 22 Nov 2025 04:06:16 INFO epoch 0 evaluating [time: 1.98s, valid_score: 0.012700]
+Sat 22 Nov 2025 04:06:16 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0222    ndcg@5: 0.0379    ndcg@10: 0.0325    ndcg@20: 0.0259    ndcg@50: 0.0246    precision@5: 0.0353    precision@10: 0.0288    precision@20: 0.0212    precision@50: 0.0148    map@5: 0.0271    map@10: 0.0195    map@20: 0.0112    map@50: 0.0074    
+Sat 22 Nov 2025 04:06:16 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0097    recall@20: 0.0142    recall@50: 0.0243    ndcg@5: 0.0446    ndcg@10: 0.0385    ndcg@20: 0.0305    ndcg@50: 0.0276    precision@5: 0.0414    precision@10: 0.0341    precision@20: 0.0248    precision@50: 0.0170    map@5: 0.0326    map@10: 0.0237    map@20: 0.0136    map@50: 0.0085    
+Sat 22 Nov 2025 04:06:16 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 04:11:16 INFO Loss is nan at epoch: 1, batch index: 720. Exiting.
+Sat 22 Nov 2025 04:11:16 INFO best valid result: recall@5: 0.0053    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0222    ndcg@5: 0.0379    ndcg@10: 0.0325    ndcg@20: 0.0259    ndcg@50: 0.0246    precision@5: 0.0353    precision@10: 0.0288    precision@20: 0.0212    precision@50: 0.0148    map@5: 0.0271    map@10: 0.0195    map@20: 0.0112    map@50: 0.0074    
+Sat 22 Nov 2025 04:11:16 INFO test result: recall@5: 0.0059    recall@10: 0.0097    recall@20: 0.0142    recall@50: 0.0243    ndcg@5: 0.0446    ndcg@10: 0.0385    ndcg@20: 0.0305    ndcg@50: 0.0276    precision@5: 0.0414    precision@10: 0.0341    precision@20: 0.0248    precision@50: 0.0170    map@5: 0.0326    map@10: 0.0237    map@20: 0.0136    map@50: 0.0085    
+Sat 22 Nov 2025 04:11:16 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 04:11:16 INFO =========14/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.0001, 0.005)=======
+Sat 22 Nov 2025 04:11:17 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 04:11:17 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 04:19:58 INFO epoch 0 training [time: 521.27s, train loss: inf]
+Sat 22 Nov 2025 04:20:02 INFO epoch 0 evaluating [time: 1.60s, valid_score: 0.011600]
+Sat 22 Nov 2025 04:20:02 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 04:20:02 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0413    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0385    precision@10: 0.0331    precision@20: 0.0228    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 04:20:02 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 04:33:41 INFO epoch 1 training [time: 819.44s, train loss: inf]
+Sat 22 Nov 2025 04:33:44 INFO epoch 1 evaluating [time: 1.66s, valid_score: 0.011600]
+Sat 22 Nov 2025 04:33:44 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0278    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 04:33:44 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 04:47:23 INFO epoch 2 training [time: 818.79s, train loss: inf]
+Sat 22 Nov 2025 04:47:27 INFO epoch 2 evaluating [time: 1.75s, valid_score: 0.011600]
+Sat 22 Nov 2025 04:47:27 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0217    precision@5: 0.0331    precision@10: 0.0278    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 04:47:27 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0283    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 05:01:05 INFO epoch 3 training [time: 818.43s, train loss: inf]
+Sat 22 Nov 2025 05:01:08 INFO epoch 3 evaluating [time: 1.84s, valid_score: 0.011600]
+Sat 22 Nov 2025 05:01:08 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0239    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0278    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0238    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 05:01:08 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0411    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0283    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 05:14:47 INFO epoch 4 training [time: 818.39s, train loss: inf]
+Sat 22 Nov 2025 05:14:50 INFO epoch 4 evaluating [time: 1.79s, valid_score: 0.011600]
+Sat 22 Nov 2025 05:14:50 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 05:14:50 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 05:28:29 INFO epoch 5 training [time: 818.40s, train loss: inf]
+Sat 22 Nov 2025 05:28:32 INFO epoch 5 evaluating [time: 1.66s, valid_score: 0.011600]
+Sat 22 Nov 2025 05:28:32 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 05:28:32 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 05:42:11 INFO epoch 6 training [time: 818.61s, train loss: inf]
+Sat 22 Nov 2025 05:42:14 INFO epoch 6 evaluating [time: 1.69s, valid_score: 0.011600]
+Sat 22 Nov 2025 05:42:14 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0278    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 05:42:14 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 05:55:53 INFO epoch 7 training [time: 818.50s, train loss: inf]
+Sat 22 Nov 2025 05:55:56 INFO epoch 7 evaluating [time: 1.69s, valid_score: 0.011600]
+Sat 22 Nov 2025 05:55:56 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 05:55:56 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0283    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 06:09:35 INFO epoch 8 training [time: 818.53s, train loss: inf]
+Sat 22 Nov 2025 06:09:38 INFO epoch 8 evaluating [time: 1.70s, valid_score: 0.011600]
+Sat 22 Nov 2025 06:09:38 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 06:09:38 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 06:23:17 INFO epoch 9 training [time: 819.05s, train loss: inf]
+Sat 22 Nov 2025 06:23:21 INFO epoch 9 evaluating [time: 1.78s, valid_score: 0.011600]
+Sat 22 Nov 2025 06:23:21 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0189    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0217    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0238    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 06:23:21 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0411    ndcg@10: 0.0365    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0383    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0283    map@10: 0.0218    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 06:36:59 INFO epoch 10 training [time: 818.03s, train loss: inf]
+Sat 22 Nov 2025 06:37:02 INFO epoch 10 evaluating [time: 1.79s, valid_score: 0.011600]
+Sat 22 Nov 2025 06:37:02 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0278    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 06:37:02 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0384    precision@10: 0.0332    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 06:50:40 INFO epoch 11 training [time: 818.45s, train loss: inf]
+Sat 22 Nov 2025 06:50:44 INFO epoch 11 evaluating [time: 1.93s, valid_score: 0.011600]
+Sat 22 Nov 2025 06:50:44 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0124    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 06:50:44 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 07:04:23 INFO epoch 12 training [time: 818.88s, train loss: inf]
+Sat 22 Nov 2025 07:04:27 INFO epoch 12 evaluating [time: 1.73s, valid_score: 0.011600]
+Sat 22 Nov 2025 07:04:27 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0240    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 07:04:27 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0211    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0383    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 07:18:06 INFO epoch 13 training [time: 818.98s, train loss: inf]
+Sat 22 Nov 2025 07:18:09 INFO epoch 13 evaluating [time: 1.73s, valid_score: 0.011600]
+Sat 22 Nov 2025 07:18:09 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0217    precision@5: 0.0332    precision@10: 0.0278    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 07:18:09 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0384    precision@10: 0.0332    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 07:31:49 INFO epoch 14 training [time: 819.19s, train loss: inf]
+Sat 22 Nov 2025 07:31:52 INFO epoch 14 evaluating [time: 1.56s, valid_score: 0.011600]
+Sat 22 Nov 2025 07:31:52 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 07:31:52 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0385    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 07:45:31 INFO epoch 15 training [time: 819.10s, train loss: inf]
+Sat 22 Nov 2025 07:45:34 INFO epoch 15 evaluating [time: 1.83s, valid_score: 0.011600]
+Sat 22 Nov 2025 07:45:34 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0124    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 07:45:34 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0385    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 07:59:13 INFO epoch 16 training [time: 818.98s, train loss: inf]
+Sat 22 Nov 2025 07:59:17 INFO epoch 16 evaluating [time: 1.89s, valid_score: 0.011600]
+Sat 22 Nov 2025 07:59:17 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0332    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 07:59:17 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 08:13:01 INFO epoch 17 training [time: 823.26s, train loss: inf]
+Sat 22 Nov 2025 08:13:04 INFO epoch 17 evaluating [time: 1.63s, valid_score: 0.011600]
+Sat 22 Nov 2025 08:13:04 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0308    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0193    precision@50: 0.0124    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 08:13:04 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0247    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0228    precision@50: 0.0146    map@5: 0.0285    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 08:26:43 INFO epoch 18 training [time: 819.33s, train loss: inf]
+Sat 22 Nov 2025 08:26:47 INFO epoch 18 evaluating [time: 1.67s, valid_score: 0.011600]
+Sat 22 Nov 2025 08:26:47 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0278    precision@20: 0.0193    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0180    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 08:26:47 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 08:40:27 INFO epoch 19 training [time: 819.76s, train loss: inf]
+Sat 22 Nov 2025 08:40:30 INFO epoch 19 evaluating [time: 1.68s, valid_score: 0.011600]
+Sat 22 Nov 2025 08:40:30 INFO valid result: 
+recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0354    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0217    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 08:40:30 INFO test result: 
+recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0412    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0384    precision@10: 0.0331    precision@20: 0.0227    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 08:40:31 INFO Loss is nan at epoch: 20, batch index: 0. Exiting.
+Sat 22 Nov 2025 08:40:31 INFO best valid result: recall@5: 0.0049    recall@10: 0.0083    recall@20: 0.0116    recall@50: 0.0188    ndcg@5: 0.0353    ndcg@10: 0.0309    ndcg@20: 0.0240    ndcg@50: 0.0216    precision@5: 0.0331    precision@10: 0.0277    precision@20: 0.0194    precision@50: 0.0125    map@5: 0.0239    map@10: 0.0181    map@20: 0.0103    map@50: 0.0066    
+Sat 22 Nov 2025 08:40:31 INFO test result: recall@5: 0.0055    recall@10: 0.0094    recall@20: 0.0130    recall@50: 0.0210    ndcg@5: 0.0413    ndcg@10: 0.0366    ndcg@20: 0.0282    ndcg@50: 0.0246    precision@5: 0.0385    precision@10: 0.0331    precision@20: 0.0228    precision@50: 0.0146    map@5: 0.0284    map@10: 0.0219    map@20: 0.0125    map@50: 0.0076    
+Sat 22 Nov 2025 08:40:31 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 08:40:31 INFO =========15/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.0001, 0.01)=======
+Sat 22 Nov 2025 08:40:32 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 08:40:32 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 08:43:52 INFO Loss is nan at epoch: 0, batch index: 480. Exiting.
+Sat 22 Nov 2025 08:43:52 INFO best valid result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 08:43:52 INFO test result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 08:43:52 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 08:43:52 INFO =========16/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.001, 0.0001)=======
+Sat 22 Nov 2025 08:43:53 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 08:43:53 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 08:54:14 INFO epoch 0 training [time: 621.08s, train loss: 364.5957]
+Sat 22 Nov 2025 08:54:18 INFO epoch 0 evaluating [time: 2.00s, valid_score: 0.000400]
+Sat 22 Nov 2025 08:54:18 INFO valid result: 
+recall@5: 0.0003    recall@10: 0.0004    recall@20: 0.0004    recall@50: 0.0006    ndcg@5: 0.0019    ndcg@10: 0.0013    ndcg@20: 0.0009    ndcg@50: 0.0008    precision@5: 0.0016    precision@10: 0.0009    precision@20: 0.0005    precision@50: 0.0003    map@5: 0.0012    map@10: 0.0006    map@20: 0.0004    map@50: 0.0003    
+Sat 22 Nov 2025 08:54:18 INFO test result: 
+recall@5: 0.0004    recall@10: 0.0004    recall@20: 0.0005    recall@50: 0.0007    ndcg@5: 0.0025    ndcg@10: 0.0017    ndcg@20: 0.0012    ndcg@50: 0.0010    precision@5: 0.0020    precision@10: 0.0011    precision@20: 0.0007    precision@50: 0.0004    map@5: 0.0015    map@10: 0.0008    map@20: 0.0004    map@50: 0.0003    
+Sat 22 Nov 2025 08:54:18 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 08:57:24 INFO Loss is nan at epoch: 1, batch index: 446. Exiting.
+Sat 22 Nov 2025 08:57:24 INFO best valid result: recall@5: 0.0003    recall@10: 0.0004    recall@20: 0.0004    recall@50: 0.0006    ndcg@5: 0.0019    ndcg@10: 0.0013    ndcg@20: 0.0009    ndcg@50: 0.0008    precision@5: 0.0016    precision@10: 0.0009    precision@20: 0.0005    precision@50: 0.0003    map@5: 0.0012    map@10: 0.0006    map@20: 0.0004    map@50: 0.0003    
+Sat 22 Nov 2025 08:57:24 INFO test result: recall@5: 0.0004    recall@10: 0.0004    recall@20: 0.0005    recall@50: 0.0007    ndcg@5: 0.0025    ndcg@10: 0.0017    ndcg@20: 0.0012    ndcg@50: 0.0010    precision@5: 0.0020    precision@10: 0.0011    precision@20: 0.0007    precision@50: 0.0004    map@5: 0.0015    map@10: 0.0008    map@20: 0.0004    map@50: 0.0003    
+Sat 22 Nov 2025 08:57:24 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 08:57:24 INFO =========17/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.001, 0.0005)=======
+Sat 22 Nov 2025 08:57:25 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 08:57:25 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 09:08:01 INFO epoch 0 training [time: 635.42s, train loss: 290.5231]
+Sat 22 Nov 2025 09:08:04 INFO epoch 0 evaluating [time: 1.70s, valid_score: 0.012700]
+Sat 22 Nov 2025 09:08:04 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0224    ndcg@5: 0.0380    ndcg@10: 0.0324    ndcg@20: 0.0260    ndcg@50: 0.0247    precision@5: 0.0356    precision@10: 0.0287    precision@20: 0.0213    precision@50: 0.0149    map@5: 0.0275    map@10: 0.0196    map@20: 0.0112    map@50: 0.0074    
+Sat 22 Nov 2025 09:08:04 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0097    recall@20: 0.0143    recall@50: 0.0244    ndcg@5: 0.0448    ndcg@10: 0.0384    ndcg@20: 0.0306    ndcg@50: 0.0277    precision@5: 0.0416    precision@10: 0.0341    precision@20: 0.0249    precision@50: 0.0169    map@5: 0.0332    map@10: 0.0240    map@20: 0.0137    map@50: 0.0085    
+Sat 22 Nov 2025 09:08:04 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 09:09:29 INFO Loss is nan at epoch: 1, batch index: 204. Exiting.
+Sat 22 Nov 2025 09:09:29 INFO best valid result: recall@5: 0.0053    recall@10: 0.0086    recall@20: 0.0127    recall@50: 0.0224    ndcg@5: 0.0380    ndcg@10: 0.0324    ndcg@20: 0.0260    ndcg@50: 0.0247    precision@5: 0.0356    precision@10: 0.0287    precision@20: 0.0213    precision@50: 0.0149    map@5: 0.0275    map@10: 0.0196    map@20: 0.0112    map@50: 0.0074    
+Sat 22 Nov 2025 09:09:29 INFO test result: recall@5: 0.0059    recall@10: 0.0097    recall@20: 0.0143    recall@50: 0.0244    ndcg@5: 0.0448    ndcg@10: 0.0384    ndcg@20: 0.0306    ndcg@50: 0.0277    precision@5: 0.0416    precision@10: 0.0341    precision@20: 0.0249    precision@50: 0.0169    map@5: 0.0332    map@10: 0.0240    map@20: 0.0137    map@50: 0.0085    
+Sat 22 Nov 2025 09:09:29 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 09:09:29 INFO =========18/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.001, 0.001)=======
+Sat 22 Nov 2025 09:09:30 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 09:09:30 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 09:18:46 INFO Loss is nan at epoch: 0, batch index: 1335. Exiting.
+Sat 22 Nov 2025 09:18:46 INFO best valid result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 09:18:46 INFO test result: recall@5: 0.0000    recall@10: 0.0000    recall@20: 0.0000    recall@50: 0.0000    ndcg@5: 0.0000    ndcg@10: 0.0000    ndcg@20: 0.0000    ndcg@50: 0.0000    precision@5: 0.0000    precision@10: 0.0000    precision@20: 0.0000    precision@50: 0.0000    map@5: 0.0000    map@10: 0.0000    map@20: 0.0000    map@50: 0.0000    
+Sat 22 Nov 2025 09:18:46 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 09:18:46 INFO =========19/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.001, 0.005)=======
+Sat 22 Nov 2025 09:18:47 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 09:18:47 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 09:21:48 INFO epoch 0 training [time: 180.50s, train loss: 84.8322]
+Sat 22 Nov 2025 09:21:51 INFO epoch 0 evaluating [time: 1.63s, valid_score: 0.012200]
+Sat 22 Nov 2025 09:21:51 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0084    recall@20: 0.0122    recall@50: 0.0211    ndcg@5: 0.0379    ndcg@10: 0.0321    ndcg@20: 0.0254    ndcg@50: 0.0237    precision@5: 0.0353    precision@10: 0.0282    precision@20: 0.0204    precision@50: 0.0142    map@5: 0.0273    map@10: 0.0195    map@20: 0.0111    map@50: 0.0072    
+Sat 22 Nov 2025 09:21:51 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0096    recall@20: 0.0138    recall@50: 0.0232    ndcg@5: 0.0447    ndcg@10: 0.0383    ndcg@20: 0.0300    ndcg@50: 0.0269    precision@5: 0.0415    precision@10: 0.0338    precision@20: 0.0241    precision@50: 0.0163    map@5: 0.0330    map@10: 0.0241    map@20: 0.0137    map@50: 0.0084    
+Sat 22 Nov 2025 09:21:51 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 09:31:01 INFO Loss is nan at epoch: 1, batch index: 1320. Exiting.
+Sat 22 Nov 2025 09:31:01 INFO best valid result: recall@5: 0.0053    recall@10: 0.0084    recall@20: 0.0122    recall@50: 0.0211    ndcg@5: 0.0379    ndcg@10: 0.0321    ndcg@20: 0.0254    ndcg@50: 0.0237    precision@5: 0.0353    precision@10: 0.0282    precision@20: 0.0204    precision@50: 0.0142    map@5: 0.0273    map@10: 0.0195    map@20: 0.0111    map@50: 0.0072    
+Sat 22 Nov 2025 09:31:01 INFO test result: recall@5: 0.0059    recall@10: 0.0096    recall@20: 0.0138    recall@50: 0.0232    ndcg@5: 0.0447    ndcg@10: 0.0383    ndcg@20: 0.0300    ndcg@50: 0.0269    precision@5: 0.0415    precision@10: 0.0338    precision@20: 0.0241    precision@50: 0.0163    map@5: 0.0330    map@10: 0.0241    map@20: 0.0137    map@50: 0.0084    
+Sat 22 Nov 2025 09:31:01 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.005),
+Valid: recall@5: 0.0055    recall@10: 0.0092    recall@20: 0.0145    recall@50: 0.0260    ndcg@5: 0.0392    ndcg@10: 0.0341    ndcg@20: 0.0284    ndcg@50: 0.0276    precision@5: 0.0372    precision@10: 0.0308    precision@20: 0.0242    precision@50: 0.0175    map@5: 0.0271    map@10: 0.0193    map@20: 0.0113    map@50: 0.0075    ,
+Test: recall@5: 0.0063    recall@10: 0.0106    recall@20: 0.0163    recall@50: 0.0286    ndcg@5: 0.0468    ndcg@10: 0.0411    ndcg@20: 0.0337    ndcg@50: 0.0314    precision@5: 0.0439    precision@10: 0.0372    precision@20: 0.0284    precision@50: 0.0201    map@5: 0.0331    map@10: 0.0240    map@20: 0.0139    map@50: 0.0089    
+
+
+
+Sat 22 Nov 2025 09:31:01 INFO =========20/30: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 0.001, 0.01)=======
+Sat 22 Nov 2025 09:31:02 INFO MMGCN(
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=256, bias=True)
+    (conv_embed_1): BaseModel(256, 256)
+    (linear_layer1): Linear(in_features=256, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=320, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (t_gcn): GCN(
+    (conv_embed_1): BaseModel(384, 384)
+    (linear_layer1): Linear(in_features=384, out_features=64, bias=True)
+    (g_layer1): Linear(in_features=448, out_features=64, bias=True)
+    (conv_embed_2): BaseModel(64, 64)
+    (linear_layer2): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer2): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_3): BaseModel(64, 64)
+    (linear_layer3): Linear(in_features=64, out_features=64, bias=True)
+    (g_layer3): Linear(in_features=128, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 631808
+Sat 22 Nov 2025 09:31:02 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 22 Nov 2025 09:35:34 INFO epoch 0 training [time: 272.39s, train loss: 112.1603]
+Sat 22 Nov 2025 09:35:37 INFO epoch 0 evaluating [time: 1.55s, valid_score: 0.013200]
+Sat 22 Nov 2025 09:35:37 INFO valid result: 
+recall@5: 0.0053    recall@10: 0.0088    recall@20: 0.0132    recall@50: 0.0226    ndcg@5: 0.0382    ndcg@10: 0.0330    ndcg@20: 0.0267    ndcg@50: 0.0250    precision@5: 0.0358    precision@10: 0.0295    precision@20: 0.0221    precision@50: 0.0152    map@5: 0.0275    map@10: 0.0198    map@20: 0.0113    map@50: 0.0073    
+Sat 22 Nov 2025 09:35:37 INFO test result: 
+recall@5: 0.0059    recall@10: 0.0100    recall@20: 0.0149    recall@50: 0.0252    ndcg@5: 0.0446    ndcg@10: 0.0392    ndcg@20: 0.0315    ndcg@50: 0.0284    precision@5: 0.0420    precision@10: 0.0355    precision@20: 0.0262    precision@50: 0.0178    map@5: 0.0325    map@10: 0.0242    map@20: 0.0137    map@50: 0.0085    
+Sat 22 Nov 2025 09:35:37 INFO ██ MMGCN--Best validation results updated!!!
+Sat 22 Nov 2025 09:49:18 INFO epoch 1 training [time: 820.66s, train loss: inf]
+Sat 22 Nov 2025 09:49:22 INFO epoch 1 evaluating [time: 1.92s, valid_score: 0.008700]
+Sat 22 Nov 2025 09:49:22 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0272    map@10: 0.0192    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 09:49:22 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0393    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0326    map@10: 0.0233    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 10:03:01 INFO epoch 2 training [time: 819.52s, train loss: inf]
+Sat 22 Nov 2025 10:03:05 INFO epoch 2 evaluating [time: 1.82s, valid_score: 0.008700]
+Sat 22 Nov 2025 10:03:05 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0366    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0273    map@10: 0.0193    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 10:03:05 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0393    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0327    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 10:16:45 INFO epoch 3 training [time: 819.75s, train loss: inf]
+Sat 22 Nov 2025 10:16:48 INFO epoch 3 evaluating [time: 1.66s, valid_score: 0.008700]
+Sat 22 Nov 2025 10:16:48 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0335    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0273    map@10: 0.0193    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 10:16:48 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0393    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0327    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 10:30:27 INFO epoch 4 training [time: 818.61s, train loss: inf]
+Sat 22 Nov 2025 10:30:30 INFO epoch 4 evaluating [time: 1.70s, valid_score: 0.008700]
+Sat 22 Nov 2025 10:30:30 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0272    map@10: 0.0192    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 10:30:30 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0394    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0326    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 10:44:10 INFO epoch 5 training [time: 819.66s, train loss: inf]
+Sat 22 Nov 2025 10:44:14 INFO epoch 5 evaluating [time: 1.84s, valid_score: 0.008700]
+Sat 22 Nov 2025 10:44:14 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0335    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0272    map@10: 0.0192    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 10:44:14 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0430    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0394    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0327    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 10:57:52 INFO epoch 6 training [time: 818.37s, train loss: inf]
+Sat 22 Nov 2025 10:57:56 INFO epoch 6 evaluating [time: 1.92s, valid_score: 0.008700]
+Sat 22 Nov 2025 10:57:56 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0335    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0272    map@10: 0.0192    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 10:57:56 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0394    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0326    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 11:11:36 INFO epoch 7 training [time: 819.64s, train loss: inf]
+Sat 22 Nov 2025 11:11:39 INFO epoch 7 evaluating [time: 1.60s, valid_score: 0.008700]
+Sat 22 Nov 2025 11:11:39 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0273    map@10: 0.0192    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 11:11:39 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0429    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0393    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0326    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 11:25:18 INFO epoch 8 training [time: 818.68s, train loss: inf]
+Sat 22 Nov 2025 11:25:20 INFO epoch 8 evaluating [time: 1.17s, valid_score: 0.008700]
+Sat 22 Nov 2025 11:25:20 INFO valid result: 
+recall@5: 0.0050    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0365    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0273    map@10: 0.0193    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 11:25:20 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0430    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0394    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0327    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    
+Sat 22 Nov 2025 11:38:58 INFO epoch 9 training [time: 817.89s, train loss: inf]
+Sat 22 Nov 2025 11:39:02 INFO epoch 9 evaluating [time: 1.75s, valid_score: 0.008700]
+Sat 22 Nov 2025 11:39:02 INFO valid result: 
+recall@5: 0.0051    recall@10: 0.0076    recall@20: 0.0087    recall@50: 0.0088    ndcg@5: 0.0366    ndcg@10: 0.0298    ndcg@20: 0.0207    ndcg@50: 0.0147    precision@5: 0.0336    precision@10: 0.0254    precision@20: 0.0145    precision@50: 0.0058    map@5: 0.0273    map@10: 0.0193    map@20: 0.0104    map@50: 0.0062    
+Sat 22 Nov 2025 11:39:02 INFO test result: 
+recall@5: 0.0056    recall@10: 0.0086    recall@20: 0.0099    recall@50: 0.0100    ndcg@5: 0.0430    ndcg@10: 0.0354    ndcg@20: 0.0246    ndcg@50: 0.0169    precision@5: 0.0394    precision@10: 0.0303    precision@20: 0.0173    precision@50: 0.0070    map@5: 0.0328    map@10: 0.0234    map@20: 0.0126    map@50: 0.0071    

@@ -10,6 +10,7 @@ import itertools
 import torch
 import torch.optim as optim
 from torch.nn.utils.clip_grad import clip_grad_norm_
+from torch.amp import autocast, GradScaler
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -111,6 +112,20 @@ class Trainer(AbstractTrainer):
         self.alpha2 = config['alpha2']
         self.beta = config['beta']
 
+        # Mixed Precision Training setup (matching DRAGON implementation)
+        self.use_amp = config['use_amp'] if 'use_amp' in config else True
+        # GradScaler with growth_interval to prevent NaN (wait longer before increasing scale)
+        self.scaler = GradScaler('cuda', growth_interval=2000) if self.use_amp and self.device.type == 'cuda' else None
+        if self.use_amp and self.device.type == 'cuda':
+            self.logger.info('Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction')
+            self.logger.info('GradScaler configured with growth_interval=2000 to prevent NaN')
+        
+        # PyTorch 2.0+ Compilation for ~20-30% speedup
+        use_torch_compile = config['use_torch_compile'] if 'use_torch_compile' in config else False
+        if hasattr(torch, 'compile') and use_torch_compile:
+            self.model = torch.compile(self.model, mode='reduce-overhead')
+            self.logger.info('✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch')
+
         timestamp = datetime.now().strftime("%y%m%d-%H%M")
         self.writer = SummaryWriter(log_dir=f'runs/{config["dataset"]}_{timestamp}')
 
@@ -153,54 +168,94 @@ class Trainer(AbstractTrainer):
         loss_func = loss_func or self.model.calculate_loss
         total_loss = None
         loss_batches = []
+        
         for batch_idx, interaction in enumerate(train_data):
             self.optimizer.zero_grad()
             second_inter = interaction.clone()
-            losses = loss_func(interaction)
             
-            if isinstance(losses, tuple):
-                loss = sum(losses)
-                loss_tuple = tuple(per_loss.item() for per_loss in losses)
-                total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
-                # Log individual losses to tensorboard
-                for i, l in enumerate(loss_tuple):
-                    self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
-            else:
-                loss = losses
-                total_loss = losses.item() if total_loss is None else total_loss + losses.item()
-                self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
-            if self._check_nan(loss):
-                self.logger.info('Loss is nan at epoch: {}, batch index: {}. Exiting.'.format(epoch_idx, batch_idx))
-                return loss, torch.tensor(0.0)
-            
-            if self.mg and batch_idx % self.beta == 0:
-                first_loss = self.alpha1 * loss
-                first_loss.backward()
-
-                self.optimizer.step()
-                self.optimizer.zero_grad()
+            # Mixed Precision Training (matching DRAGON implementation)
+            if self.use_amp and self.scaler is not None:
+                with autocast('cuda'):
+                    losses = loss_func(interaction)
+                    if isinstance(losses, tuple):
+                        loss = sum(losses)
+                        loss_tuple = tuple(per_loss.item() for per_loss in losses)
+                        total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
+                        for i, l in enumerate(loss_tuple):
+                            self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
+                    else:
+                        loss = losses
+                        total_loss = losses.item() if total_loss is None else total_loss + losses.item()
+                        self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
                 
-                losses = loss_func(second_inter)
+                self._check_nan(loss)
+                
+                if self.mg and batch_idx % self.beta == 0:
+                    # MG training with AMP
+                    first_loss = self.alpha1 * loss
+                    self.scaler.scale(first_loss).backward()
+                    self.scaler.step(self.optimizer)
+                    self.scaler.update()
+                    self.optimizer.zero_grad()
+                    
+                    with autocast('cuda'):
+                        losses = loss_func(second_inter)
+                        if isinstance(losses, tuple):
+                            loss = sum(losses)
+                        else:
+                            loss = losses
+                    
+                    self._check_nan(loss)
+                    second_loss = -1 * self.alpha2 * loss
+                    self.scaler.scale(second_loss).backward()
+                else:
+                    # Standard training with AMP
+                    self.scaler.scale(loss).backward()
+                    if self.clip_grad_norm:
+                        self.scaler.unscale_(self.optimizer)
+                        clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
+                    self.scaler.step(self.optimizer)
+                    self.scaler.update()
+            else:
+                # Standard FP32 training
+                losses = loss_func(interaction)
                 if isinstance(losses, tuple):
                     loss = sum(losses)
+                    loss_tuple = tuple(per_loss.item() for per_loss in losses)
+                    total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
+                    for i, l in enumerate(loss_tuple):
+                        self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
                 else:
                     loss = losses
-                    
-                if self._check_nan(loss):
-                    self.logger.info('Loss is nan at epoch: {}, batch index: {}. Exiting.'.format(epoch_idx, batch_idx))
-                    return loss, torch.tensor(0.0)
-                second_loss = -1 * self.alpha2 * loss
-                second_loss.backward()
-            else:
-                loss.backward()
+                    total_loss = losses.item() if total_loss is None else total_loss + losses.item()
+                    self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
                 
-            if self.clip_grad_norm:
-                clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
-            self.optimizer.step()
+                self._check_nan(loss)
+                
+                if self.mg and batch_idx % self.beta == 0:
+                    # MG training without AMP
+                    first_loss = self.alpha1 * loss
+                    first_loss.backward()
+                    self.optimizer.step()
+                    self.optimizer.zero_grad()
+                    
+                    losses = loss_func(second_inter)
+                    if isinstance(losses, tuple):
+                        loss = sum(losses)
+                    else:
+                        loss = losses
+                    
+                    self._check_nan(loss)
+                    second_loss = -1 * self.alpha2 * loss
+                    second_loss.backward()
+                else:
+                    # Standard training without AMP
+                    loss.backward()
+                    if self.clip_grad_norm:
+                        clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
+                    self.optimizer.step()
+            
             loss_batches.append(loss.detach())
-            # for test
-            #if batch_idx == 0:
-            #    break
         return total_loss, loss_batches
 
     def _valid_epoch(self, valid_data):
@@ -219,8 +274,7 @@ class Trainer(AbstractTrainer):
 
     def _check_nan(self, loss):
         if torch.isnan(loss):
-            #raise ValueError('Training loss is nan')
-            return True
+            raise ValueError('Training loss is nan')
 
     def _generate_train_loss_output(self, epoch_idx, s_time, e_time, losses):
         train_loss_output = 'epoch %d training [time: %.2fs, ' % (epoch_idx, e_time - s_time)
@@ -249,11 +303,6 @@ class Trainer(AbstractTrainer):
             training_start_time = time()
             self.model.pre_epoch_processing()
             train_loss, _ = self._train_epoch(train_data, epoch_idx)
-            if torch.is_tensor(train_loss):
-                # get nan loss
-                break
-            #for param_group in self.optimizer.param_groups:
-            #    print('======lr: ', param_group['lr'])
             self.lr_scheduler.step()
 
             self.train_loss_dict[epoch_idx] = sum(train_loss) if isinstance(train_loss, tuple) else train_loss
@@ -318,8 +367,15 @@ class Trainer(AbstractTrainer):
         # batch full users
         batch_matrix_list = []
         for batch_idx, batched_data in enumerate(eval_data):
-            # predict: interaction without item ids
-            scores = self.model.full_sort_predict(batched_data)
+            # Use mixed precision for evaluation (matching DRAGON implementation)
+            if self.use_amp and self.scaler is not None:
+                with autocast('cuda'):
+                    scores = self.model.full_sort_predict(batched_data)
+                # Convert to FP32 for masking to avoid overflow with large negative values
+                scores = scores.float()
+            else:
+                scores = self.model.full_sort_predict(batched_data)
+            
             masked_items = batched_data[1]
             # mask out pos items
             scores[masked_items[0], masked_items[1]] = -1e10
