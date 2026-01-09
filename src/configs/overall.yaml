@@ -36,7 +36,7 @@ req_training: True
 #embedding_size: 3780
 
 # training settings
-epochs: 100   # 1000
+epochs: 200
 stopping_step: 20
 train_batch_size: 4096  # Increased from 2048 for faster training (2x speedup)
 learner: adam
@@ -57,7 +57,7 @@ field_separator: "\t"
 
 # evaluation settings
 metrics: ["Recall", "NDCG", "Precision", "MAP"]
-topk: [5, 10, 20, 50]
+topk: [20]      # [5, 10, 20, 50]
 valid_metric: Recall@20
 eval_batch_size: 4096
 

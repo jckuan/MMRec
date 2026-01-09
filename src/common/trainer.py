@@ -277,11 +277,11 @@ class Trainer(AbstractTrainer):
             raise ValueError('Training loss is nan')
 
     def _generate_train_loss_output(self, epoch_idx, s_time, e_time, losses):
-        train_loss_output = 'epoch %d training [time: %.2fs, ' % (epoch_idx, e_time - s_time)
+        train_loss_output = f"Epoch {epoch_idx} training [time: {e_time - s_time:.2f}s, "
         if isinstance(losses, tuple):
-            train_loss_output = ', '.join('train_loss%d: %.4f' % (idx + 1, loss) for idx, loss in enumerate(losses))
+            train_loss_output = ', '.join(f'Train_loss{idx + 1}: {loss:.4f}' for idx, loss in enumerate(losses))
         else:
-            train_loss_output += 'train loss: %.4f' % losses
+            train_loss_output += f'Train loss: {losses:.4f}'
         return train_loss_output + ']'
 
     def fit(self, train_data, valid_data=None, test_data=None, saved=False, verbose=True):
@@ -317,7 +317,6 @@ class Trainer(AbstractTrainer):
 
             # eval: To ensure the test result is the best model under validation data, set self.eval_step == 1
             if (epoch_idx + 1) % self.eval_step == 0:
-                valid_start_time = time()
                 valid_score, valid_result = self._valid_epoch(valid_data)
                 # Log metrics to tensorboard
                 for metric, value in valid_result.items():
@@ -325,19 +324,15 @@ class Trainer(AbstractTrainer):
                 self.best_valid_score, self.cur_step, stop_flag, update_flag = early_stopping(
                     valid_score, self.best_valid_score, self.cur_step,
                     max_step=self.stopping_step, bigger=self.valid_metric_bigger)
-                valid_end_time = time()
-                valid_score_output = "epoch %d evaluating [time: %.2fs, valid_score: %f]" % \
-                                     (epoch_idx, valid_end_time - valid_start_time, valid_score)
-                valid_result_output = 'valid result: \n' + dict2str(valid_result)
                 # test
                 _, test_result = self._valid_epoch(test_data)
                 # Log test metrics to tensorboard
                 for metric, value in test_result.items():
                     self.writer.add_scalar(f'Metrics/Test_{metric}', value, epoch_idx)
                 if verbose:
-                    self.logger.info(valid_score_output)
-                    self.logger.info(valid_result_output)
-                    self.logger.info('test result: \n' + dict2str(test_result))
+                    self.logger.info(f'Epoch {epoch_idx}: valid_score: {valid_score:.4f}')
+                    self.logger.info('Valid result: ' + dict2str(valid_result))
+                    self.logger.info('Test result : ' + dict2str(test_result))
                 if update_flag:
                     update_output = '██ ' + self.config['model'] + '--Best validation results updated!!!'
                     if verbose:
