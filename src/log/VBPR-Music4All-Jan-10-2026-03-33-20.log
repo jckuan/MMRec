@@ -1,0 +1,281 @@
+Sat 10 Jan 2026 03:33:20 INFO ██Server: 	bronx
+Sat 10 Jan 2026 03:33:20 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Sat 10 Jan 2026 03:33:20 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=False
+keep_features_on_cpu=False
+use_checkpoint=False
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=True
+candidate_sampling_type=uniform
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed', 'reg_weight']
+inter_file_name=cs_temporal_02/clean_temporal_coldstart_interactions.csv
+vision_feature_file=cs_temporal_02/clean_audio_feat_mert.npy
+text_feature_file=cs_temporal_02/clean_text_feat.npy
+reg_weight=[1.0]
+model=VBPR
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Sat 10 Jan 2026 03:33:21 INFO Music4All
+The number of users: 14127
+Average actions of users: 361.6898138316698
+The number of items: 99596
+Average actions of items: 51.303184866862125
+The number of inters: 5109592
+The sparsity of the dataset: 99.63684303201768%
+Sat 10 Jan 2026 03:33:21 INFO 
+====Training====
+Music4All
+The number of users: 14123
+Average actions of users: 326.6103519082348
+The number of items: 79677
+Average actions of items: 57.89271684425869
+The number of inters: 4612718
+The sparsity of the dataset: 99.59008201625534%
+Sat 10 Jan 2026 03:33:21 INFO 
+====Validation====
+Music4All
+The number of users: 8711
+Average actions of users: 28.44725060268626
+The number of items: 16105
+Average actions of items: 15.38677429369761
+The number of inters: 247804
+The sparsity of the dataset: 99.82336385841238%
+Sat 10 Jan 2026 03:33:21 INFO 
+====Testing====
+Music4All
+The number of users: 7073
+Average actions of users: 35.054008200197934
+The number of items: 15797
+Average actions of items: 15.695195290244984
+The number of inters: 247937
+The sparsity of the dataset: 99.77809705513579%
+Sat 10 Jan 2026 03:33:25 INFO 
+
+=================================
+
+
+Sat 10 Jan 2026 03:33:25 INFO =========1/1: Parameters:['seed', 'reg_weight']=(999, 1.0)=======
+Sat 10 Jan 2026 03:33:25 INFO VBPR(
+  (item_linear): Linear(in_features=1408, out_features=64, bias=True)
+  (loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 8272576
+Sat 10 Jan 2026 03:33:26 INFO ✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch
+Sat 10 Jan 2026 03:33:49 INFO Epoch 0 training [time: 22.86s, Train loss: 442.1707]
+Sat 10 Jan 2026 03:33:56 INFO Epoch 0: valid_score: 0.3569
+Sat 10 Jan 2026 03:33:56 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3569    ndcg@20_uniform: 0.2889    precision@20_uniform: 0.2509    map@20_uniform: 0.1419    
+Sat 10 Jan 2026 03:33:56 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3182    ndcg@20_uniform: 0.2973    precision@20_uniform: 0.2806    map@20_uniform: 0.1498    
+Sat 10 Jan 2026 03:33:56 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:34:18 INFO Epoch 1 training [time: 21.85s, Train loss: 289.9459]
+Sat 10 Jan 2026 03:34:26 INFO Epoch 1: valid_score: 0.3663
+Sat 10 Jan 2026 03:34:26 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3663    ndcg@20_uniform: 0.3055    precision@20_uniform: 0.2547    map@20_uniform: 0.1566    
+Sat 10 Jan 2026 03:34:26 INFO Test result : recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3273    ndcg@20_uniform: 0.3176    precision@20_uniform: 0.2890    map@20_uniform: 0.1686    
+Sat 10 Jan 2026 03:34:26 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:34:48 INFO Epoch 2 training [time: 21.76s, Train loss: 267.4202]
+Sat 10 Jan 2026 03:34:55 INFO Epoch 2: valid_score: 0.3781
+Sat 10 Jan 2026 03:34:55 INFO Valid result: recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3781    ndcg@20_uniform: 0.3171    precision@20_uniform: 0.2589    map@20_uniform: 0.1655    
+Sat 10 Jan 2026 03:34:55 INFO Test result : recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3330    ndcg@20_uniform: 0.3270    precision@20_uniform: 0.2938    map@20_uniform: 0.1763    
+Sat 10 Jan 2026 03:34:55 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:35:19 INFO Epoch 3 training [time: 23.59s, Train loss: 253.2094]
+Sat 10 Jan 2026 03:35:27 INFO Epoch 3: valid_score: 0.3803
+Sat 10 Jan 2026 03:35:27 INFO Valid result: recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3803    ndcg@20_uniform: 0.3226    precision@20_uniform: 0.2602    map@20_uniform: 0.1699    
+Sat 10 Jan 2026 03:35:27 INFO Test result : recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3393    ndcg@20_uniform: 0.3369    precision@20_uniform: 0.2982    map@20_uniform: 0.1846    
+Sat 10 Jan 2026 03:35:27 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:35:48 INFO Epoch 4 training [time: 21.66s, Train loss: 242.1226]
+Sat 10 Jan 2026 03:35:56 INFO Epoch 4: valid_score: 0.3867
+Sat 10 Jan 2026 03:35:56 INFO Valid result: recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3867    ndcg@20_uniform: 0.3258    precision@20_uniform: 0.2639    map@20_uniform: 0.1715    
+Sat 10 Jan 2026 03:35:56 INFO Test result : recall@20_full: 0.0001    ndcg@20_full: 0.0002    precision@20_full: 0.0002    map@20_full: 0.0000    recall@20_uniform: 0.3452    ndcg@20_uniform: 0.3405    precision@20_uniform: 0.3032    map@20_uniform: 0.1859    
+Sat 10 Jan 2026 03:35:56 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:36:21 INFO Epoch 5 training [time: 25.19s, Train loss: 233.4138]
+Sat 10 Jan 2026 03:36:32 INFO Epoch 5: valid_score: 0.3889
+Sat 10 Jan 2026 03:36:32 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3889    ndcg@20_uniform: 0.3281    precision@20_uniform: 0.2647    map@20_uniform: 0.1736    
+Sat 10 Jan 2026 03:36:32 INFO Test result : recall@20_full: 0.0001    ndcg@20_full: 0.0001    precision@20_full: 0.0001    map@20_full: 0.0000    recall@20_uniform: 0.3476    ndcg@20_uniform: 0.3425    precision@20_uniform: 0.3030    map@20_uniform: 0.1881    
+Sat 10 Jan 2026 03:36:32 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:36:57 INFO Epoch 6 training [time: 25.34s, Train loss: 226.2911]
+Sat 10 Jan 2026 03:37:05 INFO Epoch 6: valid_score: 0.3866
+Sat 10 Jan 2026 03:37:05 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3866    ndcg@20_uniform: 0.3230    precision@20_uniform: 0.2615    map@20_uniform: 0.1682    
+Sat 10 Jan 2026 03:37:05 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3493    ndcg@20_uniform: 0.3420    precision@20_uniform: 0.3051    map@20_uniform: 0.1867    
+Sat 10 Jan 2026 03:37:27 INFO Epoch 7 training [time: 22.72s, Train loss: 220.2558]
+Sat 10 Jan 2026 03:37:38 INFO Epoch 7: valid_score: 0.3915
+Sat 10 Jan 2026 03:37:38 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3915    ndcg@20_uniform: 0.3263    precision@20_uniform: 0.2648    map@20_uniform: 0.1709    
+Sat 10 Jan 2026 03:37:38 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3534    ndcg@20_uniform: 0.3440    precision@20_uniform: 0.3075    map@20_uniform: 0.1879    
+Sat 10 Jan 2026 03:37:38 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:38:05 INFO Epoch 8 training [time: 27.33s, Train loss: 215.1468]
+Sat 10 Jan 2026 03:38:15 INFO Epoch 8: valid_score: 0.3948
+Sat 10 Jan 2026 03:38:15 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3948    ndcg@20_uniform: 0.3246    precision@20_uniform: 0.2646    map@20_uniform: 0.1683    
+Sat 10 Jan 2026 03:38:15 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3419    precision@20_uniform: 0.3064    map@20_uniform: 0.1864    
+Sat 10 Jan 2026 03:38:15 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:38:42 INFO Epoch 9 training [time: 27.26s, Train loss: 210.7851]
+Sat 10 Jan 2026 03:38:52 INFO Epoch 9: valid_score: 0.3897
+Sat 10 Jan 2026 03:38:52 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3897    ndcg@20_uniform: 0.3207    precision@20_uniform: 0.2630    map@20_uniform: 0.1651    
+Sat 10 Jan 2026 03:38:52 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3506    ndcg@20_uniform: 0.3371    precision@20_uniform: 0.3038    map@20_uniform: 0.1810    
+Sat 10 Jan 2026 03:39:19 INFO Epoch 10 training [time: 27.33s, Train loss: 207.2684]
+Sat 10 Jan 2026 03:39:28 INFO Epoch 10: valid_score: 0.3932
+Sat 10 Jan 2026 03:39:28 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3932    ndcg@20_uniform: 0.3191    precision@20_uniform: 0.2637    map@20_uniform: 0.1634    
+Sat 10 Jan 2026 03:39:28 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3543    ndcg@20_uniform: 0.3362    precision@20_uniform: 0.3058    map@20_uniform: 0.1797    
+Sat 10 Jan 2026 03:39:55 INFO Epoch 11 training [time: 26.67s, Train loss: 204.1381]
+Sat 10 Jan 2026 03:40:04 INFO Epoch 11: valid_score: 0.3922
+Sat 10 Jan 2026 03:40:04 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3922    ndcg@20_uniform: 0.3160    precision@20_uniform: 0.2626    map@20_uniform: 0.1599    
+Sat 10 Jan 2026 03:40:04 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3514    ndcg@20_uniform: 0.3338    precision@20_uniform: 0.3043    map@20_uniform: 0.1777    
+Sat 10 Jan 2026 03:40:29 INFO Epoch 12 training [time: 24.96s, Train loss: 201.6038]
+Sat 10 Jan 2026 03:40:39 INFO Epoch 12: valid_score: 0.3951
+Sat 10 Jan 2026 03:40:39 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3951    ndcg@20_uniform: 0.3150    precision@20_uniform: 0.2626    map@20_uniform: 0.1584    
+Sat 10 Jan 2026 03:40:39 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3295    precision@20_uniform: 0.3030    map@20_uniform: 0.1736    
+Sat 10 Jan 2026 03:40:39 INFO ██ VBPR--Best validation results updated!!!
+Sat 10 Jan 2026 03:41:05 INFO Epoch 13 training [time: 26.64s, Train loss: 199.2698]
+Sat 10 Jan 2026 03:41:15 INFO Epoch 13: valid_score: 0.3907
+Sat 10 Jan 2026 03:41:15 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3907    ndcg@20_uniform: 0.3105    precision@20_uniform: 0.2617    map@20_uniform: 0.1549    
+Sat 10 Jan 2026 03:41:15 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3514    ndcg@20_uniform: 0.3276    precision@20_uniform: 0.3023    map@20_uniform: 0.1715    
+Sat 10 Jan 2026 03:41:42 INFO Epoch 14 training [time: 27.10s, Train loss: 197.5294]
+Sat 10 Jan 2026 03:41:53 INFO Epoch 14: valid_score: 0.3903
+Sat 10 Jan 2026 03:41:53 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3903    ndcg@20_uniform: 0.3062    precision@20_uniform: 0.2597    map@20_uniform: 0.1507    
+Sat 10 Jan 2026 03:41:53 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3493    ndcg@20_uniform: 0.3228    precision@20_uniform: 0.3002    map@20_uniform: 0.1672    
+Sat 10 Jan 2026 03:42:20 INFO Epoch 15 training [time: 27.09s, Train loss: 195.7106]
+Sat 10 Jan 2026 03:42:30 INFO Epoch 15: valid_score: 0.3906
+Sat 10 Jan 2026 03:42:30 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3906    ndcg@20_uniform: 0.3018    precision@20_uniform: 0.2568    map@20_uniform: 0.1466    
+Sat 10 Jan 2026 03:42:30 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3498    ndcg@20_uniform: 0.3198    precision@20_uniform: 0.2998    map@20_uniform: 0.1642    
+Sat 10 Jan 2026 03:42:56 INFO Epoch 16 training [time: 26.22s, Train loss: 194.2527]
+Sat 10 Jan 2026 03:43:05 INFO Epoch 16: valid_score: 0.3874
+Sat 10 Jan 2026 03:43:05 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3874    ndcg@20_uniform: 0.2970    precision@20_uniform: 0.2544    map@20_uniform: 0.1424    
+Sat 10 Jan 2026 03:43:05 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3482    ndcg@20_uniform: 0.3158    precision@20_uniform: 0.2976    map@20_uniform: 0.1609    
+Sat 10 Jan 2026 03:43:31 INFO Epoch 17 training [time: 26.56s, Train loss: 192.9533]
+Sat 10 Jan 2026 03:43:40 INFO Epoch 17: valid_score: 0.3862
+Sat 10 Jan 2026 03:43:40 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3862    ndcg@20_uniform: 0.2929    precision@20_uniform: 0.2543    map@20_uniform: 0.1388    
+Sat 10 Jan 2026 03:43:40 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3477    ndcg@20_uniform: 0.3117    precision@20_uniform: 0.2952    map@20_uniform: 0.1568    
+Sat 10 Jan 2026 03:44:07 INFO Epoch 18 training [time: 26.59s, Train loss: 191.8782]
+Sat 10 Jan 2026 03:44:16 INFO Epoch 18: valid_score: 0.3851
+Sat 10 Jan 2026 03:44:16 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3851    ndcg@20_uniform: 0.2919    precision@20_uniform: 0.2536    map@20_uniform: 0.1384    
+Sat 10 Jan 2026 03:44:16 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3450    ndcg@20_uniform: 0.3074    precision@20_uniform: 0.2925    map@20_uniform: 0.1530    
+Sat 10 Jan 2026 03:44:40 INFO Epoch 19 training [time: 23.53s, Train loss: 191.0201]
+Sat 10 Jan 2026 03:44:47 INFO Epoch 19: valid_score: 0.3825
+Sat 10 Jan 2026 03:44:47 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3825    ndcg@20_uniform: 0.2874    precision@20_uniform: 0.2508    map@20_uniform: 0.1345    
+Sat 10 Jan 2026 03:44:47 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3437    ndcg@20_uniform: 0.3051    precision@20_uniform: 0.2914    map@20_uniform: 0.1516    
+Sat 10 Jan 2026 03:45:09 INFO Epoch 20 training [time: 22.18s, Train loss: 190.2190]
+Sat 10 Jan 2026 03:45:17 INFO Epoch 20: valid_score: 0.3832
+Sat 10 Jan 2026 03:45:17 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3832    ndcg@20_uniform: 0.2876    precision@20_uniform: 0.2524    map@20_uniform: 0.1346    
+Sat 10 Jan 2026 03:45:17 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3414    ndcg@20_uniform: 0.3007    precision@20_uniform: 0.2887    map@20_uniform: 0.1480    
+Sat 10 Jan 2026 03:45:39 INFO Epoch 21 training [time: 22.11s, Train loss: 189.3934]
+Sat 10 Jan 2026 03:45:47 INFO Epoch 21: valid_score: 0.3796
+Sat 10 Jan 2026 03:45:47 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3796    ndcg@20_uniform: 0.2793    precision@20_uniform: 0.2469    map@20_uniform: 0.1272    
+Sat 10 Jan 2026 03:45:47 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3363    ndcg@20_uniform: 0.2922    precision@20_uniform: 0.2833    map@20_uniform: 0.1401    
+Sat 10 Jan 2026 03:46:09 INFO Epoch 22 training [time: 22.09s, Train loss: 188.7081]
+Sat 10 Jan 2026 03:46:16 INFO Epoch 22: valid_score: 0.3793
+Sat 10 Jan 2026 03:46:16 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3793    ndcg@20_uniform: 0.2790    precision@20_uniform: 0.2468    map@20_uniform: 0.1276    
+Sat 10 Jan 2026 03:46:16 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3384    ndcg@20_uniform: 0.2926    precision@20_uniform: 0.2845    map@20_uniform: 0.1402    
+Sat 10 Jan 2026 03:46:39 INFO Epoch 23 training [time: 22.33s, Train loss: 187.9915]
+Sat 10 Jan 2026 03:46:46 INFO Epoch 23: valid_score: 0.3771
+Sat 10 Jan 2026 03:46:46 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3771    ndcg@20_uniform: 0.2750    precision@20_uniform: 0.2456    map@20_uniform: 0.1239    
+Sat 10 Jan 2026 03:46:46 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3349    ndcg@20_uniform: 0.2879    precision@20_uniform: 0.2815    map@20_uniform: 0.1364    
+Sat 10 Jan 2026 03:47:13 INFO Epoch 24 training [time: 26.71s, Train loss: 187.6196]
+Sat 10 Jan 2026 03:47:22 INFO Epoch 24: valid_score: 0.3762
+Sat 10 Jan 2026 03:47:22 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3762    ndcg@20_uniform: 0.2727    precision@20_uniform: 0.2439    map@20_uniform: 0.1222    
+Sat 10 Jan 2026 03:47:22 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3365    ndcg@20_uniform: 0.2867    precision@20_uniform: 0.2808    map@20_uniform: 0.1354    
+Sat 10 Jan 2026 03:47:49 INFO Epoch 25 training [time: 26.43s, Train loss: 187.0234]
+Sat 10 Jan 2026 03:47:58 INFO Epoch 25: valid_score: 0.3724
+Sat 10 Jan 2026 03:47:58 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3724    ndcg@20_uniform: 0.2687    precision@20_uniform: 0.2420    map@20_uniform: 0.1193    
+Sat 10 Jan 2026 03:47:58 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3306    ndcg@20_uniform: 0.2812    precision@20_uniform: 0.2770    map@20_uniform: 0.1314    
+Sat 10 Jan 2026 03:48:24 INFO Epoch 26 training [time: 26.75s, Train loss: 186.6140]
+Sat 10 Jan 2026 03:48:34 INFO Epoch 26: valid_score: 0.3670
+Sat 10 Jan 2026 03:48:34 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3670    ndcg@20_uniform: 0.2629    precision@20_uniform: 0.2372    map@20_uniform: 0.1145    
+Sat 10 Jan 2026 03:48:34 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3266    ndcg@20_uniform: 0.2751    precision@20_uniform: 0.2712    map@20_uniform: 0.1262    
+Sat 10 Jan 2026 03:49:01 INFO Epoch 27 training [time: 26.76s, Train loss: 186.2424]
+Sat 10 Jan 2026 03:49:10 INFO Epoch 27: valid_score: 0.3648
+Sat 10 Jan 2026 03:49:10 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3648    ndcg@20_uniform: 0.2573    precision@20_uniform: 0.2338    map@20_uniform: 0.1102    
+Sat 10 Jan 2026 03:49:10 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3233    ndcg@20_uniform: 0.2688    precision@20_uniform: 0.2679    map@20_uniform: 0.1211    
+Sat 10 Jan 2026 03:49:37 INFO Epoch 28 training [time: 27.43s, Train loss: 185.7503]
+Sat 10 Jan 2026 03:49:48 INFO Epoch 28: valid_score: 0.3628
+Sat 10 Jan 2026 03:49:48 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3628    ndcg@20_uniform: 0.2556    precision@20_uniform: 0.2333    map@20_uniform: 0.1090    
+Sat 10 Jan 2026 03:49:48 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3233    ndcg@20_uniform: 0.2690    precision@20_uniform: 0.2693    map@20_uniform: 0.1206    
+Sat 10 Jan 2026 03:50:16 INFO Epoch 29 training [time: 27.25s, Train loss: 185.3399]
+Sat 10 Jan 2026 03:50:26 INFO Epoch 29: valid_score: 0.3643
+Sat 10 Jan 2026 03:50:26 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3643    ndcg@20_uniform: 0.2569    precision@20_uniform: 0.2353    map@20_uniform: 0.1103    
+Sat 10 Jan 2026 03:50:26 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3223    ndcg@20_uniform: 0.2665    precision@20_uniform: 0.2666    map@20_uniform: 0.1197    
+Sat 10 Jan 2026 03:50:53 INFO Epoch 30 training [time: 27.61s, Train loss: 184.9852]
+Sat 10 Jan 2026 03:51:02 INFO Epoch 30: valid_score: 0.3590
+Sat 10 Jan 2026 03:51:02 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3590    ndcg@20_uniform: 0.2494    precision@20_uniform: 0.2298    map@20_uniform: 0.1042    
+Sat 10 Jan 2026 03:51:02 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3203    ndcg@20_uniform: 0.2637    precision@20_uniform: 0.2660    map@20_uniform: 0.1170    
+Sat 10 Jan 2026 03:51:29 INFO Epoch 31 training [time: 27.24s, Train loss: 184.8578]
+Sat 10 Jan 2026 03:51:38 INFO Epoch 31: valid_score: 0.3578
+Sat 10 Jan 2026 03:51:38 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3578    ndcg@20_uniform: 0.2478    precision@20_uniform: 0.2277    map@20_uniform: 0.1032    
+Sat 10 Jan 2026 03:51:38 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3159    ndcg@20_uniform: 0.2581    precision@20_uniform: 0.2603    map@20_uniform: 0.1134    
+Sat 10 Jan 2026 03:52:05 INFO Epoch 32 training [time: 26.36s, Train loss: 184.6389]
+Sat 10 Jan 2026 03:52:15 INFO Epoch 32: valid_score: 0.3519
+Sat 10 Jan 2026 03:52:15 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3519    ndcg@20_uniform: 0.2427    precision@20_uniform: 0.2231    map@20_uniform: 0.0997    
+Sat 10 Jan 2026 03:52:15 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3137    ndcg@20_uniform: 0.2553    precision@20_uniform: 0.2571    map@20_uniform: 0.1115    
+Sat 10 Jan 2026 03:52:42 INFO Epoch 33 training [time: 27.61s, Train loss: 184.1991]
+Sat 10 Jan 2026 03:52:52 INFO Epoch 33: valid_score: 0.3495
+Sat 10 Jan 2026 03:52:52 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3495    ndcg@20_uniform: 0.2419    precision@20_uniform: 0.2249    map@20_uniform: 0.0996    
+Sat 10 Jan 2026 03:52:52 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3134    ndcg@20_uniform: 0.2534    precision@20_uniform: 0.2575    map@20_uniform: 0.1094    
+Sat 10 Jan 2026 03:52:52 INFO +++++Finished training, best eval result in epoch 12
+Sat 10 Jan 2026 03:52:52 INFO best valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3951    ndcg@20_uniform: 0.3150    precision@20_uniform: 0.2626    map@20_uniform: 0.1584    
+Sat 10 Jan 2026 03:52:52 INFO test result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3295    precision@20_uniform: 0.3030    map@20_uniform: 0.1736    
+Sat 10 Jan 2026 03:52:52 INFO ████Current BEST████:
+Parameters: ['seed', 'reg_weight']=(999, 1.0),
+Valid: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3951    ndcg@20_uniform: 0.3150    precision@20_uniform: 0.2626    map@20_uniform: 0.1584    ,
+Test: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3295    precision@20_uniform: 0.3030    map@20_uniform: 0.1736    
+
+
+
+Sat 10 Jan 2026 03:52:52 INFO 
+============All Over=====================
+Sat 10 Jan 2026 03:52:52 INFO Parameters: ['seed', 'reg_weight']=(999, 1.0),
+ best valid: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3951    ndcg@20_uniform: 0.3150    precision@20_uniform: 0.2626    map@20_uniform: 0.1584    ,
+ best test: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3295    precision@20_uniform: 0.3030    map@20_uniform: 0.1736    
+Sat 10 Jan 2026 03:52:52 INFO 
+
+█████████████ BEST ████████████████
+Sat 10 Jan 2026 03:52:52 INFO 	Parameters: ['seed', 'reg_weight']=(999, 1.0),
+Valid: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3951    ndcg@20_uniform: 0.3150    precision@20_uniform: 0.2626    map@20_uniform: 0.1584    ,
+Test: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_uniform: 0.3513    ndcg@20_uniform: 0.3295    precision@20_uniform: 0.3030    map@20_uniform: 0.1736    
+
+

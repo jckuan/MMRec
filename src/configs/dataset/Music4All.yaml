@@ -6,11 +6,11 @@ TIME_FIELD: timestamp
 
 filter_out_cod_start_users: True
 
-inter_file_name: 'clean_filtered_interactions_with_ts.csv'
+inter_file_name: 'cs_temporal_02/clean_temporal_coldstart_interactions.csv'
 
 # name of frozen features
-vision_feature_file: 'clean_audio_feat_ts.npy'
-text_feature_file: 'clean_text_feat_ts.npy'
-user_graph_dict_file: 'user_graph_dict.npy'       # Run generate-u-u-matrix.py
+vision_feature_file: 'cs_temporal_02/clean_audio_feat_mert.npy'
+text_feature_file: 'cs_temporal_02/clean_text_feat.npy'
+# user_graph_dict_file: 'user_graph_dict.npy'       # Run generate-u-u-matrix.py
 
 field_separator: "\t"

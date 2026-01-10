@@ -3,22 +3,14 @@ gpu_id: 0
 use_gpu: True
 seed: [999]
 
-# Mixed Precision Training (FP16) - DISABLED for MMGCN due to numerical instability
-# MMGCN's loss function (log + sigmoid + matmul) is prone to NaN in FP16
-# Use alternative acceleration strategies below instead
-use_amp: False
+# Memory optimization settings
+use_amp: False                # Mixed Precision Training (FP16) - reduces memory by ~40-50%
+keep_features_on_cpu: False   # Keep frozen embeddings on CPU - saves ~450MB GPU memory
+use_checkpoint: False         # Gradient checkpointing - trades compute for ~20-30% memory reduction
 
 # Alternative Acceleration Strategies (safer for large datasets)
-# 1. Larger batch size (most effective for speed)
-# 2. DataLoader workers for parallel data loading
-# 3. Gradient accumulation for effective larger batches
-# 4. PyTorch 2.0+ compilation (torch.compile)
-num_workers: 4  # Parallel data loading (adjust based on CPU cores)
-use_torch_compile: True  # Enable torch.compile for ~20-30% speedup (PyTorch 2.0+)
-
-# Gradient clipping to prevent NaN (optional, helps with numerical stability)
-# Set max_norm to clip gradients, e.g., {'max_norm': 1.0, 'norm_type': 2}
-clip_grad_norm: {'max_norm': 5.0, 'norm_type': 2}
+use_torch_compile: True         # Enable torch.compile for ~20-30% speedup (PyTorch 2.0+)
+clip_grad_norm: {'max_norm': 5.0, 'norm_type': 2}         # Gradient clipping to prevent NaN (optional, helps with numerical stability)
 
 # multi-modal raw features
 data_path: '../data/'
@@ -60,6 +52,16 @@ metrics: ["Recall", "NDCG", "Precision", "MAP"]
 topk: [20]      # [5, 10, 20, 50]
 valid_metric: Recall@20
 eval_batch_size: 4096
+
+# Candidate sampling for evaluation (improves interpretability for cold-start)
+use_candidate_sampling: True        # Enable candidate sampling during evaluation
+candidate_sampling_type: 'uniform'  # Options: 'uniform', 'popularity', 'both', 'none'
+                                    # uniform: randomly sample negative items
+                                    # popularity: sample negatives based on item popularity
+                                    # both: report both uniform and popularity-based metrics
+                                    # none: full-rank evaluation (same as use_candidate_sampling: False)
+num_negative_candidates: 99         # Number of negative items to sample per positive
+                                    # Typical ratios: 99 (1:99), 199 (1:199), 999 (1:999)
 
 #
 use_raw_features: False

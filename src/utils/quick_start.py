@@ -82,9 +82,24 @@ def quick_start(model, dataset, config_dict, save_model=True, mg=False):
         #########
         hyper_ret.append((hyper_tuple, best_valid_result, best_test_upon_valid))
 
-        # save best test
-        if best_test_upon_valid[val_metric] > best_test_value:
-            best_test_value = best_test_upon_valid[val_metric]
+        # save best test - handle metric keys with candidate sampling suffixes
+        test_metric_value = None
+        if val_metric in best_test_upon_valid:
+            test_metric_value = best_test_upon_valid[val_metric]
+        else:
+            # Try with suffixes (_uniform, _full, _pop) if candidate sampling is enabled
+            for suffix in ['_uniform', '_full', '_pop']:
+                metric_key = f'{val_metric}{suffix}'
+                if metric_key in best_test_upon_valid:
+                    test_metric_value = best_test_upon_valid[metric_key]
+                    break
+        
+        if test_metric_value is None:
+            # Fallback: use first metric in results
+            test_metric_value = list(best_test_upon_valid.values())[0]
+        
+        if test_metric_value > best_test_value:
+            best_test_value = test_metric_value
             best_test_idx = idx
         idx += 1
 

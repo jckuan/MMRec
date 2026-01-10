@@ -89,15 +89,21 @@ class GeneralRecommender(AbstractRecommender):
         # load encoded features here
         self.v_feat, self.t_feat = None, None
         if not config['end2end'] and config['is_multimodal_model']:
+            keep_features_on_cpu = config['keep_features_on_cpu']
             dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
             # if file exist?
-            v_feat_file_path = os.path.join(dataset_path, config['vision_feature_file'])
-            t_feat_file_path = os.path.join(dataset_path, config['text_feature_file'])
-            if os.path.isfile(v_feat_file_path):
-                self.v_feat = torch.from_numpy(np.load(v_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(
-                    self.device)
-            if os.path.isfile(t_feat_file_path):
-                self.t_feat = torch.from_numpy(np.load(t_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(
-                    self.device)
+            if 'vision_feature_file' in config and config['vision_feature_file']:
+                v_feat_file_path = os.path.join(dataset_path, config['vision_feature_file'])
+                if os.path.isfile(v_feat_file_path):
+                    self.v_feat = torch.from_numpy(np.load(v_feat_file_path, allow_pickle=True)).type(torch.FloatTensor)
+                    if not keep_features_on_cpu:
+                        self.v_feat = self.v_feat.to(self.device)
+            
+            if 'text_feature_file' in config and config['text_feature_file']:
+                t_feat_file_path = os.path.join(dataset_path, config['text_feature_file'])
+                if os.path.isfile(t_feat_file_path):
+                    self.t_feat = torch.from_numpy(np.load(t_feat_file_path, allow_pickle=True)).type(torch.FloatTensor)
+                    if not keep_features_on_cpu:
+                        self.t_feat = self.t_feat.to(self.device)
 
             assert self.v_feat is not None or self.t_feat is not None, 'Features all NONE'
