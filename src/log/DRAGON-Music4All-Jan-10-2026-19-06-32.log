@@ -1,0 +1,106 @@
+Sat 10 Jan 2026 19:06:32 INFO ██Server: 	bronx
+Sat 10 Jan 2026 19:06:32 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Sat 10 Jan 2026 19:06:32 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+keep_features_on_cpu=True
+use_checkpoint=True
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=[0.0001]
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=False
+candidate_sampling_type=uniform
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed', 'aggr_mode', 'reg_weight', 'learning_rate']
+inter_file_name=v1_timestamp/clean_filtered_interactions_with_ts.csv
+text_feature_file=v1_timestamp/clean_text_feat_ts.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+n_mm_layers=1
+n_layers=2
+knn_k=10
+mm_image_weight=0.1
+aggr_mode=['add']
+reg_weight=[0.001]
+model=DRAGON
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Sat 10 Jan 2026 19:06:33 INFO Music4All
+The number of users: 14125
+Average actions of users: 358.10506194690265
+The number of items: 80735
+Average actions of items: 62.65230693007989
+The number of inters: 5058234
+The sparsity of the dataset: 99.55644384474279%
+Sat 10 Jan 2026 19:06:34 INFO 
+====Training====
+Music4All
+The number of users: 14125
+Average actions of users: 286.08396460176994
+The number of items: 80668
+Average actions of items: 50.09341994347201
+The number of inters: 4040936
+The sparsity of the dataset: 99.64535631898427%
+Sat 10 Jan 2026 19:06:34 INFO 
+====Validation====
+Music4All
+The number of users: 14125
+Average actions of users: 35.762902654867254
+The number of items: 59046
+Average actions of items: 8.5552111912746
+The number of inters: 505151
+The sparsity of the dataset: 99.93943213315913%
+Sat 10 Jan 2026 19:06:34 INFO 
+====Testing====
+Music4All
+The number of users: 14125
+Average actions of users: 36.25819469026548
+The number of items: 59639
+Average actions of items: 8.587451164506447
+The number of inters: 512147
+The sparsity of the dataset: 99.93920388556101%

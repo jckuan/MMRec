@@ -115,13 +115,11 @@ class Trainer(AbstractTrainer):
         # Item popularity for popularity-based candidate sampling
         self.item_popularity_probs = None
 
-        # Mixed Precision Training setup (matching DRAGON implementation)
-        self.use_amp = config['use_amp'] if 'use_amp' in config else True
-        # GradScaler with growth_interval to prevent NaN (wait longer before increasing scale)
-        self.scaler = GradScaler('cuda', growth_interval=2000) if self.use_amp and self.device.type == 'cuda' else None
+        # Mixed Precision Training setup
+        self.use_amp = config['use_amp']  # Enable by default
+        self.scaler = GradScaler('cuda') if self.use_amp and self.device.type == 'cuda' else None
         if self.use_amp and self.device.type == 'cuda':
             self.logger.info('Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction')
-            self.logger.info('GradScaler configured with growth_interval=2000 to prevent NaN')
         
         # PyTorch 2.0+ Compilation for ~20-30% speedup
         use_torch_compile = config['use_torch_compile'] if 'use_torch_compile' in config else False
@@ -215,8 +213,7 @@ class Trainer(AbstractTrainer):
         for batch_idx, interaction in enumerate(train_data):
             self.optimizer.zero_grad()
             second_inter = interaction.clone()
-            
-            # Mixed Precision Training (matching DRAGON implementation)
+            # Mixed Precision Training
             if self.use_amp and self.scaler is not None:
                 with autocast('cuda'):
                     losses = loss_func(interaction)
@@ -224,6 +221,7 @@ class Trainer(AbstractTrainer):
                         loss = sum(losses)
                         loss_tuple = tuple(per_loss.item() for per_loss in losses)
                         total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
+                        # Log individual losses to tensorboard
                         for i, l in enumerate(loss_tuple):
                             self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
                     else:
@@ -232,33 +230,12 @@ class Trainer(AbstractTrainer):
                         self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
                 
                 self._check_nan(loss)
-                
-                if self.mg and batch_idx % self.beta == 0:
-                    # MG training with AMP
-                    first_loss = self.alpha1 * loss
-                    self.scaler.scale(first_loss).backward()
-                    self.scaler.step(self.optimizer)
-                    self.scaler.update()
-                    self.optimizer.zero_grad()
-                    
-                    with autocast('cuda'):
-                        losses = loss_func(second_inter)
-                        if isinstance(losses, tuple):
-                            loss = sum(losses)
-                        else:
-                            loss = losses
-                    
-                    self._check_nan(loss)
-                    second_loss = -1 * self.alpha2 * loss
-                    self.scaler.scale(second_loss).backward()
-                else:
-                    # Standard training with AMP
-                    self.scaler.scale(loss).backward()
-                    if self.clip_grad_norm:
-                        self.scaler.unscale_(self.optimizer)
-                        clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
-                    self.scaler.step(self.optimizer)
-                    self.scaler.update()
+                self.scaler.scale(loss).backward()
+                if self.clip_grad_norm:
+                    self.scaler.unscale_(self.optimizer)
+                    clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
             else:
                 # Standard FP32 training
                 losses = loss_func(interaction)
@@ -266,6 +243,7 @@ class Trainer(AbstractTrainer):
                     loss = sum(losses)
                     loss_tuple = tuple(per_loss.item() for per_loss in losses)
                     total_loss = loss_tuple if total_loss is None else tuple(map(sum, zip(total_loss, loss_tuple)))
+                    # Log individual losses to tensorboard
                     for i, l in enumerate(loss_tuple):
                         self.writer.add_scalar(f'Loss/Train_loss_{i+1}', l, epoch_idx)
                 else:
@@ -274,29 +252,10 @@ class Trainer(AbstractTrainer):
                     self.writer.add_scalar('Loss/Train', loss.item(), epoch_idx)
                 
                 self._check_nan(loss)
-                
-                if self.mg and batch_idx % self.beta == 0:
-                    # MG training without AMP
-                    first_loss = self.alpha1 * loss
-                    first_loss.backward()
-                    self.optimizer.step()
-                    self.optimizer.zero_grad()
-                    
-                    losses = loss_func(second_inter)
-                    if isinstance(losses, tuple):
-                        loss = sum(losses)
-                    else:
-                        loss = losses
-                    
-                    self._check_nan(loss)
-                    second_loss = -1 * self.alpha2 * loss
-                    second_loss.backward()
-                else:
-                    # Standard training without AMP
-                    loss.backward()
-                    if self.clip_grad_norm:
-                        clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
-                    self.optimizer.step()
+                loss.backward()
+                if self.clip_grad_norm:
+                    clip_grad_norm_(self.model.parameters(), **self.clip_grad_norm)
+                self.optimizer.step()
             
             loss_batches.append(loss.detach())
         return total_loss, loss_batches

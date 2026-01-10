@@ -8,6 +8,7 @@ import scipy.sparse as sp
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.checkpoint import checkpoint
 from torch_geometric.nn.conv import MessagePassing
 from torch_geometric.utils import remove_self_loops, add_self_loops, degree
 import torch_geometric
@@ -61,10 +62,10 @@ class DRAGON(GeneralRecommender):
         mm_adj_file = os.path.join(dataset_path, 'mm_adj_{}.pt'.format(self.knn_k))
 
         if self.v_feat is not None:
-            self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=False)
+            self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=True)
             self.image_trs = nn.Linear(self.v_feat.shape[1], self.feat_embed_dim)
         if self.t_feat is not None:
-            self.text_embedding = nn.Embedding.from_pretrained(self.t_feat, freeze=False)
+            self.text_embedding = nn.Embedding.from_pretrained(self.t_feat, freeze=True)
             self.text_trs = nn.Linear(self.t_feat.shape[1], self.feat_embed_dim)
 
         if os.path.exists(mm_adj_file):
@@ -139,16 +140,18 @@ class DRAGON(GeneralRecommender):
 
         self.MLP_user = nn.Linear(self.dim_latent * 2, self.dim_latent)
 
+        use_checkpoint = config['use_checkpoint']  # Enable gradient checkpointing by default
+        
         if self.v_feat is not None:
             self.v_drop_ze = torch.zeros(len(self.dropv_node_idx), self.v_feat.size(1)).to(self.device)
             self.v_gcn = GCN(self.dataset, batch_size, num_user, num_item, dim_x, self.aggr_mode,
                              num_layer=self.num_layer, has_id=has_id, dropout=self.drop_rate, dim_latent=64,
-                             device=self.device, features=self.v_feat)  # 256)
+                             device=self.device, features=self.v_feat, use_checkpoint=use_checkpoint)  # 256)
         if self.t_feat is not None:
             self.t_drop_ze = torch.zeros(len(self.dropt_node_idx), self.t_feat.size(1)).to(self.device)
             self.t_gcn = GCN(self.dataset, batch_size, num_user, num_item, dim_x, self.aggr_mode,
                              num_layer=self.num_layer, has_id=has_id, dropout=self.drop_rate, dim_latent=64,
-                             device=self.device, features=self.t_feat)
+                             device=self.device, features=self.t_feat, use_checkpoint=use_checkpoint)
 
         self.user_graph = User_Graph_sample(num_user, 'add', self.dim_latent)
 
@@ -162,7 +165,7 @@ class DRAGON(GeneralRecommender):
         adj_size = sim.size()
         del sim
         # construct sparse adj
-        indices0 = torch.arange(knn_ind.shape[0]).to(self.device)
+        indices0 = torch.arange(knn_ind.shape[0])           #.to(self.device)
         indices0 = torch.unsqueeze(indices0, 1)
         indices0 = indices0.expand(-1, self.knn_k)
         indices = torch.stack((torch.flatten(indices0), torch.flatten(knn_ind)), 0)
@@ -245,9 +248,24 @@ class DRAGON(GeneralRecommender):
         item_rep = representation[self.num_user:]
 
         ############################################ multi-modal information aggregation
-        h = item_rep
-        for i in range(self.n_layers):
-            h = torch.sparse.mm(self.mm_adj, h)
+        # Move mm_adj to device and ensure it's in FP32 (sparse ops don't support FP16)
+        self.mm_adj = self.mm_adj.to(self.device)
+        if self.mm_adj.dtype != torch.float32:
+            # Convert sparse tensor to FP32
+            self.mm_adj = self.mm_adj.float()
+        
+        h = item_rep.to(self.device)
+        
+        # Sparse matrix multiplication requires FP32 - disable autocast for this section
+        with torch.amp.autocast('cuda', enabled=False):
+            # Ensure h is in FP32 for sparse operations
+            h = h.float()
+            
+            # Perform sparse matrix multiplication in FP32
+            for i in range(self.n_layers):
+                h = torch.sparse.mm(self.mm_adj, h)
+        
+        # h is now in FP32, let autocast handle the rest
         h_u1 = self.user_graph(user_rep, self.epoch_user_graph, self.user_weight_matrix)
         user_rep = user_rep + h_u1
         item_rep = item_rep + h
@@ -343,7 +361,7 @@ class User_Graph_sample(torch.nn.Module):
 
 class GCN(torch.nn.Module):
     def __init__(self, datasets, batch_size, num_user, num_item, dim_id, aggr_mode, num_layer, has_id, dropout,
-                 dim_latent=None, device=None, features=None):
+                 dim_latent=None, device=None, features=None, use_checkpoint=True):
         super(GCN, self).__init__()
         self.batch_size = batch_size
         self.num_user = num_user
@@ -357,13 +375,15 @@ class GCN(torch.nn.Module):
         self.has_id = has_id
         self.dropout = dropout
         self.device = device
+        self.use_checkpoint = use_checkpoint
 
         if self.dim_latent:
             self.preference = nn.Parameter(nn.init.xavier_normal_(torch.tensor(
                 np.random.randn(num_user, self.dim_latent), dtype=torch.float32, requires_grad=True),
                 gain=1).to(self.device))
-            self.MLP = nn.Linear(self.dim_feat, 4 * self.dim_latent)
-            self.MLP_1 = nn.Linear(4 * self.dim_latent, self.dim_latent)
+            # MEMORY OPTIMIZATION: Reduce MLP expansion from 4x to 2x
+            self.MLP = nn.Linear(self.dim_feat, 2*self.dim_latent)
+            self.MLP_1 = nn.Linear(2*self.dim_latent, self.dim_latent)
             self.conv_embed_1 = Base_gcn(self.dim_latent, self.dim_latent, aggr=self.aggr_mode)
 
         else:
@@ -371,13 +391,39 @@ class GCN(torch.nn.Module):
                 np.random.randn(num_user, self.dim_feat), dtype=torch.float32, requires_grad=True),
                 gain=1).to(self.device))
             self.conv_embed_1 = Base_gcn(self.dim_latent, self.dim_latent, aggr=self.aggr_mode)
+    
+    def _feature_transform(self, features):
+        """Separate method for checkpointing"""
+        return self.MLP_1(F.leaky_relu(self.MLP(features), inplace=True))
 
-    def forward(self, edge_index_drop, edge_index, features):
-        temp_features = self.MLP_1(F.leaky_relu(self.MLP(features))) if self.dim_latent else features
-        x = torch.cat((self.preference, temp_features), dim=0).to(self.device)
-        x = F.normalize(x).to(self.device)
-        h = self.conv_embed_1(x, edge_index)  # equation 1
-        h_1 = self.conv_embed_1(h, edge_index)
+    def _feature_transform(self, features):
+        """Separate method for checkpointing"""
+        return self.MLP_1(F.leaky_relu(self.MLP(features), inplace=True))
+
+    def forward(self, edge_index_drop, edge_index, features, edge_weights=None):
+        # MEMORY OPTIMIZATION: Transfer features from CPU to GPU if needed
+        if features.device != self.device:
+            features = features.to(self.device)
+        
+        # Use gradient checkpointing for MLP transformation to save memory
+        if self.dim_latent:
+            if self.use_checkpoint and self.training:
+                temp_features = checkpoint(self._feature_transform, features, use_reentrant=False)
+            else:
+                temp_features = self._feature_transform(features)
+        else:
+            temp_features = features
+            
+        x = torch.cat((self.preference, temp_features), dim=0)
+        x = F.normalize(x)
+        
+        # Gradient checkpointing for graph convolutions
+        if self.use_checkpoint and self.training:
+            h = checkpoint(self.conv_embed_1, x, edge_index, edge_weights, use_reentrant=False)
+            h_1 = checkpoint(self.conv_embed_1, h, edge_index, edge_weights, use_reentrant=False)
+        else:
+            h = self.conv_embed_1(x, edge_index, edge_weights)
+            h_1 = self.conv_embed_1(h, edge_index, edge_weights)
 
         x_hat = h + x + h_1
         return x_hat, self.preference
