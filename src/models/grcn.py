@@ -20,6 +20,7 @@ from torch_geometric.utils import remove_self_loops, add_self_loops, softmax
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss
 from common.init import xavier_uniform_initialization
+from common.fettle_utils import initialize_fettle_losses, extract_cf_embeddings_average
 # from torch.utils.checkpoint import checkpoint
 ##########################################################################
 
@@ -169,6 +170,10 @@ class CGCN(torch.nn.Module):
 class GRCN(GeneralRecommender):
     def __init__(self,  config, dataset):
         super(GRCN, self).__init__(config, dataset)
+        
+        # Store config for FETTLE
+        self.config = config
+        
         self.num_user = self.n_users
         self.num_item = self.n_items
         num_user = self.n_users
@@ -212,6 +217,9 @@ class GRCN(GeneralRecommender):
         self.model_specific_conf = nn.Parameter(nn.init.xavier_normal_(torch.rand((num_user+num_item, num_model))))
 
         self.result = nn.init.xavier_normal_(torch.rand((num_user+num_item, dim_x))).to(self.device)
+        
+        # FETTLE integration
+        self.iladt_loss, self.cla_loss = initialize_fettle_losses(config, dim_x)
         
         
     def pack_edge_index(self, inter_mat):
@@ -296,6 +304,32 @@ class GRCN(GeneralRecommender):
         self.result = representation
         #print('representation is: ',representation)
         return representation
+    
+    def get_cf_embeddings(self):
+        """Extract CF embeddings using average method for FETTLE"""
+        # Get modality-specific embeddings after GCN
+        edge_index, _ = dropout_adj(self.edge_index, p=self.dropout)
+        
+        v_rep = None
+        t_rep = None
+        
+        if self.v_feat is not None:
+            v_rep, _ = self.v_gcn(edge_index)
+            v_rep = v_rep[self.n_users:]  # Extract item embeddings only
+        
+        if self.t_feat is not None:
+            t_rep, _ = self.t_gcn(edge_index)
+            t_rep = t_rep[self.n_users:]  # Extract item embeddings only
+        
+        # Average the embeddings if both exist
+        if v_rep is not None and t_rep is not None:
+            return extract_cf_embeddings_average(v_rep, t_rep)
+        elif v_rep is not None:
+            return v_rep
+        elif t_rep is not None:
+            return t_rep
+        else:
+            return None
 
     def calculate_loss(self, interaction):
         batch_users = interaction[0]
@@ -329,6 +363,43 @@ class GRCN(GeneralRecommender):
 
         reg_loss = self.reg_weight * reg_loss
         #print('loss',loss + reg_loss)
+
+        # FETTLE losses
+        if self.config['use_fettle'] and self.iladt_loss is not None and self.cla_loss is not None:
+            from common.fettle_utils import compute_fettle_losses, prepare_fettle_embeddings
+            
+            # Get CF embeddings
+            cf_embeddings = self.get_cf_embeddings()
+            
+            if cf_embeddings is not None:
+                # Get modality-specific embeddings
+                edge_index, _ = dropout_adj(self.edge_index, p=self.dropout)
+                v_rep, _ = self.v_gcn(edge_index) if self.v_feat is not None else (None, None)
+                t_rep, _ = self.t_gcn(edge_index) if self.t_feat is not None else (None, None)
+                
+                # Extract item embeddings
+                v_emb = v_rep[self.n_users:] if v_rep is not None else torch.zeros_like(cf_embeddings)
+                t_emb = t_rep[self.n_users:] if t_rep is not None else torch.zeros_like(cf_embeddings)
+                
+                # Get user embeddings from result
+                user_emb = self.result[:self.n_users]
+                
+                # Normalize embeddings
+                import torch.nn.functional as F
+                user_emb = F.normalize(user_emb, dim=1)
+                cf_embeddings = F.normalize(cf_embeddings, dim=1)
+                v_emb = F.normalize(v_emb, dim=1)
+                t_emb = F.normalize(t_emb, dim=1)
+                
+                # Compute FETTLE losses
+                iladt_loss_value, cla_loss_value = compute_fettle_losses(
+                    self.iladt_loss, self.cla_loss,
+                    user_emb, cf_embeddings, v_emb, t_emb,
+                    batch_users, pos_items - self.n_users, self.config
+                )
+                
+                # Add FETTLE losses to total loss
+                loss = loss + self.config['iladt_weight'] * iladt_loss_value + self.config['cla_weight'] * cla_loss_value
 
         return loss + reg_loss
         

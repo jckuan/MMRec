@@ -16,12 +16,16 @@ import torch.nn.functional as F
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss, L2Loss
+from common.fettle_utils import initialize_fettle_losses, extract_cf_embeddings_average
 from utils.utils import build_sim, compute_normalized_laplacian
 
 
 class FREEDOM(GeneralRecommender):
     def __init__(self, config, dataset):
         super(FREEDOM, self).__init__(config, dataset)
+
+        # Store config for FETTLE
+        self.config = config
 
         self.embedding_dim = config['embedding_size']
         self.feat_embed_dim = config['feat_embed_dim']
@@ -52,7 +56,13 @@ class FREEDOM(GeneralRecommender):
         nn.init.xavier_uniform_(self.item_id_embedding.weight)
 
         dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
-        mm_adj_file = os.path.join(dataset_path, 'mm_adj_freedomdsp_{}_{}.pt'.format(self.knn_k, int(10*self.mm_image_weight)))
+        # Add modality suffix to cache file to avoid dimension mismatches when switching modalities
+        modality_suffix = ''
+        if self.v_feat is not None:
+            modality_suffix += 'v'
+        if self.t_feat is not None:
+            modality_suffix += 't'
+        mm_adj_file = os.path.join(dataset_path, 'mm_adj_freedomdsp_{}_{}_{}.pt'.format(self.knn_k, int(10*self.mm_image_weight), modality_suffix))
 
         if self.v_feat is not None:
             self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=False)
@@ -75,6 +85,9 @@ class FREEDOM(GeneralRecommender):
                 del text_adj
                 del image_adj
             torch.save(self.mm_adj, mm_adj_file)
+        
+        # FETTLE integration
+        self.iladt_loss, self.cla_loss = initialize_fettle_losses(config, self.feat_embed_dim)
 
     def get_knn_adj_mat(self, mm_embeddings):
         context_norm = mm_embeddings.div(torch.norm(mm_embeddings, p=2, dim=-1, keepdim=True))
@@ -176,6 +189,27 @@ class FREEDOM(GeneralRecommender):
         all_embeddings = all_embeddings.mean(dim=1, keepdim=False)
         u_g_embeddings, i_g_embeddings = torch.split(all_embeddings, [self.n_users, self.n_items], dim=0)
         return u_g_embeddings, i_g_embeddings + h
+    
+    def get_cf_embeddings(self):
+        """Extract CF embeddings using average method for FETTLE"""
+        v_rep = None
+        t_rep = None
+        
+        if self.v_feat is not None:
+            v_rep = self.image_trs(self.image_embedding.weight)
+        
+        if self.t_feat is not None:
+            t_rep = self.text_trs(self.text_embedding.weight)
+        
+        # Average the embeddings if both exist
+        if v_rep is not None and t_rep is not None:
+            return extract_cf_embeddings_average(v_rep, t_rep)
+        elif v_rep is not None:
+            return v_rep
+        elif t_rep is not None:
+            return t_rep
+        else:
+            return None
 
     def bpr_loss(self, users, pos_items, neg_items):
         pos_scores = torch.sum(torch.mul(users, pos_items), dim=1)
@@ -207,7 +241,38 @@ class FREEDOM(GeneralRecommender):
         if self.v_feat is not None:
             image_feats = self.image_trs(self.image_embedding.weight)
             mf_v_loss = self.bpr_loss(ua_embeddings[users], image_feats[pos_items], image_feats[neg_items])
-        return batch_mf_loss + self.reg_weight * (mf_t_loss + mf_v_loss)
+        
+        loss = batch_mf_loss + self.reg_weight * (mf_t_loss + mf_v_loss)
+        
+        # FETTLE losses
+        if self.config['use_fettle'] and self.iladt_loss is not None and self.cla_loss is not None:
+            from common.fettle_utils import compute_fettle_losses
+            
+            # Get CF embeddings
+            cf_embeddings = self.get_cf_embeddings()
+            
+            if cf_embeddings is not None:
+                # Get modality-specific embeddings
+                v_emb = self.image_trs(self.image_embedding.weight) if self.v_feat is not None else torch.zeros_like(cf_embeddings)
+                t_emb = self.text_trs(self.text_embedding.weight) if self.t_feat is not None else torch.zeros_like(cf_embeddings)
+                
+                # Normalize embeddings
+                user_emb = F.normalize(ua_embeddings, dim=1)
+                cf_embeddings = F.normalize(cf_embeddings, dim=1)
+                v_emb = F.normalize(v_emb, dim=1)
+                t_emb = F.normalize(t_emb, dim=1)
+                
+                # Compute FETTLE losses
+                iladt_loss_value, cla_loss_value = compute_fettle_losses(
+                    self.iladt_loss, self.cla_loss,
+                    user_emb, cf_embeddings, v_emb, t_emb,
+                    users, pos_items, self.config
+                )
+                
+                # Add FETTLE losses to total loss
+                loss = loss + self.config['iladt_weight'] * iladt_loss_value + self.config['cla_weight'] * cla_loss_value
+        
+        return loss
 
     def full_sort_predict(self, interaction):
         user = interaction[0]

@@ -16,11 +16,15 @@ import torch_geometric
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss
 from common.init import xavier_uniform_initialization
+from common.fettle_utils import initialize_fettle_losses, extract_cf_embeddings_average
 
 
 class DRAGON(GeneralRecommender):
     def __init__(self, config, dataset):
         super(DRAGON, self).__init__(config, dataset)
+
+        # Store config for FETTLE
+        self.config = config
 
         num_user = self.n_users
         num_item = self.n_items
@@ -59,7 +63,13 @@ class DRAGON(GeneralRecommender):
         self.user_graph_dict = np.load(os.path.join(dataset_path, config['user_graph_dict_file']),
                                        allow_pickle=True).item()
 
-        mm_adj_file = os.path.join(dataset_path, 'mm_adj_{}.pt'.format(self.knn_k))
+        # Add modality suffix to cache file to avoid dimension mismatches when switching modalities
+        modality_suffix = ''
+        if self.v_feat is not None:
+            modality_suffix += 'v'
+        if self.t_feat is not None:
+            modality_suffix += 't'
+        mm_adj_file = os.path.join(dataset_path, 'mm_adj_{}_{}.pt'.format(self.knn_k, modality_suffix))
 
         if self.v_feat is not None:
             self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=True)
@@ -157,6 +167,9 @@ class DRAGON(GeneralRecommender):
 
         self.result_embed = nn.Parameter(
             nn.init.xavier_normal_(torch.tensor(np.random.randn(num_user + num_item, dim_x)))).to(self.device)
+        
+        # FETTLE integration
+        self.iladt_loss, self.cla_loss = initialize_fettle_losses(config, self.feat_embed_dim)
 
     def get_knn_adj_mat(self, mm_embeddings):
         context_norm = mm_embeddings.div(torch.norm(mm_embeddings, p=2, dim=-1, keepdim=True))
@@ -276,6 +289,36 @@ class DRAGON(GeneralRecommender):
         pos_scores = torch.sum(user_tensor * pos_item_tensor, dim=1)
         neg_scores = torch.sum(user_tensor * neg_item_tensor, dim=1)
         return pos_scores, neg_scores
+    
+    def get_cf_embeddings(self):
+        """Extract CF embeddings using average method for FETTLE
+        
+        Returns:
+            tuple: (user_cf_embeddings, item_cf_embeddings)
+                - user_cf_embeddings: [num_users, feat_embed_dim]
+                - item_cf_embeddings: [num_items, feat_embed_dim]
+                Returns (None, None) if no modalities available.
+        """
+        # Extract modality-specific embeddings (after GCN propagation)
+        v_user = self.v_rep[:self.num_user] if self.v_rep is not None else None
+        t_user = self.t_rep[:self.num_user] if self.t_rep is not None else None
+        v_item = self.v_rep[self.num_user:] if self.v_rep is not None else None
+        t_item = self.t_rep[self.num_user:] if self.t_rep is not None else None
+        
+        # Average method: simple average of modalities
+        if v_user is not None and t_user is not None:
+            user_cf = (v_user + t_user) / 2
+            item_cf = (v_item + t_item) / 2
+        elif v_user is not None:
+            user_cf = v_user
+            item_cf = v_item
+        elif t_user is not None:
+            user_cf = t_user
+            item_cf = t_item
+        else:
+            return None, None
+        
+        return user_cf, item_cf
 
     def calculate_loss(self, interaction):
         user = interaction[0]
@@ -292,7 +335,48 @@ class DRAGON(GeneralRecommender):
             reg_loss += self.reg_weight * (self.weight_u ** 2).mean()
         elif self.construction == 'cat_mlp':
             reg_loss += self.reg_weight * (self.MLP_user.weight ** 2).mean()
-        return loss_value + reg_loss
+        
+        loss = loss_value + reg_loss
+        
+        # FETTLE losses
+        if self.config['use_fettle'] and self.iladt_loss is not None and self.cla_loss is not None:
+            if self.v_rep is not None and self.t_rep is not None:
+                # Get CF embeddings for FETTLE baseline
+                user_emb_cf, item_emb_cf = self.get_cf_embeddings()
+                
+                if user_emb_cf is not None:
+                    # Concatenate user and item CF embeddings into full tables
+                    cf_emb_full = torch.cat([user_emb_cf, item_emb_cf], dim=0)  # [num_users + num_items, dim]
+                    
+                    # Squeeze embeddings if they have extra dimensions
+                    cf_emb_full = cf_emb_full.squeeze(-1) if cf_emb_full.dim() > 2 else cf_emb_full
+                    v_rep_squeezed = self.v_rep.squeeze(-1) if self.v_rep.dim() > 2 else self.v_rep
+                    t_rep_squeezed = self.t_rep.squeeze(-1) if self.t_rep.dim() > 2 else self.t_rep
+                    
+                    # Convert pos_item from global indices to item-only indices
+                    pos_item_local = interaction[1] - self.num_user
+                    
+                    # Compute FETTLE losses
+                    iladt_loss_value = self.iladt_loss(
+                        cf_emb_full[:self.num_user],    # User CF embeddings [num_users, dim]
+                        cf_emb_full[self.num_user:],    # Item CF embeddings [num_items, dim]
+                        v_rep_squeezed[self.num_user:], # Item visual embeddings [num_items, dim]
+                        t_rep_squeezed[self.num_user:], # Item text embeddings [num_items, dim]
+                        user, pos_item_local             # Use local item indices
+                    )
+                    
+                    cla_loss_value = self.cla_loss(
+                        cf_emb_full[:self.num_user],    # User CF embeddings [num_users, dim]
+                        cf_emb_full[self.num_user:],    # Item CF embeddings [num_items, dim]
+                        v_rep_squeezed[self.num_user:], # Item visual embeddings [num_items, dim]
+                        t_rep_squeezed[self.num_user:], # Item text embeddings [num_items, dim]
+                        user, pos_item_local             # Use local item indices
+                    )
+                    
+                    # Add FETTLE losses to total loss
+                    loss = loss + self.config['iladt_weight'] * iladt_loss_value + self.config['cla_weight'] * cla_loss_value
+        
+        return loss
 
     def full_sort_predict(self, interaction):
         user_tensor = self.result_embed[:self.n_users]

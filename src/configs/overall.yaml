@@ -4,9 +4,9 @@ use_gpu: True
 seed: [999]
 
 # Memory optimization settings
-use_amp: False                # Mixed Precision Training (FP16) - reduces memory by ~40-50%
-keep_features_on_cpu: False   # Keep frozen embeddings on CPU - saves ~450MB GPU memory
-use_checkpoint: False         # Gradient checkpointing - trades compute for ~20-30% memory reduction
+use_amp: True                # Mixed Precision Training (FP16) - reduces memory by ~40-50%
+keep_features_on_cpu: True   # Keep frozen embeddings on CPU - saves ~450MB GPU memory
+use_checkpoint: True         # Gradient checkpointing - trades compute for ~20-30% memory reduction
 
 # Alternative Acceleration Strategies (safer for large datasets)
 use_torch_compile: True         # Enable torch.compile for ~20-30% speedup (PyTorch 2.0+)
@@ -76,6 +76,23 @@ layer_norm_eps: 1e-12
 hidden_dropout_prob: 0.1
 
 end2end: False
+
+# ============================================================================
+# FETTLE Multi-Modal Alignment Settings
+# Paper: "Who To Align With: Feedback-Oriented Multi-Modal Alignment 
+#         in Recommendation Systems" (SIGIR 2024)
+# ============================================================================
+use_fettle: True  # Feature flag to enable/disable FETTLE
+cf_extraction_method: 'average'  # Only average method supported
+
+# FETTLE Loss Weights
+iladt_weight: 0.05       # Weight for ILA+DT loss
+cla_weight: 0.01         # Weight for CLA loss
+
+# FETTLE Hyperparameters
+clcr_gamma: 0.05         # Temperature for ILA+DT (>= 0.01 to prevent NaN)
+ga_gamma: 0.1            # Temperature for CLA
+prototype_num: 10        # Number of prototypes/clusters for CLA
 
 # iteration parameters
 hyper_parameters: ["seed"]

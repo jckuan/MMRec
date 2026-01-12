@@ -20,12 +20,16 @@ import torch.nn.functional as F
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss, L2Loss
+from common.fettle_utils import initialize_fettle_losses, extract_cf_embeddings_average
 from utils.utils import build_sim, compute_normalized_laplacian, build_knn_neighbourhood
 
 
 class LATTICE(GeneralRecommender):
     def __init__(self, config, dataset):
         super(LATTICE, self).__init__(config, dataset)
+
+        # Store config for FETTLE
+        self.config = config
 
         self.embedding_dim = config['embedding_size']
         self.feat_embed_dim = config['feat_embed_dim']
@@ -61,8 +65,14 @@ class LATTICE(GeneralRecommender):
                 self.dropout_list.append(nn.Dropout(dropout_list[i]))
 
         dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
-        image_adj_file = os.path.join(dataset_path, 'image_adj_{}.pt'.format(self.knn_k))
-        text_adj_file = os.path.join(dataset_path, 'text_adj_{}.pt'.format(self.knn_k))
+        # Add modality suffix to cache files to avoid dimension mismatches when switching modalities
+        modality_suffix = ''
+        if self.v_feat is not None:
+            modality_suffix += 'v'
+        if self.t_feat is not None:
+            modality_suffix += 't'
+        image_adj_file = os.path.join(dataset_path, 'image_adj_{}_{}.pt'.format(self.knn_k, modality_suffix))
+        text_adj_file = os.path.join(dataset_path, 'text_adj_{}_{}.pt'.format(self.knn_k, modality_suffix))
 
         if self.v_feat is not None:
             self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=False)
@@ -93,6 +103,9 @@ class LATTICE(GeneralRecommender):
 
         self.modal_weight = nn.Parameter(torch.Tensor([0.5, 0.5]))
         self.softmax = nn.Softmax(dim=0)
+
+        # FETTLE integration
+        self.iladt_loss, self.cla_loss = initialize_fettle_losses(config, self.feat_embed_dim)
 
     def pre_epoch_processing(self):
         self.build_item_graph = True
@@ -195,6 +208,27 @@ class LATTICE(GeneralRecommender):
             return u_g_embeddings, i_g_embeddings
         elif self.cf_model == 'mf':
             return self.user_embedding.weight, self.item_id_embedding.weight + F.normalize(h, p=2, dim=1)
+    
+    def get_cf_embeddings(self):
+        """Extract CF embeddings using average method for FETTLE"""
+        v_rep = None
+        t_rep = None
+        
+        if self.v_feat is not None:
+            v_rep = self.image_trs(self.image_embedding.weight)
+        
+        if self.t_feat is not None:
+            t_rep = self.text_trs(self.text_embedding.weight)
+        
+        # Average the embeddings if both exist
+        if v_rep is not None and t_rep is not None:
+            return extract_cf_embeddings_average(v_rep, t_rep)
+        elif v_rep is not None:
+            return v_rep
+        elif t_rep is not None:
+            return t_rep
+        else:
+            return None
 
     def bpr_loss(self, users, pos_items, neg_items):
         pos_scores = torch.sum(torch.mul(users, pos_items), dim=1)
@@ -224,7 +258,38 @@ class LATTICE(GeneralRecommender):
 
         batch_mf_loss, batch_emb_loss, batch_reg_loss = self.bpr_loss(u_g_embeddings, pos_i_g_embeddings,
                                                                       neg_i_g_embeddings)
-        return batch_mf_loss + batch_emb_loss + batch_reg_loss
+        
+        loss = batch_mf_loss + batch_emb_loss + batch_reg_loss
+        
+        # FETTLE losses
+        if self.config['use_fettle'] and self.iladt_loss is not None and self.cla_loss is not None:
+            from common.fettle_utils import compute_fettle_losses
+            
+            # Get CF embeddings
+            cf_embeddings = self.get_cf_embeddings()
+            
+            if cf_embeddings is not None:
+                # Get modality-specific embeddings
+                v_emb = self.image_trs(self.image_embedding.weight) if self.v_feat is not None else torch.zeros_like(cf_embeddings)
+                t_emb = self.text_trs(self.text_embedding.weight) if self.t_feat is not None else torch.zeros_like(cf_embeddings)
+                
+                # Normalize embeddings
+                user_emb = F.normalize(ua_embeddings, dim=1)
+                cf_embeddings = F.normalize(cf_embeddings, dim=1)
+                v_emb = F.normalize(v_emb, dim=1)
+                t_emb = F.normalize(t_emb, dim=1)
+                
+                # Compute FETTLE losses
+                iladt_loss_value, cla_loss_value = compute_fettle_losses(
+                    self.iladt_loss, self.cla_loss,
+                    user_emb, cf_embeddings, v_emb, t_emb,
+                    users, pos_items, self.config
+                )
+                
+                # Add FETTLE losses to total loss
+                loss = loss + self.config['iladt_weight'] * iladt_loss_value + self.config['cla_weight'] * cla_loss_value
+        
+        return loss
 
     def full_sort_predict(self, interaction):
         user = interaction[0]
