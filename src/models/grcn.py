@@ -16,12 +16,12 @@ import torch.nn.functional as F
 from torch_geometric.nn.conv import MessagePassing
 from torch_geometric.utils import add_self_loops, dropout_adj
 from torch_geometric.utils import remove_self_loops, add_self_loops, softmax
+from torch.utils.checkpoint import checkpoint
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss
 from common.init import xavier_uniform_initialization
 from common.fettle_utils import initialize_fettle_losses, extract_cf_embeddings_average
-# from torch.utils.checkpoint import checkpoint
 ##########################################################################
 
 class SAGEConv(MessagePassing):
@@ -79,7 +79,7 @@ class GATConv(MessagePassing):
 
 
 class EGCN(torch.nn.Module):
-    def __init__(self, num_user, num_item, dim_E, aggr_mode, has_act, has_norm):
+    def __init__(self, num_user, num_item, dim_E, aggr_mode, has_act, has_norm, use_checkpoint=True):
         super(EGCN, self).__init__()
         self.num_user = num_user
         self.num_item = num_item
@@ -87,31 +87,39 @@ class EGCN(torch.nn.Module):
         self.aggr_mode = aggr_mode
         self.has_act = has_act
         self.has_norm = has_norm
+        self.use_checkpoint = use_checkpoint
         self.id_embedding = nn.Parameter( nn.init.xavier_normal_(torch.rand((num_user+num_item, dim_E))))
         self.conv_embed_1 = SAGEConv(dim_E, dim_E, aggr=aggr_mode)         
         self.conv_embed_2 = SAGEConv(dim_E, dim_E, aggr=aggr_mode)
+
+    def _conv_forward(self, x, edge_index, weight_vector):
+        """Separate method for checkpointing"""
+        x_hat_1 = self.conv_embed_1(x, edge_index, weight_vector)
+        if self.has_act:
+            x_hat_1 = F.leaky_relu_(x_hat_1)
+        x_hat_2 = self.conv_embed_2(x_hat_1, edge_index, weight_vector)
+        if self.has_act:
+            x_hat_2 = F.leaky_relu_(x_hat_2)
+        return x_hat_1, x_hat_2
 
     def forward(self, edge_index, weight_vector):
         x = self.id_embedding
         edge_index = torch.cat((edge_index, edge_index[[1,0]]), dim=1)
 
         if self.has_norm:
-            x = F.normalize(x) 
+            x = F.normalize(x)
 
-        x_hat_1 = self.conv_embed_1(x, edge_index, weight_vector) 
-
-        if self.has_act:
-            x_hat_1 = F.leaky_relu_(x_hat_1)
-
-        x_hat_2 = self.conv_embed_2(x_hat_1, edge_index, weight_vector)
-        if self.has_act:
-            x_hat_2 = F.leaky_relu_(x_hat_2)
+        # Use gradient checkpointing for graph convolutions
+        if self.use_checkpoint and self.training:
+            x_hat_1, x_hat_2 = checkpoint(self._conv_forward, x, edge_index, weight_vector, use_reentrant=False)
+        else:
+            x_hat_1, x_hat_2 = self._conv_forward(x, edge_index, weight_vector)
 
         return x + x_hat_1 + x_hat_2
 
 
 class CGCN(torch.nn.Module):
-    def __init__(self, features, num_user, num_item, dim_C, aggr_mode, num_routing, has_act, has_norm, is_word=False):
+    def __init__(self, features, num_user, num_item, dim_C, aggr_mode, num_routing, has_act, has_norm, is_word=False, use_checkpoint=True, device=None):
         super(CGCN, self).__init__()
         self.num_user = num_user
         self.num_item = num_item
@@ -120,6 +128,8 @@ class CGCN(torch.nn.Module):
         self.has_act = has_act
         self.has_norm = has_norm
         self.dim_C = dim_C
+        self.use_checkpoint = use_checkpoint
+        self.device = device if device is not None else torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.preference = nn.Parameter(nn.init.xavier_normal_(torch.rand((num_user, dim_C))))
         self.conv_embed_1 = GATConv(self.dim_C, self.dim_C)
         self.is_word = is_word
@@ -137,32 +147,49 @@ class CGCN(torch.nn.Module):
             nn.init.xavier_normal_(self.MLP.weight)
             #print(self.MLP.weight)
 
+    def _routing_forward(self, preference, features, edge_index_single):
+        """Separate method for checkpointing routing iterations"""
+        x = torch.cat((preference, features), dim=0)
+        x_hat_1 = self.conv_embed_1(x, edge_index_single)
+        return x_hat_1[:self.num_user]
+    
+    def _final_conv(self, x, edge_index_full):
+        """Separate method for checkpointing final convolution"""
+        x_hat_1 = self.conv_embed_1(x, edge_index_full)
+        if self.has_act:
+            x_hat_1 = F.leaky_relu_(x_hat_1)
+        return x_hat_1
+
     def forward(self, edge_index):
-        #print(self.features)
-        features = F.leaky_relu(self.MLP(self.features))
-        #print('features',features)
+        # MEMORY OPTIMIZATION: Transfer features from CPU to GPU if needed
+        features = self.features
+        if features.device != self.device:
+            features = features.to(self.device)
+        features = F.leaky_relu(self.MLP(features))
         
         if self.has_norm:
             preference = F.normalize(self.preference)
             features = F.normalize(features)
-            #print(preference,features)
+        else:
+            preference = self.preference
 
         for i in range(self.num_routing):
-            x = torch.cat((preference, features), dim=0)
-            #print(x,edge_index)
-            x_hat_1 = self.conv_embed_1(x, edge_index) 
-            preference = preference + x_hat_1[:self.num_user]
+            if self.use_checkpoint and self.training:
+                update = checkpoint(self._routing_forward, preference, features, edge_index, use_reentrant=False)
+            else:
+                update = self._routing_forward(preference, features, edge_index)
+            preference = preference + update
 
             if self.has_norm:
                 preference = F.normalize(preference)
 
         x = torch.cat((preference, features), dim=0)
-        edge_index = torch.cat((edge_index, edge_index[[1,0]]), dim=1)
+        edge_index_full = torch.cat((edge_index, edge_index[[1,0]]), dim=1)
 
-        x_hat_1 = self.conv_embed_1(x, edge_index) 
-
-        if self.has_act:
-            x_hat_1 = F.leaky_relu_(x_hat_1)
+        if self.use_checkpoint and self.training:
+            x_hat_1 = checkpoint(self._final_conv, x, edge_index_full, use_reentrant=False)
+        else:
+            x_hat_1 = self._final_conv(x, edge_index_full)
 
         return x + x_hat_1, self.conv_embed_1.alpha.view(-1, 1)
 
@@ -198,22 +225,25 @@ class GRCN(GeneralRecommender):
         self.edge_index = edge_index.t().contiguous().to(self.device)
         #self.edge_index = torch.cat((self.edge_index, self.edge_index[[1, 0]]), dim=1)
         self.num_modal = 0
-        self.id_gcn = EGCN(num_user, num_item, dim_x, self.aggr_mode, has_act, has_norm)
         self.pruning = True
 
+        # Count modalities first
         num_model = 0
         if self.v_feat is not None:
-            self.v_gcn = CGCN(self.v_feat, num_user, num_item, dim_C, self.aggr_mode, num_layer, has_act, has_norm)
             num_model += 1
-
-        #if a_feat is not None:
-            #self.a_gcn = CGCN(self.a_feat, num_user, num_item, dim_C, aggr_mode, num_layer, has_act, has_norm)
-            #num_model += 1
-        
         if self.t_feat is not None:
-            self.t_gcn = CGCN(self.t_feat, num_user, num_item, dim_C, self.aggr_mode, num_layer, has_act, has_norm, is_word)
             num_model += 1
 
+        use_checkpoint = config['use_checkpoint']  # Enable gradient checkpointing
+        self.id_gcn = EGCN(num_user, num_item, dim_x, self.aggr_mode, has_act, has_norm, use_checkpoint)
+        
+        # Create modal-specific GCNs with checkpointing
+        if self.v_feat is not None:
+            self.v_gcn = CGCN(self.v_feat, num_user, num_item, dim_C, self.aggr_mode, num_layer, has_act, has_norm, use_checkpoint=use_checkpoint, device=self.device)
+        if self.t_feat is not None:
+            self.t_gcn = CGCN(self.t_feat, num_user, num_item, dim_C, self.aggr_mode, num_layer, has_act, has_norm, is_word, use_checkpoint, self.device)
+        
+        # Initialize model_specific_conf after counting modalities
         self.model_specific_conf = nn.Parameter(nn.init.xavier_normal_(torch.rand((num_user+num_item, num_model))))
 
         self.result = nn.init.xavier_normal_(torch.rand((num_user+num_item, dim_x))).to(self.device)

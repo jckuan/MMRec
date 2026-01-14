@@ -13,6 +13,7 @@ import scipy.sparse as sp
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.checkpoint import checkpoint
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss, L2Loss
@@ -39,6 +40,7 @@ class FREEDOM(GeneralRecommender):
         self.mm_image_weight = config['mm_image_weight']
         self.dropout = config['dropout']
         self.degree_ratio = config['degree_ratio']
+        self.use_checkpoint = config['use_checkpoint']  # Enable gradient checkpointing
 
         self.n_nodes = self.n_users + self.n_items
 
@@ -56,6 +58,12 @@ class FREEDOM(GeneralRecommender):
         nn.init.xavier_uniform_(self.item_id_embedding.weight)
 
         dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
+        # Extract subdirectory from inter_file_name if present (e.g., 'cs_lowcount_10/file.csv' -> 'cs_lowcount_10')
+        inter_file = config['inter_file_name']
+        if '/' in inter_file:
+            subdirectory = inter_file.split('/')[0]
+            dataset_path = os.path.join(dataset_path, subdirectory)
+        
         # Add modality suffix to cache file to avoid dimension mismatches when switching modalities
         modality_suffix = ''
         if self.v_feat is not None:
@@ -95,8 +103,8 @@ class FREEDOM(GeneralRecommender):
         _, knn_ind = torch.topk(sim, self.knn_k, dim=-1)
         adj_size = sim.size()
         del sim
-        # construct sparse adj
-        indices0 = torch.arange(knn_ind.shape[0]).to(self.device)
+        # construct sparse adj - ensure indices0 is on same device as knn_ind
+        indices0 = torch.arange(knn_ind.shape[0]).to(knn_ind.device)
         indices0 = torch.unsqueeze(indices0, 1)
         indices0 = indices0.expand(-1, self.knn_k)
         indices = torch.stack((torch.flatten(indices0), torch.flatten(knn_ind)), 0)
@@ -174,17 +182,69 @@ class FREEDOM(GeneralRecommender):
         values = self._normalize_adj_m(edges, torch.Size((self.n_users, self.n_items)))
         return edges, values
 
+    def _mm_propagation(self, mm_adj, h):
+        """Separate method for checkpointing multimodal propagation"""
+        # Ensure mm_adj is on the same device as h
+        if mm_adj.device != h.device:
+            mm_adj = mm_adj.to(h.device)
+        
+        # Sparse operations don't support FP16 - disable autocast
+        with torch.amp.autocast('cuda', enabled=False):
+            # Ensure both mm_adj and h are in FP32 for sparse operations
+            if mm_adj.dtype != torch.float32:
+                mm_adj = mm_adj.float()
+            h_float = h.float() if h.dtype != torch.float32 else h
+            result = torch.sparse.mm(mm_adj, h_float)
+        
+        # Return in original dtype
+        return result if h.dtype == torch.float32 else result.half()
+    
     def forward(self, adj):
         h = self.item_id_embedding.weight
-        for i in range(self.n_layers):
-            h = torch.sparse.mm(self.mm_adj, h)
+        # Ensure mm_adj is on the same device as h for sparse operations
+        if self.mm_adj.device != h.device:
+            self.mm_adj = self.mm_adj.to(h.device)
+        
+        # Sparse matrix multiplication requires FP32 - disable autocast for this section
+        with torch.amp.autocast('cuda', enabled=False):
+            # Convert mm_adj to FP32 if needed
+            if self.mm_adj.dtype != torch.float32:
+                self.mm_adj = self.mm_adj.float()
+            
+            # Store original dtype
+            h_dtype = h.dtype
+            h = h.float() if h.dtype != torch.float32 else h
+            
+            # Perform sparse matrix multiplication in FP32
+            for i in range(self.n_layers):
+                if self.use_checkpoint and self.training:
+                    # Note: checkpoint will re-enter autocast context, so _mm_propagation handles it
+                    h = checkpoint(self._mm_propagation, self.mm_adj, h, use_reentrant=False)
+                else:
+                    h = torch.sparse.mm(self.mm_adj, h)
+            
+            # Convert back to original dtype if needed
+            if h_dtype != torch.float32:
+                h = h.to(h_dtype)
 
+        # User-item graph propagation also requires FP32 for sparse operations
         ego_embeddings = torch.cat((self.user_embedding.weight, self.item_id_embedding.weight), dim=0)
         all_embeddings = [ego_embeddings]
-        for i in range(self.n_ui_layers):
-            side_embeddings = torch.sparse.mm(adj, ego_embeddings)
-            ego_embeddings = side_embeddings
-            all_embeddings += [ego_embeddings]
+        
+        with torch.amp.autocast('cuda', enabled=False):
+            # Store original dtype and convert to FP32
+            ego_dtype = ego_embeddings.dtype
+            ego_embeddings = ego_embeddings.float() if ego_embeddings.dtype != torch.float32 else ego_embeddings
+            
+            for i in range(self.n_ui_layers):
+                side_embeddings = torch.sparse.mm(adj, ego_embeddings)
+                ego_embeddings = side_embeddings
+                all_embeddings += [ego_embeddings]
+            
+            # Convert back to original dtype if needed
+            if ego_dtype != torch.float32:
+                all_embeddings = [emb.to(ego_dtype) for emb in all_embeddings]
+        
         all_embeddings = torch.stack(all_embeddings, dim=1)
         all_embeddings = all_embeddings.mean(dim=1, keepdim=False)
         u_g_embeddings, i_g_embeddings = torch.split(all_embeddings, [self.n_users, self.n_items], dim=0)

@@ -60,6 +60,12 @@ class DRAGON(GeneralRecommender):
         self.mm_adj = None
 
         dataset_path = os.path.abspath(config['data_path'] + config['dataset'])
+        # Extract subdirectory from inter_file_name if present (e.g., 'cs_lowcount_10/file.csv' -> 'cs_lowcount_10')
+        inter_file = config['inter_file_name']
+        if '/' in inter_file:
+            subdirectory = inter_file.split('/')[0]
+            dataset_path = os.path.join(dataset_path, subdirectory)
+        
         self.user_graph_dict = np.load(os.path.join(dataset_path, config['user_graph_dict_file']),
                                        allow_pickle=True).item()
 

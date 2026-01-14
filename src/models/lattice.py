@@ -17,6 +17,7 @@ import scipy.sparse as sp
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.checkpoint import checkpoint
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss, L2Loss
@@ -40,6 +41,7 @@ class LATTICE(GeneralRecommender):
         self.n_layers = config['n_layers']
         self.reg_weight = config['reg_weight']
         self.build_item_graph = True
+        self.use_checkpoint = config['use_checkpoint']  # Enable gradient checkpointing
 
         # load dataset info
         self.interaction_matrix = dataset.inter_matrix(form='coo').astype(np.float32)
@@ -171,9 +173,16 @@ class LATTICE(GeneralRecommender):
         else:
             self.item_adj = self.item_adj.detach()
 
+        def _item_propagation(item_adj, h):
+            """Separate method for checkpointing item graph propagation"""
+            return torch.mm(item_adj, h)
+        
         h = self.item_id_embedding.weight
         for i in range(self.n_layers):
-            h = torch.mm(self.item_adj, h)
+            if self.use_checkpoint and self.training:
+                h = checkpoint(_item_propagation, self.item_adj, h, use_reentrant=False)
+            else:
+                h = torch.mm(self.item_adj, h)
 
         if self.cf_model == 'ngcf':
             ego_embeddings = torch.cat((self.user_embedding.weight, self.item_id_embedding.weight), dim=0)
