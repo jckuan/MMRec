@@ -4,5 +4,6 @@ TIME_FIELD: timestamp
 filter_out_cod_start_users: true
 inter_file_name: cs_lowcount_10/clean_lowcount_coldstart_interactions.csv
 vision_feature_file: cs_lowcount_10/clean_audio_feat_mert.npy
-user_graph_dict_file: cs_lowcount_10/user_graph_dict.npy
+text_feature_file: cs_lowcount_10/clean_text_feat.npy
+user_graph_dict_file: user_graph_dict.npy
 field_separator: "\t"

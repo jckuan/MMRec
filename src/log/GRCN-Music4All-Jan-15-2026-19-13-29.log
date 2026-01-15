@@ -1,0 +1,146 @@
+Thu 15 Jan 2026 19:13:29 INFO ██Server: 	bronx
+Thu 15 Jan 2026 19:13:29 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Thu 15 Jan 2026 19:13:29 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+keep_features_on_cpu=True
+use_checkpoint=True
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=[0.0001]
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=True
+candidate_sampling_type=popularity
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+use_fettle=False
+cf_extraction_method=average
+iladt_weight=0.05
+cla_weight=0.01
+clcr_gamma=0.05
+ga_gamma=0.1
+prototype_num=10
+hyper_parameters=['seed', 'reg_weight', 'learning_rate']
+inter_file_name=cs_lowcount_10/clean_lowcount_coldstart_interactions.csv
+vision_feature_file=cs_lowcount_10/clean_audio_feat_mert.npy
+text_feature_file=cs_lowcount_10/clean_text_feat.npy
+user_graph_dict_file=cs_lowcount_10/user_graph_dict.npy
+latent_embedding=64
+n_layers=1
+reg_weight=[1e-05]
+model=GRCN
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Thu 15 Jan 2026 19:13:30 INFO Music4All
+The number of users: 14127
+Average actions of users: 294.72605648757695
+The number of items: 99596
+Average actions of items: 41.804841559902
+The number of inters: 4163595
+The sparsity of the dataset: 99.70407842033056%
+Thu 15 Jan 2026 19:13:30 INFO 
+====Training====
+Music4All
+The number of users: 14127
+Average actions of users: 288.95342252424433
+The number of items: 98431
+Average actions of items: 41.47113206205362
+The number of inters: 4082045
+The sparsity of the dataset: 99.70644063097576%
+Thu 15 Jan 2026 19:13:30 INFO 
+====Validation====
+Music4All
+The number of users: 7491
+Average actions of users: 5.262047790682152
+The number of items: 23690
+Average actions of items: 1.6639088222878853
+The number of inters: 39418
+The sparsity of the dataset: 99.97778789450958%
+Thu 15 Jan 2026 19:13:30 INFO 
+====Testing====
+Music4All
+The number of users: 7662
+Average actions of users: 5.498825371965545
+The number of items: 24618
+Average actions of items: 1.7114306604923226
+The number of inters: 42132
+The sparsity of the dataset: 99.97766339519065%
+Thu 15 Jan 2026 19:13:33 INFO 
+
+=================================
+
+
+Thu 15 Jan 2026 19:13:33 INFO =========1/1: Parameters:['seed', 'reg_weight', 'learning_rate']=(999, 1e-05, 0.0001)=======
+Thu 15 Jan 2026 19:13:34 INFO GRCN(
+  (id_gcn): EGCN(
+    (conv_embed_1): SAGEConv(64, 64)
+    (conv_embed_2): SAGEConv(64, 64)
+  )
+  (v_gcn): CGCN(
+    (conv_embed_1): GATConv(64, 64)
+    (MLP): Linear(in_features=1024, out_features=64, bias=True)
+  )
+  (t_gcn): CGCN(
+    (conv_embed_1): GATConv(64, 64)
+    (MLP): Linear(in_features=384, out_features=64, bias=True)
+  )
+)
+Trainable parameters: 9404214
+Thu 15 Jan 2026 19:13:35 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Thu 15 Jan 2026 19:13:36 INFO ✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch
+Thu 15 Jan 2026 19:13:36 INFO Initialized tot_item_num: 99596
+Thu 15 Jan 2026 19:13:36 INFO Computing item popularity from training data...
+Thu 15 Jan 2026 19:13:45 INFO Computed item popularity: 98431/99596 items in training
+Thu 15 Jan 2026 19:13:45 INFO Smoothing parameter alpha=0.01, min_prob=2.45e-09, max_prob=1.66e-02
+Thu 15 Jan 2026 19:30:52 INFO Epoch 0 training [time: 1026.83s, Train loss: 268.8508]
+Thu 15 Jan 2026 19:31:11 INFO Epoch 0: valid_score: 0.1849
+Thu 15 Jan 2026 19:31:11 INFO Valid result: recall@20_full: 0.0004    ndcg@20_full: 0.0004    precision@20_full: 0.0003    map@20_full: 0.0001    recall@20_pop: 0.1849    ndcg@20_pop: 0.1488    precision@20_pop: 0.0725    map@20_pop: 0.0988    
+Thu 15 Jan 2026 19:31:11 INFO Test result : recall@20_full: 0.0004    ndcg@20_full: 0.0004    precision@20_full: 0.0002    map@20_full: 0.0001    recall@20_pop: 0.1725    ndcg@20_pop: 0.1413    precision@20_pop: 0.0718    map@20_pop: 0.0934    
+Thu 15 Jan 2026 19:31:11 INFO ██ GRCN--Best validation results updated!!!
+Thu 15 Jan 2026 19:51:04 INFO Epoch 1 training [time: 1192.76s, Train loss: 135.7436]
+Thu 15 Jan 2026 19:51:18 INFO Epoch 1: valid_score: 0.1288
+Thu 15 Jan 2026 19:51:18 INFO Valid result: recall@20_pop: 0.1288    ndcg@20_pop: 0.0940    precision@20_pop: 0.0542    map@20_pop: 0.0586    
+Thu 15 Jan 2026 19:51:18 INFO Test result : recall@20_pop: 0.1210    ndcg@20_pop: 0.0906    precision@20_pop: 0.0544    map@20_pop: 0.0562    
