@@ -15,6 +15,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.functional import cosine_similarity
+from torch.utils.checkpoint import checkpoint
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import EmbLoss
@@ -43,6 +44,9 @@ class BM3(GeneralRecommender):
 
         self.predictor = nn.Linear(self.embedding_dim, self.embedding_dim)
         self.reg_loss = EmbLoss()
+        
+        # Memory optimization: gradient checkpointing
+        self.use_checkpoint = config['use_checkpoint']
 
         nn.init.xavier_normal_(self.predictor.weight)
 
@@ -81,14 +85,27 @@ class BM3(GeneralRecommender):
 
         return torch.sparse.FloatTensor(i, data, torch.Size((self.n_nodes, self.n_nodes)))
 
+    def _gnn_layer(self, ego_embeddings):
+        """Single GNN layer for checkpointing"""
+        return torch.sparse.mm(self.norm_adj, ego_embeddings)
+    
     def forward(self):
         h = self.item_id_embedding.weight
 
         ego_embeddings = torch.cat((self.user_embedding.weight, self.item_id_embedding.weight), dim=0)
         all_embeddings = [ego_embeddings]
-        for i in range(self.n_layers):
-            ego_embeddings = torch.sparse.mm(self.norm_adj, ego_embeddings)
-            all_embeddings += [ego_embeddings]
+        
+        # Memory optimization: sparse operations need FP32, disable autocast
+        with torch.amp.autocast('cuda', enabled=False):
+            ego_embeddings = ego_embeddings.float() if ego_embeddings.dtype == torch.float16 else ego_embeddings
+            
+            for i in range(self.n_layers):
+                if self.use_checkpoint and self.training:
+                    ego_embeddings = checkpoint(self._gnn_layer, ego_embeddings, use_reentrant=False)
+                else:
+                    ego_embeddings = torch.sparse.mm(self.norm_adj, ego_embeddings)
+                all_embeddings += [ego_embeddings]
+        
         all_embeddings = torch.stack(all_embeddings, dim=1)
         all_embeddings = all_embeddings.mean(dim=1, keepdim=False)
         u_g_embeddings, i_g_embeddings = torch.split(all_embeddings, [self.n_users, self.n_items], dim=0)
@@ -105,18 +122,18 @@ class BM3(GeneralRecommender):
 
         with torch.no_grad():
             u_target, i_target = u_online_ori.clone(), i_online_ori.clone()
-            u_target.detach()
-            i_target.detach()
-            u_target = F.dropout(u_target, self.dropout)
-            i_target = F.dropout(i_target, self.dropout)
+            u_target.detach_()
+            i_target.detach_()
+            u_target = F.dropout(u_target, self.dropout, inplace=True)
+            i_target = F.dropout(i_target, self.dropout, inplace=True)
 
             if self.t_feat is not None:
                 t_feat_target = t_feat_online.clone()
-                t_feat_target = F.dropout(t_feat_target, self.dropout)
+                t_feat_target = F.dropout(t_feat_target, self.dropout, inplace=True)
 
             if self.v_feat is not None:
                 v_feat_target = v_feat_online.clone()
-                v_feat_target = F.dropout(v_feat_target, self.dropout)
+                v_feat_target = F.dropout(v_feat_target, self.dropout, inplace=True)
 
         u_online, i_online = self.predictor(u_online_ori), self.predictor(i_online_ori)
 

@@ -261,3 +261,1648 @@ Fri 16 Jan 2026 01:20:56 INFO Epoch 26 training [time: 412.65s, Train loss: 111.
 Fri 16 Jan 2026 01:21:06 INFO Epoch 26: valid_score: 0.1260
 Fri 16 Jan 2026 01:21:06 INFO Valid result: recall@20_pop: 0.1260    ndcg@20_pop: 0.0768    precision@20_pop: 0.0509    map@20_pop: 0.0403    
 Fri 16 Jan 2026 01:21:06 INFO Test result : recall@20_pop: 0.1197    ndcg@20_pop: 0.0743    precision@20_pop: 0.0507    map@20_pop: 0.0391    
+Fri 16 Jan 2026 01:28:13 INFO Epoch 27 training [time: 427.15s, Train loss: 110.0943]
+Fri 16 Jan 2026 01:28:24 INFO Epoch 27: valid_score: 0.1130
+Fri 16 Jan 2026 01:28:24 INFO Valid result: recall@20_pop: 0.1130    ndcg@20_pop: 0.0696    precision@20_pop: 0.0468    map@20_pop: 0.0373    
+Fri 16 Jan 2026 01:28:24 INFO Test result : recall@20_pop: 0.1057    ndcg@20_pop: 0.0668    precision@20_pop: 0.0465    map@20_pop: 0.0359    
+Fri 16 Jan 2026 01:35:23 INFO Epoch 28 training [time: 418.93s, Train loss: 109.3919]
+Fri 16 Jan 2026 01:35:34 INFO Epoch 28: valid_score: 0.1519
+Fri 16 Jan 2026 01:35:34 INFO Valid result: recall@20_pop: 0.1519    ndcg@20_pop: 0.0938    precision@20_pop: 0.0600    map@20_pop: 0.0512    
+Fri 16 Jan 2026 01:35:34 INFO Test result : recall@20_pop: 0.1436    ndcg@20_pop: 0.0910    precision@20_pop: 0.0596    map@20_pop: 0.0501    
+Fri 16 Jan 2026 01:35:34 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 01:42:37 INFO Epoch 29 training [time: 422.25s, Train loss: 108.4404]
+Fri 16 Jan 2026 01:42:59 INFO Epoch 29: valid_score: 0.1248
+Fri 16 Jan 2026 01:42:59 INFO Valid result: recall@20_pop: 0.1248    ndcg@20_pop: 0.0768    precision@20_pop: 0.0511    map@20_pop: 0.0410    
+Fri 16 Jan 2026 01:42:59 INFO Test result : recall@20_pop: 0.1193    ndcg@20_pop: 0.0743    precision@20_pop: 0.0511    map@20_pop: 0.0392    
+Fri 16 Jan 2026 01:50:35 INFO Epoch 30 training [time: 456.00s, Train loss: 108.2517]
+Fri 16 Jan 2026 01:50:49 INFO Epoch 30: valid_score: 0.1365
+Fri 16 Jan 2026 01:50:49 INFO Valid result: recall@20_pop: 0.1365    ndcg@20_pop: 0.0833    precision@20_pop: 0.0544    map@20_pop: 0.0444    
+Fri 16 Jan 2026 01:50:49 INFO Test result : recall@20_pop: 0.1311    ndcg@20_pop: 0.0818    precision@20_pop: 0.0552    map@20_pop: 0.0438    
+Fri 16 Jan 2026 01:58:24 INFO Epoch 31 training [time: 454.46s, Train loss: 107.1837]
+Fri 16 Jan 2026 01:58:37 INFO Epoch 31: valid_score: 0.0867
+Fri 16 Jan 2026 01:58:37 INFO Valid result: recall@20_pop: 0.0867    ndcg@20_pop: 0.0524    precision@20_pop: 0.0372    map@20_pop: 0.0261    
+Fri 16 Jan 2026 01:58:37 INFO Test result : recall@20_pop: 0.0824    ndcg@20_pop: 0.0503    precision@20_pop: 0.0370    map@20_pop: 0.0248    
+Fri 16 Jan 2026 02:06:11 INFO Epoch 32 training [time: 453.91s, Train loss: 106.5548]
+Fri 16 Jan 2026 02:06:23 INFO Epoch 32: valid_score: 0.1306
+Fri 16 Jan 2026 02:06:23 INFO Valid result: recall@20_pop: 0.1306    ndcg@20_pop: 0.0792    precision@20_pop: 0.0521    map@20_pop: 0.0416    
+Fri 16 Jan 2026 02:06:23 INFO Test result : recall@20_pop: 0.1231    ndcg@20_pop: 0.0761    precision@20_pop: 0.0521    map@20_pop: 0.0403    
+Fri 16 Jan 2026 02:13:57 INFO Epoch 33 training [time: 453.61s, Train loss: 106.2784]
+Fri 16 Jan 2026 02:14:10 INFO Epoch 33: valid_score: 0.1221
+Fri 16 Jan 2026 02:14:10 INFO Valid result: recall@20_pop: 0.1221    ndcg@20_pop: 0.0765    precision@20_pop: 0.0506    map@20_pop: 0.0415    
+Fri 16 Jan 2026 02:14:10 INFO Test result : recall@20_pop: 0.1156    ndcg@20_pop: 0.0741    precision@20_pop: 0.0505    map@20_pop: 0.0405    
+Fri 16 Jan 2026 02:21:41 INFO Epoch 34 training [time: 451.34s, Train loss: 105.3354]
+Fri 16 Jan 2026 02:21:55 INFO Epoch 34: valid_score: 0.1325
+Fri 16 Jan 2026 02:21:55 INFO Valid result: recall@20_pop: 0.1325    ndcg@20_pop: 0.0812    precision@20_pop: 0.0528    map@20_pop: 0.0433    
+Fri 16 Jan 2026 02:21:55 INFO Test result : recall@20_pop: 0.1240    ndcg@20_pop: 0.0778    precision@20_pop: 0.0528    map@20_pop: 0.0419    
+Fri 16 Jan 2026 02:29:28 INFO Epoch 35 training [time: 452.57s, Train loss: 104.9032]
+Fri 16 Jan 2026 02:29:41 INFO Epoch 35: valid_score: 0.1155
+Fri 16 Jan 2026 02:29:41 INFO Valid result: recall@20_pop: 0.1155    ndcg@20_pop: 0.0705    precision@20_pop: 0.0477    map@20_pop: 0.0368    
+Fri 16 Jan 2026 02:29:41 INFO Test result : recall@20_pop: 0.1094    ndcg@20_pop: 0.0689    precision@20_pop: 0.0476    map@20_pop: 0.0366    
+Fri 16 Jan 2026 02:37:13 INFO Epoch 36 training [time: 452.07s, Train loss: 103.8356]
+Fri 16 Jan 2026 02:37:26 INFO Epoch 36: valid_score: 0.1085
+Fri 16 Jan 2026 02:37:26 INFO Valid result: recall@20_pop: 0.1085    ndcg@20_pop: 0.0671    precision@20_pop: 0.0454    map@20_pop: 0.0357    
+Fri 16 Jan 2026 02:37:26 INFO Test result : recall@20_pop: 0.1031    ndcg@20_pop: 0.0646    precision@20_pop: 0.0455    map@20_pop: 0.0340    
+Fri 16 Jan 2026 02:44:59 INFO Epoch 37 training [time: 453.05s, Train loss: 103.6071]
+Fri 16 Jan 2026 02:45:13 INFO Epoch 37: valid_score: 0.1166
+Fri 16 Jan 2026 02:45:13 INFO Valid result: recall@20_pop: 0.1166    ndcg@20_pop: 0.0704    precision@20_pop: 0.0473    map@20_pop: 0.0361    
+Fri 16 Jan 2026 02:45:13 INFO Test result : recall@20_pop: 0.1113    ndcg@20_pop: 0.0684    precision@20_pop: 0.0477    map@20_pop: 0.0348    
+Fri 16 Jan 2026 02:52:47 INFO Epoch 38 training [time: 453.70s, Train loss: 102.8749]
+Fri 16 Jan 2026 02:53:01 INFO Epoch 38: valid_score: 0.1338
+Fri 16 Jan 2026 02:53:01 INFO Valid result: recall@20_pop: 0.1338    ndcg@20_pop: 0.0828    precision@20_pop: 0.0537    map@20_pop: 0.0442    
+Fri 16 Jan 2026 02:53:01 INFO Test result : recall@20_pop: 0.1291    ndcg@20_pop: 0.0803    precision@20_pop: 0.0541    map@20_pop: 0.0425    
+Fri 16 Jan 2026 03:00:35 INFO Epoch 39 training [time: 454.08s, Train loss: 102.6767]
+Fri 16 Jan 2026 03:00:49 INFO Epoch 39: valid_score: 0.1305
+Fri 16 Jan 2026 03:00:49 INFO Valid result: recall@20_pop: 0.1305    ndcg@20_pop: 0.0813    precision@20_pop: 0.0525    map@20_pop: 0.0441    
+Fri 16 Jan 2026 03:00:49 INFO Test result : recall@20_pop: 0.1267    ndcg@20_pop: 0.0796    precision@20_pop: 0.0534    map@20_pop: 0.0428    
+Fri 16 Jan 2026 03:08:23 INFO Epoch 40 training [time: 453.29s, Train loss: 101.6040]
+Fri 16 Jan 2026 03:08:35 INFO Epoch 40: valid_score: 0.1368
+Fri 16 Jan 2026 03:08:35 INFO Valid result: recall@20_pop: 0.1368    ndcg@20_pop: 0.0851    precision@20_pop: 0.0551    map@20_pop: 0.0464    
+Fri 16 Jan 2026 03:08:35 INFO Test result : recall@20_pop: 0.1306    ndcg@20_pop: 0.0825    precision@20_pop: 0.0555    map@20_pop: 0.0447    
+Fri 16 Jan 2026 03:16:07 INFO Epoch 41 training [time: 451.46s, Train loss: 101.2818]
+Fri 16 Jan 2026 03:16:20 INFO Epoch 41: valid_score: 0.1383
+Fri 16 Jan 2026 03:16:20 INFO Valid result: recall@20_pop: 0.1383    ndcg@20_pop: 0.0851    precision@20_pop: 0.0549    map@20_pop: 0.0459    
+Fri 16 Jan 2026 03:16:20 INFO Test result : recall@20_pop: 0.1313    ndcg@20_pop: 0.0823    precision@20_pop: 0.0552    map@20_pop: 0.0441    
+Fri 16 Jan 2026 03:23:54 INFO Epoch 42 training [time: 453.39s, Train loss: 100.3579]
+Fri 16 Jan 2026 03:24:08 INFO Epoch 42: valid_score: 0.0903
+Fri 16 Jan 2026 03:24:08 INFO Valid result: recall@20_pop: 0.0903    ndcg@20_pop: 0.0544    precision@20_pop: 0.0375    map@20_pop: 0.0275    
+Fri 16 Jan 2026 03:24:08 INFO Test result : recall@20_pop: 0.0841    ndcg@20_pop: 0.0523    precision@20_pop: 0.0376    map@20_pop: 0.0266    
+Fri 16 Jan 2026 03:31:43 INFO Epoch 43 training [time: 454.41s, Train loss: 99.9099]
+Fri 16 Jan 2026 03:31:58 INFO Epoch 43: valid_score: 0.1211
+Fri 16 Jan 2026 03:31:58 INFO Valid result: recall@20_pop: 0.1211    ndcg@20_pop: 0.0733    precision@20_pop: 0.0487    map@20_pop: 0.0377    
+Fri 16 Jan 2026 03:31:58 INFO Test result : recall@20_pop: 0.1149    ndcg@20_pop: 0.0699    precision@20_pop: 0.0485    map@20_pop: 0.0355    
+Fri 16 Jan 2026 03:39:33 INFO Epoch 44 training [time: 454.49s, Train loss: 99.3638]
+Fri 16 Jan 2026 03:39:48 INFO Epoch 44: valid_score: 0.1262
+Fri 16 Jan 2026 03:39:48 INFO Valid result: recall@20_pop: 0.1262    ndcg@20_pop: 0.0780    precision@20_pop: 0.0510    map@20_pop: 0.0416    
+Fri 16 Jan 2026 03:39:48 INFO Test result : recall@20_pop: 0.1193    ndcg@20_pop: 0.0754    precision@20_pop: 0.0511    map@20_pop: 0.0404    
+Fri 16 Jan 2026 03:47:22 INFO Epoch 45 training [time: 454.26s, Train loss: 98.7356]
+Fri 16 Jan 2026 03:47:36 INFO Epoch 45: valid_score: 0.1348
+Fri 16 Jan 2026 03:47:36 INFO Valid result: recall@20_pop: 0.1348    ndcg@20_pop: 0.0833    precision@20_pop: 0.0538    map@20_pop: 0.0449    
+Fri 16 Jan 2026 03:47:36 INFO Test result : recall@20_pop: 0.1283    ndcg@20_pop: 0.0808    precision@20_pop: 0.0540    map@20_pop: 0.0439    
+Fri 16 Jan 2026 03:55:11 INFO Epoch 46 training [time: 454.91s, Train loss: 98.5082]
+Fri 16 Jan 2026 03:55:25 INFO Epoch 46: valid_score: 0.1399
+Fri 16 Jan 2026 03:55:25 INFO Valid result: recall@20_pop: 0.1399    ndcg@20_pop: 0.0860    precision@20_pop: 0.0548    map@20_pop: 0.0459    
+Fri 16 Jan 2026 03:55:25 INFO Test result : recall@20_pop: 0.1350    ndcg@20_pop: 0.0838    precision@20_pop: 0.0557    map@20_pop: 0.0444    
+Fri 16 Jan 2026 04:03:00 INFO Epoch 47 training [time: 455.03s, Train loss: 97.6651]
+Fri 16 Jan 2026 04:03:14 INFO Epoch 47: valid_score: 0.1256
+Fri 16 Jan 2026 04:03:14 INFO Valid result: recall@20_pop: 0.1256    ndcg@20_pop: 0.0784    precision@20_pop: 0.0512    map@20_pop: 0.0423    
+Fri 16 Jan 2026 04:03:14 INFO Test result : recall@20_pop: 0.1171    ndcg@20_pop: 0.0747    precision@20_pop: 0.0506    map@20_pop: 0.0402    
+Fri 16 Jan 2026 04:10:46 INFO Epoch 48 training [time: 452.81s, Train loss: 97.2739]
+Fri 16 Jan 2026 04:11:00 INFO Epoch 48: valid_score: 0.1557
+Fri 16 Jan 2026 04:11:00 INFO Valid result: recall@20_pop: 0.1557    ndcg@20_pop: 0.0970    precision@20_pop: 0.0611    map@20_pop: 0.0529    
+Fri 16 Jan 2026 04:11:00 INFO Test result : recall@20_pop: 0.1496    ndcg@20_pop: 0.0935    precision@20_pop: 0.0611    map@20_pop: 0.0506    
+Fri 16 Jan 2026 04:11:00 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 04:18:33 INFO Epoch 49 training [time: 452.33s, Train loss: 97.0041]
+Fri 16 Jan 2026 04:18:47 INFO Epoch 49: valid_score: 0.1214
+Fri 16 Jan 2026 04:18:47 INFO Valid result: recall@20_pop: 0.1214    ndcg@20_pop: 0.0753    precision@20_pop: 0.0497    map@20_pop: 0.0399    
+Fri 16 Jan 2026 04:18:47 INFO Test result : recall@20_pop: 0.1170    ndcg@20_pop: 0.0734    precision@20_pop: 0.0497    map@20_pop: 0.0391    
+Fri 16 Jan 2026 04:26:20 INFO Epoch 50 training [time: 452.67s, Train loss: 96.7988]
+Fri 16 Jan 2026 04:26:32 INFO Epoch 50: valid_score: 0.1450
+Fri 16 Jan 2026 04:26:32 INFO Valid result: recall@20_pop: 0.1450    ndcg@20_pop: 0.0903    precision@20_pop: 0.0572    map@20_pop: 0.0489    
+Fri 16 Jan 2026 04:26:32 INFO Test result : recall@20_pop: 0.1390    ndcg@20_pop: 0.0876    precision@20_pop: 0.0575    map@20_pop: 0.0473    
+Fri 16 Jan 2026 04:34:06 INFO Epoch 51 training [time: 453.32s, Train loss: 95.9452]
+Fri 16 Jan 2026 04:34:18 INFO Epoch 51: valid_score: 0.1195
+Fri 16 Jan 2026 04:34:18 INFO Valid result: recall@20_pop: 0.1195    ndcg@20_pop: 0.0746    precision@20_pop: 0.0492    map@20_pop: 0.0401    
+Fri 16 Jan 2026 04:34:18 INFO Test result : recall@20_pop: 0.1128    ndcg@20_pop: 0.0722    precision@20_pop: 0.0492    map@20_pop: 0.0390    
+Fri 16 Jan 2026 04:41:50 INFO Epoch 52 training [time: 452.05s, Train loss: 95.7284]
+Fri 16 Jan 2026 04:42:04 INFO Epoch 52: valid_score: 0.1158
+Fri 16 Jan 2026 04:42:04 INFO Valid result: recall@20_pop: 0.1158    ndcg@20_pop: 0.0716    precision@20_pop: 0.0476    map@20_pop: 0.0377    
+Fri 16 Jan 2026 04:42:04 INFO Test result : recall@20_pop: 0.1124    ndcg@20_pop: 0.0698    precision@20_pop: 0.0480    map@20_pop: 0.0364    
+Fri 16 Jan 2026 04:49:38 INFO Epoch 53 training [time: 453.88s, Train loss: 94.9056]
+Fri 16 Jan 2026 04:49:51 INFO Epoch 53: valid_score: 0.1381
+Fri 16 Jan 2026 04:49:51 INFO Valid result: recall@20_pop: 0.1381    ndcg@20_pop: 0.0857    precision@20_pop: 0.0549    map@20_pop: 0.0461    
+Fri 16 Jan 2026 04:49:51 INFO Test result : recall@20_pop: 0.1344    ndcg@20_pop: 0.0838    precision@20_pop: 0.0558    map@20_pop: 0.0445    
+Fri 16 Jan 2026 04:57:25 INFO Epoch 54 training [time: 453.38s, Train loss: 94.8439]
+Fri 16 Jan 2026 04:57:38 INFO Epoch 54: valid_score: 0.1736
+Fri 16 Jan 2026 04:57:38 INFO Valid result: recall@20_pop: 0.1736    ndcg@20_pop: 0.1074    precision@20_pop: 0.0654    map@20_pop: 0.0590    
+Fri 16 Jan 2026 04:57:38 INFO Test result : recall@20_pop: 0.1675    ndcg@20_pop: 0.1044    precision@20_pop: 0.0660    map@20_pop: 0.0570    
+Fri 16 Jan 2026 04:57:38 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 05:05:11 INFO Epoch 55 training [time: 452.73s, Train loss: 94.3664]
+Fri 16 Jan 2026 05:05:23 INFO Epoch 55: valid_score: 0.1328
+Fri 16 Jan 2026 05:05:23 INFO Valid result: recall@20_pop: 0.1328    ndcg@20_pop: 0.0830    precision@20_pop: 0.0529    map@20_pop: 0.0450    
+Fri 16 Jan 2026 05:05:23 INFO Test result : recall@20_pop: 0.1265    ndcg@20_pop: 0.0801    precision@20_pop: 0.0530    map@20_pop: 0.0427    
+Fri 16 Jan 2026 05:12:56 INFO Epoch 56 training [time: 452.53s, Train loss: 93.8386]
+Fri 16 Jan 2026 05:13:09 INFO Epoch 56: valid_score: 0.1325
+Fri 16 Jan 2026 05:13:09 INFO Valid result: recall@20_pop: 0.1325    ndcg@20_pop: 0.0814    precision@20_pop: 0.0525    map@20_pop: 0.0432    
+Fri 16 Jan 2026 05:13:09 INFO Test result : recall@20_pop: 0.1275    ndcg@20_pop: 0.0798    precision@20_pop: 0.0532    map@20_pop: 0.0423    
+Fri 16 Jan 2026 05:20:36 INFO Epoch 57 training [time: 446.65s, Train loss: 93.4707]
+Fri 16 Jan 2026 05:20:50 INFO Epoch 57: valid_score: 0.1296
+Fri 16 Jan 2026 05:20:50 INFO Valid result: recall@20_pop: 0.1296    ndcg@20_pop: 0.0806    precision@20_pop: 0.0518    map@20_pop: 0.0432    
+Fri 16 Jan 2026 05:20:50 INFO Test result : recall@20_pop: 0.1232    ndcg@20_pop: 0.0781    precision@20_pop: 0.0522    map@20_pop: 0.0417    
+Fri 16 Jan 2026 05:28:24 INFO Epoch 58 training [time: 453.64s, Train loss: 92.8654]
+Fri 16 Jan 2026 05:28:37 INFO Epoch 58: valid_score: 0.1468
+Fri 16 Jan 2026 05:28:37 INFO Valid result: recall@20_pop: 0.1468    ndcg@20_pop: 0.0895    precision@20_pop: 0.0570    map@20_pop: 0.0475    
+Fri 16 Jan 2026 05:28:37 INFO Test result : recall@20_pop: 0.1401    ndcg@20_pop: 0.0860    precision@20_pop: 0.0567    map@20_pop: 0.0452    
+Fri 16 Jan 2026 05:36:10 INFO Epoch 59 training [time: 453.33s, Train loss: 92.8749]
+Fri 16 Jan 2026 05:36:24 INFO Epoch 59: valid_score: 0.1534
+Fri 16 Jan 2026 05:36:24 INFO Valid result: recall@20_pop: 0.1534    ndcg@20_pop: 0.0955    precision@20_pop: 0.0598    map@20_pop: 0.0517    
+Fri 16 Jan 2026 05:36:24 INFO Test result : recall@20_pop: 0.1473    ndcg@20_pop: 0.0928    precision@20_pop: 0.0599    map@20_pop: 0.0503    
+Fri 16 Jan 2026 05:43:55 INFO Epoch 60 training [time: 451.10s, Train loss: 92.2845]
+Fri 16 Jan 2026 05:44:09 INFO Epoch 60: valid_score: 0.1524
+Fri 16 Jan 2026 05:44:09 INFO Valid result: recall@20_pop: 0.1524    ndcg@20_pop: 0.0935    precision@20_pop: 0.0587    map@20_pop: 0.0501    
+Fri 16 Jan 2026 05:44:09 INFO Test result : recall@20_pop: 0.1448    ndcg@20_pop: 0.0909    precision@20_pop: 0.0593    map@20_pop: 0.0489    
+Fri 16 Jan 2026 05:51:38 INFO Epoch 61 training [time: 449.80s, Train loss: 91.9323]
+Fri 16 Jan 2026 05:51:53 INFO Epoch 61: valid_score: 0.1329
+Fri 16 Jan 2026 05:51:53 INFO Valid result: recall@20_pop: 0.1329    ndcg@20_pop: 0.0824    precision@20_pop: 0.0532    map@20_pop: 0.0438    
+Fri 16 Jan 2026 05:51:53 INFO Test result : recall@20_pop: 0.1270    ndcg@20_pop: 0.0801    precision@20_pop: 0.0533    map@20_pop: 0.0427    
+Fri 16 Jan 2026 05:59:23 INFO Epoch 62 training [time: 450.14s, Train loss: 91.4445]
+Fri 16 Jan 2026 05:59:37 INFO Epoch 62: valid_score: 0.1276
+Fri 16 Jan 2026 05:59:37 INFO Valid result: recall@20_pop: 0.1276    ndcg@20_pop: 0.0790    precision@20_pop: 0.0513    map@20_pop: 0.0417    
+Fri 16 Jan 2026 05:59:37 INFO Test result : recall@20_pop: 0.1232    ndcg@20_pop: 0.0768    precision@20_pop: 0.0517    map@20_pop: 0.0404    
+Fri 16 Jan 2026 06:07:08 INFO Epoch 63 training [time: 450.64s, Train loss: 91.1386]
+Fri 16 Jan 2026 06:07:21 INFO Epoch 63: valid_score: 0.1246
+Fri 16 Jan 2026 06:07:21 INFO Valid result: recall@20_pop: 0.1246    ndcg@20_pop: 0.0756    precision@20_pop: 0.0493    map@20_pop: 0.0392    
+Fri 16 Jan 2026 06:07:21 INFO Test result : recall@20_pop: 0.1209    ndcg@20_pop: 0.0742    precision@20_pop: 0.0504    map@20_pop: 0.0384    
+Fri 16 Jan 2026 06:14:51 INFO Epoch 64 training [time: 450.11s, Train loss: 90.7250]
+Fri 16 Jan 2026 06:15:05 INFO Epoch 64: valid_score: 0.1317
+Fri 16 Jan 2026 06:15:05 INFO Valid result: recall@20_pop: 0.1317    ndcg@20_pop: 0.0825    precision@20_pop: 0.0531    map@20_pop: 0.0446    
+Fri 16 Jan 2026 06:15:05 INFO Test result : recall@20_pop: 0.1253    ndcg@20_pop: 0.0786    precision@20_pop: 0.0529    map@20_pop: 0.0416    
+Fri 16 Jan 2026 06:22:34 INFO Epoch 65 training [time: 448.98s, Train loss: 90.6093]
+Fri 16 Jan 2026 06:22:47 INFO Epoch 65: valid_score: 0.1490
+Fri 16 Jan 2026 06:22:47 INFO Valid result: recall@20_pop: 0.1490    ndcg@20_pop: 0.0926    precision@20_pop: 0.0580    map@20_pop: 0.0502    
+Fri 16 Jan 2026 06:22:47 INFO Test result : recall@20_pop: 0.1423    ndcg@20_pop: 0.0891    precision@20_pop: 0.0579    map@20_pop: 0.0479    
+Fri 16 Jan 2026 06:30:17 INFO Epoch 66 training [time: 449.78s, Train loss: 90.3129]
+Fri 16 Jan 2026 06:30:30 INFO Epoch 66: valid_score: 0.1528
+Fri 16 Jan 2026 06:30:30 INFO Valid result: recall@20_pop: 0.1528    ndcg@20_pop: 0.0932    precision@20_pop: 0.0578    map@20_pop: 0.0493    
+Fri 16 Jan 2026 06:30:30 INFO Test result : recall@20_pop: 0.1454    ndcg@20_pop: 0.0897    precision@20_pop: 0.0583    map@20_pop: 0.0475    
+Fri 16 Jan 2026 06:38:00 INFO Epoch 67 training [time: 450.29s, Train loss: 89.3400]
+Fri 16 Jan 2026 06:38:13 INFO Epoch 67: valid_score: 0.1370
+Fri 16 Jan 2026 06:38:13 INFO Valid result: recall@20_pop: 0.1370    ndcg@20_pop: 0.0838    precision@20_pop: 0.0544    map@20_pop: 0.0441    
+Fri 16 Jan 2026 06:38:13 INFO Test result : recall@20_pop: 0.1293    ndcg@20_pop: 0.0806    precision@20_pop: 0.0541    map@20_pop: 0.0421    
+Fri 16 Jan 2026 06:45:42 INFO Epoch 68 training [time: 449.00s, Train loss: 89.4565]
+Fri 16 Jan 2026 06:45:55 INFO Epoch 68: valid_score: 0.1436
+Fri 16 Jan 2026 06:45:55 INFO Valid result: recall@20_pop: 0.1436    ndcg@20_pop: 0.0888    precision@20_pop: 0.0562    map@20_pop: 0.0479    
+Fri 16 Jan 2026 06:45:55 INFO Test result : recall@20_pop: 0.1365    ndcg@20_pop: 0.0854    precision@20_pop: 0.0560    map@20_pop: 0.0456    
+Fri 16 Jan 2026 06:53:25 INFO Epoch 69 training [time: 449.40s, Train loss: 88.8879]
+Fri 16 Jan 2026 06:53:38 INFO Epoch 69: valid_score: 0.1444
+Fri 16 Jan 2026 06:53:38 INFO Valid result: recall@20_pop: 0.1444    ndcg@20_pop: 0.0896    precision@20_pop: 0.0563    map@20_pop: 0.0481    
+Fri 16 Jan 2026 06:53:38 INFO Test result : recall@20_pop: 0.1373    ndcg@20_pop: 0.0863    precision@20_pop: 0.0562    map@20_pop: 0.0464    
+Fri 16 Jan 2026 07:01:09 INFO Epoch 70 training [time: 451.26s, Train loss: 88.6255]
+Fri 16 Jan 2026 07:01:21 INFO Epoch 70: valid_score: 0.1588
+Fri 16 Jan 2026 07:01:21 INFO Valid result: recall@20_pop: 0.1588    ndcg@20_pop: 0.0987    precision@20_pop: 0.0612    map@20_pop: 0.0539    
+Fri 16 Jan 2026 07:01:21 INFO Test result : recall@20_pop: 0.1503    ndcg@20_pop: 0.0955    precision@20_pop: 0.0612    map@20_pop: 0.0523    
+Fri 16 Jan 2026 07:08:54 INFO Epoch 71 training [time: 452.40s, Train loss: 88.5570]
+Fri 16 Jan 2026 07:09:08 INFO Epoch 71: valid_score: 0.1240
+Fri 16 Jan 2026 07:09:08 INFO Valid result: recall@20_pop: 0.1240    ndcg@20_pop: 0.0770    precision@20_pop: 0.0496    map@20_pop: 0.0410    
+Fri 16 Jan 2026 07:09:08 INFO Test result : recall@20_pop: 0.1187    ndcg@20_pop: 0.0741    precision@20_pop: 0.0496    map@20_pop: 0.0388    
+Fri 16 Jan 2026 07:16:39 INFO Epoch 72 training [time: 451.07s, Train loss: 88.0578]
+Fri 16 Jan 2026 07:16:53 INFO Epoch 72: valid_score: 0.1679
+Fri 16 Jan 2026 07:16:53 INFO Valid result: recall@20_pop: 0.1679    ndcg@20_pop: 0.1034    precision@20_pop: 0.0634    map@20_pop: 0.0562    
+Fri 16 Jan 2026 07:16:53 INFO Test result : recall@20_pop: 0.1611    ndcg@20_pop: 0.1006    precision@20_pop: 0.0636    map@20_pop: 0.0548    
+Fri 16 Jan 2026 07:24:23 INFO Epoch 73 training [time: 450.31s, Train loss: 87.6277]
+Fri 16 Jan 2026 07:24:36 INFO Epoch 73: valid_score: 0.1350
+Fri 16 Jan 2026 07:24:36 INFO Valid result: recall@20_pop: 0.1350    ndcg@20_pop: 0.0841    precision@20_pop: 0.0537    map@20_pop: 0.0454    
+Fri 16 Jan 2026 07:24:36 INFO Test result : recall@20_pop: 0.1289    ndcg@20_pop: 0.0815    precision@20_pop: 0.0538    map@20_pop: 0.0438    
+Fri 16 Jan 2026 07:32:07 INFO Epoch 74 training [time: 450.29s, Train loss: 87.5997]
+Fri 16 Jan 2026 07:32:20 INFO Epoch 74: valid_score: 0.1872
+Fri 16 Jan 2026 07:32:20 INFO Valid result: recall@20_pop: 0.1872    ndcg@20_pop: 0.1144    precision@20_pop: 0.0682    map@20_pop: 0.0624    
+Fri 16 Jan 2026 07:32:20 INFO Test result : recall@20_pop: 0.1758    ndcg@20_pop: 0.1092    precision@20_pop: 0.0679    map@20_pop: 0.0594    
+Fri 16 Jan 2026 07:32:20 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 07:39:49 INFO Epoch 75 training [time: 448.92s, Train loss: 87.4287]
+Fri 16 Jan 2026 07:40:03 INFO Epoch 75: valid_score: 0.1520
+Fri 16 Jan 2026 07:40:03 INFO Valid result: recall@20_pop: 0.1520    ndcg@20_pop: 0.0937    precision@20_pop: 0.0584    map@20_pop: 0.0503    
+Fri 16 Jan 2026 07:40:03 INFO Test result : recall@20_pop: 0.1448    ndcg@20_pop: 0.0901    precision@20_pop: 0.0581    map@20_pop: 0.0477    
+Fri 16 Jan 2026 07:47:31 INFO Epoch 76 training [time: 448.32s, Train loss: 86.6255]
+Fri 16 Jan 2026 07:47:46 INFO Epoch 76: valid_score: 0.1373
+Fri 16 Jan 2026 07:47:46 INFO Valid result: recall@20_pop: 0.1373    ndcg@20_pop: 0.0845    precision@20_pop: 0.0537    map@20_pop: 0.0447    
+Fri 16 Jan 2026 07:47:46 INFO Test result : recall@20_pop: 0.1312    ndcg@20_pop: 0.0815    precision@20_pop: 0.0538    map@20_pop: 0.0428    
+Fri 16 Jan 2026 07:55:15 INFO Epoch 77 training [time: 449.04s, Train loss: 86.3256]
+Fri 16 Jan 2026 07:55:28 INFO Epoch 77: valid_score: 0.1516
+Fri 16 Jan 2026 07:55:28 INFO Valid result: recall@20_pop: 0.1516    ndcg@20_pop: 0.0938    precision@20_pop: 0.0592    map@20_pop: 0.0507    
+Fri 16 Jan 2026 07:55:28 INFO Test result : recall@20_pop: 0.1457    ndcg@20_pop: 0.0917    precision@20_pop: 0.0593    map@20_pop: 0.0494    
+Fri 16 Jan 2026 08:02:59 INFO Epoch 78 training [time: 450.79s, Train loss: 86.0536]
+Fri 16 Jan 2026 08:03:12 INFO Epoch 78: valid_score: 0.1318
+Fri 16 Jan 2026 08:03:12 INFO Valid result: recall@20_pop: 0.1318    ndcg@20_pop: 0.0825    precision@20_pop: 0.0526    map@20_pop: 0.0447    
+Fri 16 Jan 2026 08:03:12 INFO Test result : recall@20_pop: 0.1245    ndcg@20_pop: 0.0787    precision@20_pop: 0.0518    map@20_pop: 0.0421    
+Fri 16 Jan 2026 08:10:42 INFO Epoch 79 training [time: 449.88s, Train loss: 85.9669]
+Fri 16 Jan 2026 08:10:55 INFO Epoch 79: valid_score: 0.1218
+Fri 16 Jan 2026 08:10:55 INFO Valid result: recall@20_pop: 0.1218    ndcg@20_pop: 0.0726    precision@20_pop: 0.0480    map@20_pop: 0.0368    
+Fri 16 Jan 2026 08:10:55 INFO Test result : recall@20_pop: 0.1123    ndcg@20_pop: 0.0688    precision@20_pop: 0.0474    map@20_pop: 0.0346    
+Fri 16 Jan 2026 08:18:26 INFO Epoch 80 training [time: 450.57s, Train loss: 85.7961]
+Fri 16 Jan 2026 08:18:39 INFO Epoch 80: valid_score: 0.1550
+Fri 16 Jan 2026 08:18:39 INFO Valid result: recall@20_pop: 0.1550    ndcg@20_pop: 0.0970    precision@20_pop: 0.0597    map@20_pop: 0.0532    
+Fri 16 Jan 2026 08:18:39 INFO Test result : recall@20_pop: 0.1451    ndcg@20_pop: 0.0930    precision@20_pop: 0.0598    map@20_pop: 0.0509    
+Fri 16 Jan 2026 08:26:10 INFO Epoch 81 training [time: 451.09s, Train loss: 85.1242]
+Fri 16 Jan 2026 08:26:23 INFO Epoch 81: valid_score: 0.1368
+Fri 16 Jan 2026 08:26:23 INFO Valid result: recall@20_pop: 0.1368    ndcg@20_pop: 0.0836    precision@20_pop: 0.0536    map@20_pop: 0.0440    
+Fri 16 Jan 2026 08:26:23 INFO Test result : recall@20_pop: 0.1290    ndcg@20_pop: 0.0803    precision@20_pop: 0.0533    map@20_pop: 0.0422    
+Fri 16 Jan 2026 08:33:54 INFO Epoch 82 training [time: 451.03s, Train loss: 84.9595]
+Fri 16 Jan 2026 08:34:08 INFO Epoch 82: valid_score: 0.1465
+Fri 16 Jan 2026 08:34:08 INFO Valid result: recall@20_pop: 0.1465    ndcg@20_pop: 0.0903    precision@20_pop: 0.0571    map@20_pop: 0.0479    
+Fri 16 Jan 2026 08:34:08 INFO Test result : recall@20_pop: 0.1413    ndcg@20_pop: 0.0880    precision@20_pop: 0.0573    map@20_pop: 0.0466    
+Fri 16 Jan 2026 08:41:38 INFO Epoch 83 training [time: 450.06s, Train loss: 84.6445]
+Fri 16 Jan 2026 08:41:51 INFO Epoch 83: valid_score: 0.1526
+Fri 16 Jan 2026 08:41:51 INFO Valid result: recall@20_pop: 0.1526    ndcg@20_pop: 0.0956    precision@20_pop: 0.0593    map@20_pop: 0.0521    
+Fri 16 Jan 2026 08:41:51 INFO Test result : recall@20_pop: 0.1458    ndcg@20_pop: 0.0912    precision@20_pop: 0.0593    map@20_pop: 0.0485    
+Fri 16 Jan 2026 08:49:20 INFO Epoch 84 training [time: 448.80s, Train loss: 84.2051]
+Fri 16 Jan 2026 08:49:32 INFO Epoch 84: valid_score: 0.1518
+Fri 16 Jan 2026 08:49:32 INFO Valid result: recall@20_pop: 0.1518    ndcg@20_pop: 0.0939    precision@20_pop: 0.0583    map@20_pop: 0.0506    
+Fri 16 Jan 2026 08:49:32 INFO Test result : recall@20_pop: 0.1459    ndcg@20_pop: 0.0916    precision@20_pop: 0.0591    map@20_pop: 0.0494    
+Fri 16 Jan 2026 08:57:03 INFO Epoch 85 training [time: 450.84s, Train loss: 84.2320]
+Fri 16 Jan 2026 08:57:15 INFO Epoch 85: valid_score: 0.1388
+Fri 16 Jan 2026 08:57:15 INFO Valid result: recall@20_pop: 0.1388    ndcg@20_pop: 0.0863    precision@20_pop: 0.0548    map@20_pop: 0.0462    
+Fri 16 Jan 2026 08:57:15 INFO Test result : recall@20_pop: 0.1300    ndcg@20_pop: 0.0829    precision@20_pop: 0.0547    map@20_pop: 0.0444    
+Fri 16 Jan 2026 09:04:46 INFO Epoch 86 training [time: 450.70s, Train loss: 84.1244]
+Fri 16 Jan 2026 09:05:00 INFO Epoch 86: valid_score: 0.1660
+Fri 16 Jan 2026 09:05:00 INFO Valid result: recall@20_pop: 0.1660    ndcg@20_pop: 0.1028    precision@20_pop: 0.0629    map@20_pop: 0.0558    
+Fri 16 Jan 2026 09:05:00 INFO Test result : recall@20_pop: 0.1568    ndcg@20_pop: 0.0986    precision@20_pop: 0.0626    map@20_pop: 0.0535    
+Fri 16 Jan 2026 09:12:29 INFO Epoch 87 training [time: 449.28s, Train loss: 83.4955]
+Fri 16 Jan 2026 09:12:43 INFO Epoch 87: valid_score: 0.1462
+Fri 16 Jan 2026 09:12:43 INFO Valid result: recall@20_pop: 0.1462    ndcg@20_pop: 0.0903    precision@20_pop: 0.0565    map@20_pop: 0.0483    
+Fri 16 Jan 2026 09:12:43 INFO Test result : recall@20_pop: 0.1394    ndcg@20_pop: 0.0873    precision@20_pop: 0.0572    map@20_pop: 0.0459    
+Fri 16 Jan 2026 09:20:12 INFO Epoch 88 training [time: 449.33s, Train loss: 83.5578]
+Fri 16 Jan 2026 09:20:25 INFO Epoch 88: valid_score: 0.1557
+Fri 16 Jan 2026 09:20:25 INFO Valid result: recall@20_pop: 0.1557    ndcg@20_pop: 0.0978    precision@20_pop: 0.0601    map@20_pop: 0.0537    
+Fri 16 Jan 2026 09:20:25 INFO Test result : recall@20_pop: 0.1488    ndcg@20_pop: 0.0949    precision@20_pop: 0.0604    map@20_pop: 0.0520    
+Fri 16 Jan 2026 09:27:54 INFO Epoch 89 training [time: 449.18s, Train loss: 83.2002]
+Fri 16 Jan 2026 09:28:08 INFO Epoch 89: valid_score: 0.1631
+Fri 16 Jan 2026 09:28:08 INFO Valid result: recall@20_pop: 0.1631    ndcg@20_pop: 0.1008    precision@20_pop: 0.0619    map@20_pop: 0.0547    
+Fri 16 Jan 2026 09:28:08 INFO Test result : recall@20_pop: 0.1550    ndcg@20_pop: 0.0976    precision@20_pop: 0.0617    map@20_pop: 0.0528    
+Fri 16 Jan 2026 09:35:36 INFO Epoch 90 training [time: 448.24s, Train loss: 82.7905]
+Fri 16 Jan 2026 09:35:51 INFO Epoch 90: valid_score: 0.1662
+Fri 16 Jan 2026 09:35:51 INFO Valid result: recall@20_pop: 0.1662    ndcg@20_pop: 0.1054    precision@20_pop: 0.0635    map@20_pop: 0.0587    
+Fri 16 Jan 2026 09:35:51 INFO Test result : recall@20_pop: 0.1585    ndcg@20_pop: 0.1015    precision@20_pop: 0.0635    map@20_pop: 0.0561    
+Fri 16 Jan 2026 09:43:20 INFO Epoch 91 training [time: 448.44s, Train loss: 82.6626]
+Fri 16 Jan 2026 09:43:32 INFO Epoch 91: valid_score: 0.1624
+Fri 16 Jan 2026 09:43:32 INFO Valid result: recall@20_pop: 0.1624    ndcg@20_pop: 0.1011    precision@20_pop: 0.0615    map@20_pop: 0.0552    
+Fri 16 Jan 2026 09:43:32 INFO Test result : recall@20_pop: 0.1532    ndcg@20_pop: 0.0967    precision@20_pop: 0.0615    map@20_pop: 0.0520    
+Fri 16 Jan 2026 09:51:02 INFO Epoch 92 training [time: 450.24s, Train loss: 82.2215]
+Fri 16 Jan 2026 09:51:15 INFO Epoch 92: valid_score: 0.1526
+Fri 16 Jan 2026 09:51:15 INFO Valid result: recall@20_pop: 0.1526    ndcg@20_pop: 0.0935    precision@20_pop: 0.0579    map@20_pop: 0.0498    
+Fri 16 Jan 2026 09:51:15 INFO Test result : recall@20_pop: 0.1432    ndcg@20_pop: 0.0899    precision@20_pop: 0.0579    map@20_pop: 0.0480    
+Fri 16 Jan 2026 09:58:45 INFO Epoch 93 training [time: 449.55s, Train loss: 82.1049]
+Fri 16 Jan 2026 09:58:59 INFO Epoch 93: valid_score: 0.1693
+Fri 16 Jan 2026 09:58:59 INFO Valid result: recall@20_pop: 0.1693    ndcg@20_pop: 0.1062    precision@20_pop: 0.0644    map@20_pop: 0.0586    
+Fri 16 Jan 2026 09:58:59 INFO Test result : recall@20_pop: 0.1584    ndcg@20_pop: 0.1015    precision@20_pop: 0.0638    map@20_pop: 0.0560    
+Fri 16 Jan 2026 10:06:28 INFO Epoch 94 training [time: 449.06s, Train loss: 81.7587]
+Fri 16 Jan 2026 10:06:41 INFO Epoch 94: valid_score: 0.1715
+Fri 16 Jan 2026 10:06:41 INFO Valid result: recall@20_pop: 0.1715    ndcg@20_pop: 0.1068    precision@20_pop: 0.0646    map@20_pop: 0.0584    
+Fri 16 Jan 2026 10:06:41 INFO Test result : recall@20_pop: 0.1625    ndcg@20_pop: 0.1020    precision@20_pop: 0.0641    map@20_pop: 0.0555    
+Fri 16 Jan 2026 10:14:12 INFO Epoch 95 training [time: 450.30s, Train loss: 81.8896]
+Fri 16 Jan 2026 10:14:24 INFO Epoch 95: valid_score: 0.1680
+Fri 16 Jan 2026 10:14:24 INFO Valid result: recall@20_pop: 0.1680    ndcg@20_pop: 0.1042    precision@20_pop: 0.0636    map@20_pop: 0.0565    
+Fri 16 Jan 2026 10:14:24 INFO Test result : recall@20_pop: 0.1570    ndcg@20_pop: 0.0984    precision@20_pop: 0.0626    map@20_pop: 0.0528    
+Fri 16 Jan 2026 10:14:24 INFO +++++Finished training, best eval result in epoch 74
+Fri 16 Jan 2026 10:14:24 INFO best valid result: recall@20_pop: 0.1872    ndcg@20_pop: 0.1144    precision@20_pop: 0.0682    map@20_pop: 0.0624    
+Fri 16 Jan 2026 10:14:24 INFO test result: recall@20_pop: 0.1758    ndcg@20_pop: 0.1092    precision@20_pop: 0.0679    map@20_pop: 0.0594    
+Fri 16 Jan 2026 10:14:24 INFO ████Current BEST████:
+Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.1872    ndcg@20_pop: 0.1144    precision@20_pop: 0.0682    map@20_pop: 0.0624    ,
+Test: recall@20_pop: 0.1758    ndcg@20_pop: 0.1092    precision@20_pop: 0.0679    map@20_pop: 0.0594    
+
+
+
+Fri 16 Jan 2026 10:14:24 INFO 
+============All Over=====================
+Fri 16 Jan 2026 10:14:24 INFO Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+ best valid: recall@20_pop: 0.1872    ndcg@20_pop: 0.1144    precision@20_pop: 0.0682    map@20_pop: 0.0624    ,
+ best test: recall@20_pop: 0.1758    ndcg@20_pop: 0.1092    precision@20_pop: 0.0679    map@20_pop: 0.0594    
+Fri 16 Jan 2026 10:14:24 INFO 
+
+█████████████ BEST ████████████████
+Fri 16 Jan 2026 10:14:24 INFO 	Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.1872    ndcg@20_pop: 0.1144    precision@20_pop: 0.0682    map@20_pop: 0.0624    ,
+Test: recall@20_pop: 0.1758    ndcg@20_pop: 0.1092    precision@20_pop: 0.0679    map@20_pop: 0.0594    
+
+
+Fri 16 Jan 2026 10:14:25 INFO ██Server: 	bronx
+Fri 16 Jan 2026 10:14:25 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Fri 16 Jan 2026 10:14:25 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+keep_features_on_cpu=True
+use_checkpoint=True
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=[0.0001]
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=True
+candidate_sampling_type=popularity
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+use_fettle=True
+cf_extraction_method=average
+iladt_weight=0.05
+cla_weight=0.01
+clcr_gamma=0.05
+ga_gamma=0.1
+prototype_num=10
+hyper_parameters=['seed', 'aggr_mode', 'reg_weight', 'learning_rate']
+inter_file_name=cs_lowcount_10/clean_lowcount_coldstart_interactions.csv
+vision_feature_file=cs_lowcount_10/clean_audio_feat_mert.npy
+text_feature_file=cs_lowcount_10/clean_text_feat.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+n_mm_layers=1
+n_layers=2
+knn_k=10
+mm_image_weight=0.1
+aggr_mode=['add']
+reg_weight=[0.001]
+model=DRAGON
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Fri 16 Jan 2026 10:14:26 INFO Music4All
+The number of users: 14127
+Average actions of users: 294.72605648757695
+The number of items: 99596
+Average actions of items: 41.804841559902
+The number of inters: 4163595
+The sparsity of the dataset: 99.70407842033056%
+Fri 16 Jan 2026 10:14:26 INFO 
+====Training====
+Music4All
+The number of users: 14127
+Average actions of users: 288.95342252424433
+The number of items: 98431
+Average actions of items: 41.47113206205362
+The number of inters: 4082045
+The sparsity of the dataset: 99.70644063097576%
+Fri 16 Jan 2026 10:14:26 INFO 
+====Validation====
+Music4All
+The number of users: 7491
+Average actions of users: 5.262047790682152
+The number of items: 23690
+Average actions of items: 1.6639088222878853
+The number of inters: 39418
+The sparsity of the dataset: 99.97778789450958%
+Fri 16 Jan 2026 10:14:26 INFO 
+====Testing====
+Music4All
+The number of users: 7662
+Average actions of users: 5.498825371965545
+The number of items: 24618
+Average actions of items: 1.7114306604923226
+The number of inters: 42132
+The sparsity of the dataset: 99.97766339519065%
+Fri 16 Jan 2026 10:14:29 INFO 
+
+=================================
+
+
+Fri 16 Jan 2026 10:14:29 INFO =========1/1: Parameters:['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001)=======
+Fri 16 Jan 2026 10:14:35 INFO DRAGON(
+  (MLP_v): Linear(in_features=64, out_features=64, bias=False)
+  (MLP_t): Linear(in_features=64, out_features=64, bias=False)
+  (image_embedding): Embedding(99596, 1024)
+  (image_trs): Linear(in_features=1024, out_features=64, bias=True)
+  (text_embedding): Embedding(99596, 384)
+  (text_trs): Linear(in_features=384, out_features=64, bias=True)
+  (MLP_user): Linear(in_features=128, out_features=64, bias=True)
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=128, bias=True)
+    (MLP_1): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_1): Base_gcn(64, 64)
+  )
+  (t_gcn): GCN(
+    (MLP): Linear(in_features=384, out_features=128, bias=True)
+    (MLP_1): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_1): Base_gcn(64, 64)
+  )
+  (user_graph): User_Graph_sample()
+  (iladt_loss): ILADTLoss(
+    (i2t_map): Linear(in_features=64, out_features=64, bias=False)
+    (t2i_map): Linear(in_features=64, out_features=64, bias=False)
+    (i2d_map): Linear(in_features=64, out_features=64, bias=False)
+    (d2i_map): Linear(in_features=64, out_features=64, bias=False)
+    (t2d_map): Linear(in_features=64, out_features=64, bias=False)
+    (d2t_map): Linear(in_features=64, out_features=64, bias=False)
+  )
+  (cla_loss): CLALoss(
+    (feat2code): Linear(in_features=64, out_features=10, bias=False)
+    (ii2code): Linear(in_features=64, out_features=10, bias=False)
+  )
+)
+Trainable parameters: 142596408.0
+Fri 16 Jan 2026 10:14:35 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Fri 16 Jan 2026 10:14:35 INFO ✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch
+Fri 16 Jan 2026 10:14:35 INFO Initialized tot_item_num: 99596
+Fri 16 Jan 2026 10:14:35 INFO Computing item popularity from training data...
+Fri 16 Jan 2026 10:14:46 INFO Computed item popularity: 98431/99596 items in training
+Fri 16 Jan 2026 10:14:46 INFO Smoothing parameter alpha=0.01, min_prob=2.45e-09, max_prob=1.66e-02
+Fri 16 Jan 2026 10:23:09 INFO Epoch 0 training [time: 502.93s, Train loss: 637.5868]
+Fri 16 Jan 2026 10:23:24 INFO Epoch 0: valid_score: 0.0291
+Fri 16 Jan 2026 10:23:25 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0291    ndcg@20_pop: 0.0175    precision@20_pop: 0.0151    map@20_pop: 0.0078    
+Fri 16 Jan 2026 10:23:25 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0289    ndcg@20_pop: 0.0177    precision@20_pop: 0.0152    map@20_pop: 0.0080    
+Fri 16 Jan 2026 10:23:25 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 10:31:47 INFO Epoch 1 training [time: 502.16s, Train loss: 358.3450]
+Fri 16 Jan 2026 10:32:02 INFO Epoch 1: valid_score: 0.0404
+Fri 16 Jan 2026 10:32:02 INFO Valid result: recall@20_pop: 0.0404    ndcg@20_pop: 0.0233    precision@20_pop: 0.0190    map@20_pop: 0.0101    
+Fri 16 Jan 2026 10:32:02 INFO Test result : recall@20_pop: 0.0392    ndcg@20_pop: 0.0230    precision@20_pop: 0.0192    map@20_pop: 0.0101    
+Fri 16 Jan 2026 10:32:02 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 10:40:23 INFO Epoch 2 training [time: 501.48s, Train loss: 319.6314]
+Fri 16 Jan 2026 10:40:36 INFO Epoch 2: valid_score: 0.0435
+Fri 16 Jan 2026 10:40:36 INFO Valid result: recall@20_pop: 0.0435    ndcg@20_pop: 0.0253    precision@20_pop: 0.0207    map@20_pop: 0.0111    
+Fri 16 Jan 2026 10:40:36 INFO Test result : recall@20_pop: 0.0416    ndcg@20_pop: 0.0247    precision@20_pop: 0.0203    map@20_pop: 0.0112    
+Fri 16 Jan 2026 10:40:36 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 10:48:57 INFO Epoch 3 training [time: 500.59s, Train loss: 298.5527]
+Fri 16 Jan 2026 10:49:12 INFO Epoch 3: valid_score: 0.0491
+Fri 16 Jan 2026 10:49:12 INFO Valid result: recall@20_pop: 0.0491    ndcg@20_pop: 0.0289    precision@20_pop: 0.0229    map@20_pop: 0.0132    
+Fri 16 Jan 2026 10:49:12 INFO Test result : recall@20_pop: 0.0474    ndcg@20_pop: 0.0286    precision@20_pop: 0.0233    map@20_pop: 0.0133    
+Fri 16 Jan 2026 10:49:12 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 10:57:33 INFO Epoch 4 training [time: 501.00s, Train loss: 287.2393]
+Fri 16 Jan 2026 10:57:46 INFO Epoch 4: valid_score: 0.0526
+Fri 16 Jan 2026 10:57:46 INFO Valid result: recall@20_pop: 0.0526    ndcg@20_pop: 0.0298    precision@20_pop: 0.0236    map@20_pop: 0.0130    
+Fri 16 Jan 2026 10:57:46 INFO Test result : recall@20_pop: 0.0480    ndcg@20_pop: 0.0287    precision@20_pop: 0.0234    map@20_pop: 0.0131    
+Fri 16 Jan 2026 10:57:46 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:06:08 INFO Epoch 5 training [time: 501.39s, Train loss: 281.3808]
+Fri 16 Jan 2026 11:06:21 INFO Epoch 5: valid_score: 0.0557
+Fri 16 Jan 2026 11:06:21 INFO Valid result: recall@20_pop: 0.0557    ndcg@20_pop: 0.0328    precision@20_pop: 0.0260    map@20_pop: 0.0152    
+Fri 16 Jan 2026 11:06:21 INFO Test result : recall@20_pop: 0.0530    ndcg@20_pop: 0.0317    precision@20_pop: 0.0254    map@20_pop: 0.0149    
+Fri 16 Jan 2026 11:06:21 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:14:43 INFO Epoch 6 training [time: 501.90s, Train loss: 277.0888]
+Fri 16 Jan 2026 11:14:57 INFO Epoch 6: valid_score: 0.0570
+Fri 16 Jan 2026 11:14:57 INFO Valid result: recall@20_pop: 0.0570    ndcg@20_pop: 0.0335    precision@20_pop: 0.0262    map@20_pop: 0.0157    
+Fri 16 Jan 2026 11:14:57 INFO Test result : recall@20_pop: 0.0560    ndcg@20_pop: 0.0333    precision@20_pop: 0.0268    map@20_pop: 0.0157    
+Fri 16 Jan 2026 11:14:57 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:23:21 INFO Epoch 7 training [time: 503.74s, Train loss: 274.4277]
+Fri 16 Jan 2026 11:23:35 INFO Epoch 7: valid_score: 0.0575
+Fri 16 Jan 2026 11:23:35 INFO Valid result: recall@20_pop: 0.0575    ndcg@20_pop: 0.0340    precision@20_pop: 0.0266    map@20_pop: 0.0161    
+Fri 16 Jan 2026 11:23:35 INFO Test result : recall@20_pop: 0.0559    ndcg@20_pop: 0.0335    precision@20_pop: 0.0269    map@20_pop: 0.0161    
+Fri 16 Jan 2026 11:23:35 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:31:56 INFO Epoch 8 training [time: 501.06s, Train loss: 272.2949]
+Fri 16 Jan 2026 11:32:10 INFO Epoch 8: valid_score: 0.0596
+Fri 16 Jan 2026 11:32:10 INFO Valid result: recall@20_pop: 0.0596    ndcg@20_pop: 0.0353    precision@20_pop: 0.0273    map@20_pop: 0.0168    
+Fri 16 Jan 2026 11:32:10 INFO Test result : recall@20_pop: 0.0582    ndcg@20_pop: 0.0349    precision@20_pop: 0.0279    map@20_pop: 0.0167    
+Fri 16 Jan 2026 11:32:10 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:40:30 INFO Epoch 9 training [time: 500.40s, Train loss: 271.5345]
+Fri 16 Jan 2026 11:40:44 INFO Epoch 9: valid_score: 0.0588
+Fri 16 Jan 2026 11:40:44 INFO Valid result: recall@20_pop: 0.0588    ndcg@20_pop: 0.0346    precision@20_pop: 0.0269    map@20_pop: 0.0162    
+Fri 16 Jan 2026 11:40:44 INFO Test result : recall@20_pop: 0.0570    ndcg@20_pop: 0.0343    precision@20_pop: 0.0276    map@20_pop: 0.0161    
+Fri 16 Jan 2026 11:49:04 INFO Epoch 10 training [time: 499.99s, Train loss: 270.7585]
+Fri 16 Jan 2026 11:49:19 INFO Epoch 10: valid_score: 0.0626
+Fri 16 Jan 2026 11:49:19 INFO Valid result: recall@20_pop: 0.0626    ndcg@20_pop: 0.0376    precision@20_pop: 0.0294    map@20_pop: 0.0183    
+Fri 16 Jan 2026 11:49:19 INFO Test result : recall@20_pop: 0.0608    ndcg@20_pop: 0.0370    precision@20_pop: 0.0295    map@20_pop: 0.0179    
+Fri 16 Jan 2026 11:49:19 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 11:57:38 INFO Epoch 11 training [time: 498.86s, Train loss: 270.2297]
+Fri 16 Jan 2026 11:57:52 INFO Epoch 11: valid_score: 0.0670
+Fri 16 Jan 2026 11:57:52 INFO Valid result: recall@20_pop: 0.0670    ndcg@20_pop: 0.0393    precision@20_pop: 0.0301    map@20_pop: 0.0188    
+Fri 16 Jan 2026 11:57:52 INFO Test result : recall@20_pop: 0.0636    ndcg@20_pop: 0.0385    precision@20_pop: 0.0306    map@20_pop: 0.0187    
+Fri 16 Jan 2026 11:57:52 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 12:06:15 INFO Epoch 12 training [time: 502.51s, Train loss: 269.9508]
+Fri 16 Jan 2026 12:06:28 INFO Epoch 12: valid_score: 0.0642
+Fri 16 Jan 2026 12:06:28 INFO Valid result: recall@20_pop: 0.0642    ndcg@20_pop: 0.0377    precision@20_pop: 0.0291    map@20_pop: 0.0181    
+Fri 16 Jan 2026 12:06:28 INFO Test result : recall@20_pop: 0.0614    ndcg@20_pop: 0.0369    precision@20_pop: 0.0292    map@20_pop: 0.0177    
+Fri 16 Jan 2026 12:14:49 INFO Epoch 13 training [time: 500.67s, Train loss: 269.4221]
+Fri 16 Jan 2026 12:15:03 INFO Epoch 13: valid_score: 0.0660
+Fri 16 Jan 2026 12:15:03 INFO Valid result: recall@20_pop: 0.0660    ndcg@20_pop: 0.0388    precision@20_pop: 0.0301    map@20_pop: 0.0185    
+Fri 16 Jan 2026 12:15:03 INFO Test result : recall@20_pop: 0.0643    ndcg@20_pop: 0.0386    precision@20_pop: 0.0304    map@20_pop: 0.0188    
+Fri 16 Jan 2026 12:23:25 INFO Epoch 14 training [time: 502.79s, Train loss: 270.7622]
+Fri 16 Jan 2026 12:23:39 INFO Epoch 14: valid_score: 0.0662
+Fri 16 Jan 2026 12:23:39 INFO Valid result: recall@20_pop: 0.0662    ndcg@20_pop: 0.0393    precision@20_pop: 0.0300    map@20_pop: 0.0189    
+Fri 16 Jan 2026 12:23:39 INFO Test result : recall@20_pop: 0.0626    ndcg@20_pop: 0.0373    precision@20_pop: 0.0296    map@20_pop: 0.0178    
+Fri 16 Jan 2026 12:32:01 INFO Epoch 15 training [time: 501.45s, Train loss: 272.6872]
+Fri 16 Jan 2026 12:32:15 INFO Epoch 15: valid_score: 0.0664
+Fri 16 Jan 2026 12:32:15 INFO Valid result: recall@20_pop: 0.0664    ndcg@20_pop: 0.0394    precision@20_pop: 0.0302    map@20_pop: 0.0189    
+Fri 16 Jan 2026 12:32:15 INFO Test result : recall@20_pop: 0.0647    ndcg@20_pop: 0.0390    precision@20_pop: 0.0306    map@20_pop: 0.0191    
+Fri 16 Jan 2026 12:40:36 INFO Epoch 16 training [time: 501.57s, Train loss: 271.6130]
+Fri 16 Jan 2026 12:40:51 INFO Epoch 16: valid_score: 0.0685
+Fri 16 Jan 2026 12:40:51 INFO Valid result: recall@20_pop: 0.0685    ndcg@20_pop: 0.0403    precision@20_pop: 0.0309    map@20_pop: 0.0192    
+Fri 16 Jan 2026 12:40:51 INFO Test result : recall@20_pop: 0.0655    ndcg@20_pop: 0.0395    precision@20_pop: 0.0312    map@20_pop: 0.0190    
+Fri 16 Jan 2026 12:40:51 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 12:49:10 INFO Epoch 17 training [time: 498.97s, Train loss: 271.4507]
+Fri 16 Jan 2026 12:49:22 INFO Epoch 17: valid_score: 0.0706
+Fri 16 Jan 2026 12:49:22 INFO Valid result: recall@20_pop: 0.0706    ndcg@20_pop: 0.0420    precision@20_pop: 0.0320    map@20_pop: 0.0204    
+Fri 16 Jan 2026 12:49:22 INFO Test result : recall@20_pop: 0.0662    ndcg@20_pop: 0.0401    precision@20_pop: 0.0315    map@20_pop: 0.0196    
+Fri 16 Jan 2026 12:49:22 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 12:57:01 INFO Epoch 18 training [time: 458.85s, Train loss: 272.5040]
+Fri 16 Jan 2026 12:57:13 INFO Epoch 18: valid_score: 0.0690
+Fri 16 Jan 2026 12:57:13 INFO Valid result: recall@20_pop: 0.0690    ndcg@20_pop: 0.0409    precision@20_pop: 0.0313    map@20_pop: 0.0199    
+Fri 16 Jan 2026 12:57:13 INFO Test result : recall@20_pop: 0.0662    ndcg@20_pop: 0.0398    precision@20_pop: 0.0311    map@20_pop: 0.0191    
+Fri 16 Jan 2026 13:04:51 INFO Epoch 19 training [time: 458.50s, Train loss: 271.4781]
+Fri 16 Jan 2026 13:05:03 INFO Epoch 19: valid_score: 0.0705
+Fri 16 Jan 2026 13:05:03 INFO Valid result: recall@20_pop: 0.0705    ndcg@20_pop: 0.0417    precision@20_pop: 0.0318    map@20_pop: 0.0201    
+Fri 16 Jan 2026 13:05:03 INFO Test result : recall@20_pop: 0.0667    ndcg@20_pop: 0.0404    precision@20_pop: 0.0320    map@20_pop: 0.0196    
+Fri 16 Jan 2026 13:12:41 INFO Epoch 20 training [time: 458.29s, Train loss: 272.5176]
+Fri 16 Jan 2026 13:12:54 INFO Epoch 20: valid_score: 0.0715
+Fri 16 Jan 2026 13:12:54 INFO Valid result: recall@20_pop: 0.0715    ndcg@20_pop: 0.0423    precision@20_pop: 0.0323    map@20_pop: 0.0204    
+Fri 16 Jan 2026 13:12:54 INFO Test result : recall@20_pop: 0.0684    ndcg@20_pop: 0.0417    precision@20_pop: 0.0326    map@20_pop: 0.0205    
+Fri 16 Jan 2026 13:12:54 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 13:20:32 INFO Epoch 21 training [time: 458.23s, Train loss: 270.9881]
+Fri 16 Jan 2026 13:20:44 INFO Epoch 21: valid_score: 0.0730
+Fri 16 Jan 2026 13:20:44 INFO Valid result: recall@20_pop: 0.0730    ndcg@20_pop: 0.0433    precision@20_pop: 0.0329    map@20_pop: 0.0210    
+Fri 16 Jan 2026 13:20:44 INFO Test result : recall@20_pop: 0.0707    ndcg@20_pop: 0.0424    precision@20_pop: 0.0331    map@20_pop: 0.0204    
+Fri 16 Jan 2026 13:20:44 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 13:28:23 INFO Epoch 22 training [time: 458.45s, Train loss: 270.9172]
+Fri 16 Jan 2026 13:28:34 INFO Epoch 22: valid_score: 0.0721
+Fri 16 Jan 2026 13:28:34 INFO Valid result: recall@20_pop: 0.0721    ndcg@20_pop: 0.0428    precision@20_pop: 0.0325    map@20_pop: 0.0209    
+Fri 16 Jan 2026 13:28:34 INFO Test result : recall@20_pop: 0.0701    ndcg@20_pop: 0.0423    precision@20_pop: 0.0330    map@20_pop: 0.0206    
+Fri 16 Jan 2026 13:36:12 INFO Epoch 23 training [time: 458.53s, Train loss: 272.2530]
+Fri 16 Jan 2026 13:36:24 INFO Epoch 23: valid_score: 0.0781
+Fri 16 Jan 2026 13:36:24 INFO Valid result: recall@20_pop: 0.0781    ndcg@20_pop: 0.0455    precision@20_pop: 0.0345    map@20_pop: 0.0219    
+Fri 16 Jan 2026 13:36:24 INFO Test result : recall@20_pop: 0.0741    ndcg@20_pop: 0.0447    precision@20_pop: 0.0347    map@20_pop: 0.0218    
+Fri 16 Jan 2026 13:36:24 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 13:44:03 INFO Epoch 24 training [time: 458.70s, Train loss: 270.6643]
+Fri 16 Jan 2026 13:44:14 INFO Epoch 24: valid_score: 0.0748
+Fri 16 Jan 2026 13:44:14 INFO Valid result: recall@20_pop: 0.0748    ndcg@20_pop: 0.0442    precision@20_pop: 0.0338    map@20_pop: 0.0215    
+Fri 16 Jan 2026 13:44:14 INFO Test result : recall@20_pop: 0.0729    ndcg@20_pop: 0.0438    precision@20_pop: 0.0342    map@20_pop: 0.0214    
+Fri 16 Jan 2026 13:51:53 INFO Epoch 25 training [time: 458.55s, Train loss: 270.6321]
+Fri 16 Jan 2026 13:52:05 INFO Epoch 25: valid_score: 0.0748
+Fri 16 Jan 2026 13:52:05 INFO Valid result: recall@20_pop: 0.0748    ndcg@20_pop: 0.0438    precision@20_pop: 0.0334    map@20_pop: 0.0210    
+Fri 16 Jan 2026 13:52:05 INFO Test result : recall@20_pop: 0.0727    ndcg@20_pop: 0.0434    precision@20_pop: 0.0339    map@20_pop: 0.0211    
+Fri 16 Jan 2026 13:59:43 INFO Epoch 26 training [time: 458.42s, Train loss: 270.2546]
+Fri 16 Jan 2026 13:59:55 INFO Epoch 26: valid_score: 0.0747
+Fri 16 Jan 2026 13:59:55 INFO Valid result: recall@20_pop: 0.0747    ndcg@20_pop: 0.0438    precision@20_pop: 0.0333    map@20_pop: 0.0211    
+Fri 16 Jan 2026 13:59:55 INFO Test result : recall@20_pop: 0.0722    ndcg@20_pop: 0.0436    precision@20_pop: 0.0341    map@20_pop: 0.0213    
+Fri 16 Jan 2026 14:07:34 INFO Epoch 27 training [time: 458.18s, Train loss: 270.4822]
+Fri 16 Jan 2026 14:07:46 INFO Epoch 27: valid_score: 0.0762
+Fri 16 Jan 2026 14:07:46 INFO Valid result: recall@20_pop: 0.0762    ndcg@20_pop: 0.0455    precision@20_pop: 0.0340    map@20_pop: 0.0224    
+Fri 16 Jan 2026 14:07:46 INFO Test result : recall@20_pop: 0.0735    ndcg@20_pop: 0.0446    precision@20_pop: 0.0344    map@20_pop: 0.0220    
+Fri 16 Jan 2026 14:15:24 INFO Epoch 28 training [time: 458.42s, Train loss: 270.9093]
+Fri 16 Jan 2026 14:15:36 INFO Epoch 28: valid_score: 0.0736
+Fri 16 Jan 2026 14:15:36 INFO Valid result: recall@20_pop: 0.0736    ndcg@20_pop: 0.0433    precision@20_pop: 0.0332    map@20_pop: 0.0208    
+Fri 16 Jan 2026 14:15:36 INFO Test result : recall@20_pop: 0.0719    ndcg@20_pop: 0.0434    precision@20_pop: 0.0335    map@20_pop: 0.0213    
+Fri 16 Jan 2026 14:23:14 INFO Epoch 29 training [time: 458.66s, Train loss: 270.0863]
+Fri 16 Jan 2026 14:23:26 INFO Epoch 29: valid_score: 0.0759
+Fri 16 Jan 2026 14:23:26 INFO Valid result: recall@20_pop: 0.0759    ndcg@20_pop: 0.0452    precision@20_pop: 0.0340    map@20_pop: 0.0221    
+Fri 16 Jan 2026 14:23:26 INFO Test result : recall@20_pop: 0.0725    ndcg@20_pop: 0.0436    precision@20_pop: 0.0339    map@20_pop: 0.0212    
+Fri 16 Jan 2026 14:31:05 INFO Epoch 30 training [time: 458.82s, Train loss: 270.5006]
+Fri 16 Jan 2026 14:31:16 INFO Epoch 30: valid_score: 0.0779
+Fri 16 Jan 2026 14:31:16 INFO Valid result: recall@20_pop: 0.0779    ndcg@20_pop: 0.0457    precision@20_pop: 0.0348    map@20_pop: 0.0220    
+Fri 16 Jan 2026 14:31:16 INFO Test result : recall@20_pop: 0.0735    ndcg@20_pop: 0.0447    precision@20_pop: 0.0351    map@20_pop: 0.0220    
+Fri 16 Jan 2026 14:38:54 INFO Epoch 31 training [time: 458.25s, Train loss: 270.6666]
+Fri 16 Jan 2026 14:39:06 INFO Epoch 31: valid_score: 0.0765
+Fri 16 Jan 2026 14:39:06 INFO Valid result: recall@20_pop: 0.0765    ndcg@20_pop: 0.0456    precision@20_pop: 0.0345    map@20_pop: 0.0221    
+Fri 16 Jan 2026 14:39:06 INFO Test result : recall@20_pop: 0.0762    ndcg@20_pop: 0.0454    precision@20_pop: 0.0353    map@20_pop: 0.0221    
+Fri 16 Jan 2026 14:46:44 INFO Epoch 32 training [time: 458.32s, Train loss: 269.4881]
+Fri 16 Jan 2026 14:46:56 INFO Epoch 32: valid_score: 0.0767
+Fri 16 Jan 2026 14:46:56 INFO Valid result: recall@20_pop: 0.0767    ndcg@20_pop: 0.0451    precision@20_pop: 0.0340    map@20_pop: 0.0218    
+Fri 16 Jan 2026 14:46:56 INFO Test result : recall@20_pop: 0.0732    ndcg@20_pop: 0.0444    precision@20_pop: 0.0344    map@20_pop: 0.0218    
+Fri 16 Jan 2026 14:54:35 INFO Epoch 33 training [time: 458.46s, Train loss: 269.4485]
+Fri 16 Jan 2026 14:54:47 INFO Epoch 33: valid_score: 0.0817
+Fri 16 Jan 2026 14:54:47 INFO Valid result: recall@20_pop: 0.0817    ndcg@20_pop: 0.0479    precision@20_pop: 0.0357    map@20_pop: 0.0233    
+Fri 16 Jan 2026 14:54:47 INFO Test result : recall@20_pop: 0.0763    ndcg@20_pop: 0.0467    precision@20_pop: 0.0359    map@20_pop: 0.0233    
+Fri 16 Jan 2026 14:54:47 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 15:02:25 INFO Epoch 34 training [time: 458.38s, Train loss: 268.9861]
+Fri 16 Jan 2026 15:02:36 INFO Epoch 34: valid_score: 0.0746
+Fri 16 Jan 2026 15:02:36 INFO Valid result: recall@20_pop: 0.0746    ndcg@20_pop: 0.0439    precision@20_pop: 0.0332    map@20_pop: 0.0212    
+Fri 16 Jan 2026 15:02:36 INFO Test result : recall@20_pop: 0.0728    ndcg@20_pop: 0.0439    precision@20_pop: 0.0343    map@20_pop: 0.0214    
+Fri 16 Jan 2026 15:10:15 INFO Epoch 35 training [time: 458.49s, Train loss: 268.6318]
+Fri 16 Jan 2026 15:10:26 INFO Epoch 35: valid_score: 0.0801
+Fri 16 Jan 2026 15:10:26 INFO Valid result: recall@20_pop: 0.0801    ndcg@20_pop: 0.0469    precision@20_pop: 0.0353    map@20_pop: 0.0228    
+Fri 16 Jan 2026 15:10:26 INFO Test result : recall@20_pop: 0.0763    ndcg@20_pop: 0.0467    precision@20_pop: 0.0359    map@20_pop: 0.0232    
+Fri 16 Jan 2026 15:18:05 INFO Epoch 36 training [time: 458.61s, Train loss: 267.4375]
+Fri 16 Jan 2026 15:18:16 INFO Epoch 36: valid_score: 0.0825
+Fri 16 Jan 2026 15:18:16 INFO Valid result: recall@20_pop: 0.0825    ndcg@20_pop: 0.0482    precision@20_pop: 0.0360    map@20_pop: 0.0235    
+Fri 16 Jan 2026 15:18:16 INFO Test result : recall@20_pop: 0.0780    ndcg@20_pop: 0.0472    precision@20_pop: 0.0367    map@20_pop: 0.0231    
+Fri 16 Jan 2026 15:18:16 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 15:25:55 INFO Epoch 37 training [time: 458.59s, Train loss: 267.7249]
+Fri 16 Jan 2026 15:26:06 INFO Epoch 37: valid_score: 0.0805
+Fri 16 Jan 2026 15:26:06 INFO Valid result: recall@20_pop: 0.0805    ndcg@20_pop: 0.0477    precision@20_pop: 0.0359    map@20_pop: 0.0233    
+Fri 16 Jan 2026 15:26:06 INFO Test result : recall@20_pop: 0.0778    ndcg@20_pop: 0.0468    precision@20_pop: 0.0359    map@20_pop: 0.0228    
+Fri 16 Jan 2026 15:33:45 INFO Epoch 38 training [time: 458.62s, Train loss: 266.7630]
+Fri 16 Jan 2026 15:33:57 INFO Epoch 38: valid_score: 0.0838
+Fri 16 Jan 2026 15:33:57 INFO Valid result: recall@20_pop: 0.0838    ndcg@20_pop: 0.0495    precision@20_pop: 0.0369    map@20_pop: 0.0241    
+Fri 16 Jan 2026 15:33:57 INFO Test result : recall@20_pop: 0.0799    ndcg@20_pop: 0.0480    precision@20_pop: 0.0370    map@20_pop: 0.0235    
+Fri 16 Jan 2026 15:33:57 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 15:41:35 INFO Epoch 39 training [time: 458.63s, Train loss: 267.2160]
+Fri 16 Jan 2026 15:41:47 INFO Epoch 39: valid_score: 0.0831
+Fri 16 Jan 2026 15:41:47 INFO Valid result: recall@20_pop: 0.0831    ndcg@20_pop: 0.0488    precision@20_pop: 0.0362    map@20_pop: 0.0239    
+Fri 16 Jan 2026 15:41:47 INFO Test result : recall@20_pop: 0.0813    ndcg@20_pop: 0.0485    precision@20_pop: 0.0371    map@20_pop: 0.0236    
+Fri 16 Jan 2026 15:49:26 INFO Epoch 40 training [time: 458.97s, Train loss: 265.2975]
+Fri 16 Jan 2026 15:49:38 INFO Epoch 40: valid_score: 0.0843
+Fri 16 Jan 2026 15:49:38 INFO Valid result: recall@20_pop: 0.0843    ndcg@20_pop: 0.0496    precision@20_pop: 0.0368    map@20_pop: 0.0244    
+Fri 16 Jan 2026 15:49:38 INFO Test result : recall@20_pop: 0.0795    ndcg@20_pop: 0.0482    precision@20_pop: 0.0369    map@20_pop: 0.0240    
+Fri 16 Jan 2026 15:49:38 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 15:57:17 INFO Epoch 41 training [time: 458.67s, Train loss: 266.6229]
+Fri 16 Jan 2026 15:57:28 INFO Epoch 41: valid_score: 0.0831
+Fri 16 Jan 2026 15:57:28 INFO Valid result: recall@20_pop: 0.0831    ndcg@20_pop: 0.0492    precision@20_pop: 0.0366    map@20_pop: 0.0244    
+Fri 16 Jan 2026 15:57:28 INFO Test result : recall@20_pop: 0.0797    ndcg@20_pop: 0.0485    precision@20_pop: 0.0371    map@20_pop: 0.0241    
+Fri 16 Jan 2026 16:05:06 INFO Epoch 42 training [time: 458.65s, Train loss: 266.2739]
+Fri 16 Jan 2026 16:05:18 INFO Epoch 42: valid_score: 0.0836
+Fri 16 Jan 2026 16:05:18 INFO Valid result: recall@20_pop: 0.0836    ndcg@20_pop: 0.0495    precision@20_pop: 0.0365    map@20_pop: 0.0244    
+Fri 16 Jan 2026 16:05:18 INFO Test result : recall@20_pop: 0.0785    ndcg@20_pop: 0.0480    precision@20_pop: 0.0367    map@20_pop: 0.0240    
+Fri 16 Jan 2026 16:12:56 INFO Epoch 43 training [time: 458.41s, Train loss: 264.9239]
+Fri 16 Jan 2026 16:13:08 INFO Epoch 43: valid_score: 0.0841
+Fri 16 Jan 2026 16:13:08 INFO Valid result: recall@20_pop: 0.0841    ndcg@20_pop: 0.0497    precision@20_pop: 0.0367    map@20_pop: 0.0244    
+Fri 16 Jan 2026 16:13:08 INFO Test result : recall@20_pop: 0.0800    ndcg@20_pop: 0.0485    precision@20_pop: 0.0370    map@20_pop: 0.0241    
+Fri 16 Jan 2026 16:20:46 INFO Epoch 44 training [time: 458.23s, Train loss: 264.8099]
+Fri 16 Jan 2026 16:20:58 INFO Epoch 44: valid_score: 0.0858
+Fri 16 Jan 2026 16:20:58 INFO Valid result: recall@20_pop: 0.0858    ndcg@20_pop: 0.0507    precision@20_pop: 0.0374    map@20_pop: 0.0252    
+Fri 16 Jan 2026 16:20:58 INFO Test result : recall@20_pop: 0.0820    ndcg@20_pop: 0.0498    precision@20_pop: 0.0381    map@20_pop: 0.0248    
+Fri 16 Jan 2026 16:20:58 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 16:28:37 INFO Epoch 45 training [time: 458.29s, Train loss: 264.4695]
+Fri 16 Jan 2026 16:28:49 INFO Epoch 45: valid_score: 0.0842
+Fri 16 Jan 2026 16:28:49 INFO Valid result: recall@20_pop: 0.0842    ndcg@20_pop: 0.0496    precision@20_pop: 0.0369    map@20_pop: 0.0241    
+Fri 16 Jan 2026 16:28:49 INFO Test result : recall@20_pop: 0.0821    ndcg@20_pop: 0.0497    precision@20_pop: 0.0378    map@20_pop: 0.0245    
+Fri 16 Jan 2026 16:36:27 INFO Epoch 46 training [time: 458.22s, Train loss: 263.8172]
+Fri 16 Jan 2026 16:36:39 INFO Epoch 46: valid_score: 0.0839
+Fri 16 Jan 2026 16:36:39 INFO Valid result: recall@20_pop: 0.0839    ndcg@20_pop: 0.0497    precision@20_pop: 0.0367    map@20_pop: 0.0246    
+Fri 16 Jan 2026 16:36:39 INFO Test result : recall@20_pop: 0.0801    ndcg@20_pop: 0.0487    precision@20_pop: 0.0378    map@20_pop: 0.0240    
+Fri 16 Jan 2026 16:44:18 INFO Epoch 47 training [time: 458.33s, Train loss: 263.1675]
+Fri 16 Jan 2026 16:44:29 INFO Epoch 47: valid_score: 0.0876
+Fri 16 Jan 2026 16:44:29 INFO Valid result: recall@20_pop: 0.0876    ndcg@20_pop: 0.0520    precision@20_pop: 0.0382    map@20_pop: 0.0258    
+Fri 16 Jan 2026 16:44:29 INFO Test result : recall@20_pop: 0.0835    ndcg@20_pop: 0.0508    precision@20_pop: 0.0385    map@20_pop: 0.0254    
+Fri 16 Jan 2026 16:44:29 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 16:52:08 INFO Epoch 48 training [time: 458.56s, Train loss: 263.2993]
+Fri 16 Jan 2026 16:52:19 INFO Epoch 48: valid_score: 0.0864
+Fri 16 Jan 2026 16:52:19 INFO Valid result: recall@20_pop: 0.0864    ndcg@20_pop: 0.0512    precision@20_pop: 0.0379    map@20_pop: 0.0252    
+Fri 16 Jan 2026 16:52:19 INFO Test result : recall@20_pop: 0.0832    ndcg@20_pop: 0.0499    precision@20_pop: 0.0381    map@20_pop: 0.0245    
+Fri 16 Jan 2026 16:59:57 INFO Epoch 49 training [time: 457.85s, Train loss: 262.4832]
+Fri 16 Jan 2026 17:00:09 INFO Epoch 49: valid_score: 0.0851
+Fri 16 Jan 2026 17:00:09 INFO Valid result: recall@20_pop: 0.0851    ndcg@20_pop: 0.0500    precision@20_pop: 0.0373    map@20_pop: 0.0243    
+Fri 16 Jan 2026 17:00:09 INFO Test result : recall@20_pop: 0.0825    ndcg@20_pop: 0.0500    precision@20_pop: 0.0381    map@20_pop: 0.0249    
+Fri 16 Jan 2026 17:07:47 INFO Epoch 50 training [time: 458.66s, Train loss: 262.6822]
+Fri 16 Jan 2026 17:07:59 INFO Epoch 50: valid_score: 0.0882
+Fri 16 Jan 2026 17:07:59 INFO Valid result: recall@20_pop: 0.0882    ndcg@20_pop: 0.0517    precision@20_pop: 0.0382    map@20_pop: 0.0254    
+Fri 16 Jan 2026 17:07:59 INFO Test result : recall@20_pop: 0.0841    ndcg@20_pop: 0.0506    precision@20_pop: 0.0386    map@20_pop: 0.0251    
+Fri 16 Jan 2026 17:07:59 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 17:15:37 INFO Epoch 51 training [time: 457.96s, Train loss: 261.8895]
+Fri 16 Jan 2026 17:15:49 INFO Epoch 51: valid_score: 0.0913
+Fri 16 Jan 2026 17:15:49 INFO Valid result: recall@20_pop: 0.0913    ndcg@20_pop: 0.0541    precision@20_pop: 0.0395    map@20_pop: 0.0269    
+Fri 16 Jan 2026 17:15:49 INFO Test result : recall@20_pop: 0.0881    ndcg@20_pop: 0.0540    precision@20_pop: 0.0404    map@20_pop: 0.0273    
+Fri 16 Jan 2026 17:15:49 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 17:23:28 INFO Epoch 52 training [time: 458.18s, Train loss: 261.4522]
+Fri 16 Jan 2026 17:23:40 INFO Epoch 52: valid_score: 0.0916
+Fri 16 Jan 2026 17:23:40 INFO Valid result: recall@20_pop: 0.0916    ndcg@20_pop: 0.0540    precision@20_pop: 0.0396    map@20_pop: 0.0268    
+Fri 16 Jan 2026 17:23:40 INFO Test result : recall@20_pop: 0.0893    ndcg@20_pop: 0.0537    precision@20_pop: 0.0406    map@20_pop: 0.0267    
+Fri 16 Jan 2026 17:23:40 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 17:31:18 INFO Epoch 53 training [time: 458.30s, Train loss: 260.0159]
+Fri 16 Jan 2026 17:31:29 INFO Epoch 53: valid_score: 0.0867
+Fri 16 Jan 2026 17:31:29 INFO Valid result: recall@20_pop: 0.0867    ndcg@20_pop: 0.0514    precision@20_pop: 0.0380    map@20_pop: 0.0254    
+Fri 16 Jan 2026 17:31:29 INFO Test result : recall@20_pop: 0.0849    ndcg@20_pop: 0.0513    precision@20_pop: 0.0388    map@20_pop: 0.0254    
+Fri 16 Jan 2026 17:39:08 INFO Epoch 54 training [time: 458.67s, Train loss: 260.3438]
+Fri 16 Jan 2026 17:39:19 INFO Epoch 54: valid_score: 0.0918
+Fri 16 Jan 2026 17:39:19 INFO Valid result: recall@20_pop: 0.0918    ndcg@20_pop: 0.0537    precision@20_pop: 0.0395    map@20_pop: 0.0265    
+Fri 16 Jan 2026 17:39:19 INFO Test result : recall@20_pop: 0.0871    ndcg@20_pop: 0.0525    precision@20_pop: 0.0395    map@20_pop: 0.0261    
+Fri 16 Jan 2026 17:39:19 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 17:46:58 INFO Epoch 55 training [time: 458.37s, Train loss: 259.2251]
+Fri 16 Jan 2026 17:47:09 INFO Epoch 55: valid_score: 0.0896
+Fri 16 Jan 2026 17:47:09 INFO Valid result: recall@20_pop: 0.0896    ndcg@20_pop: 0.0531    precision@20_pop: 0.0391    map@20_pop: 0.0266    
+Fri 16 Jan 2026 17:47:09 INFO Test result : recall@20_pop: 0.0847    ndcg@20_pop: 0.0517    precision@20_pop: 0.0393    map@20_pop: 0.0257    
+Fri 16 Jan 2026 17:54:48 INFO Epoch 56 training [time: 458.46s, Train loss: 259.9185]
+Fri 16 Jan 2026 17:55:00 INFO Epoch 56: valid_score: 0.0878
+Fri 16 Jan 2026 17:55:00 INFO Valid result: recall@20_pop: 0.0878    ndcg@20_pop: 0.0518    precision@20_pop: 0.0383    map@20_pop: 0.0256    
+Fri 16 Jan 2026 17:55:00 INFO Test result : recall@20_pop: 0.0846    ndcg@20_pop: 0.0513    precision@20_pop: 0.0388    map@20_pop: 0.0256    
+Fri 16 Jan 2026 18:02:38 INFO Epoch 57 training [time: 457.94s, Train loss: 258.9166]
+Fri 16 Jan 2026 18:02:50 INFO Epoch 57: valid_score: 0.0903
+Fri 16 Jan 2026 18:02:50 INFO Valid result: recall@20_pop: 0.0903    ndcg@20_pop: 0.0538    precision@20_pop: 0.0393    map@20_pop: 0.0267    
+Fri 16 Jan 2026 18:02:50 INFO Test result : recall@20_pop: 0.0878    ndcg@20_pop: 0.0534    precision@20_pop: 0.0400    map@20_pop: 0.0268    
+Fri 16 Jan 2026 18:10:28 INFO Epoch 58 training [time: 457.85s, Train loss: 257.5792]
+Fri 16 Jan 2026 18:10:39 INFO Epoch 58: valid_score: 0.0907
+Fri 16 Jan 2026 18:10:39 INFO Valid result: recall@20_pop: 0.0907    ndcg@20_pop: 0.0541    precision@20_pop: 0.0397    map@20_pop: 0.0271    
+Fri 16 Jan 2026 18:10:39 INFO Test result : recall@20_pop: 0.0877    ndcg@20_pop: 0.0530    precision@20_pop: 0.0401    map@20_pop: 0.0265    
+Fri 16 Jan 2026 18:18:18 INFO Epoch 59 training [time: 458.19s, Train loss: 258.5104]
+Fri 16 Jan 2026 18:18:29 INFO Epoch 59: valid_score: 0.0894
+Fri 16 Jan 2026 18:18:29 INFO Valid result: recall@20_pop: 0.0894    ndcg@20_pop: 0.0526    precision@20_pop: 0.0388    map@20_pop: 0.0258    
+Fri 16 Jan 2026 18:18:29 INFO Test result : recall@20_pop: 0.0856    ndcg@20_pop: 0.0517    precision@20_pop: 0.0392    map@20_pop: 0.0257    
+Fri 16 Jan 2026 18:26:07 INFO Epoch 60 training [time: 458.44s, Train loss: 257.3750]
+Fri 16 Jan 2026 18:26:19 INFO Epoch 60: valid_score: 0.0889
+Fri 16 Jan 2026 18:26:19 INFO Valid result: recall@20_pop: 0.0889    ndcg@20_pop: 0.0525    precision@20_pop: 0.0387    map@20_pop: 0.0260    
+Fri 16 Jan 2026 18:26:19 INFO Test result : recall@20_pop: 0.0843    ndcg@20_pop: 0.0518    precision@20_pop: 0.0392    map@20_pop: 0.0261    
+Fri 16 Jan 2026 18:33:57 INFO Epoch 61 training [time: 458.01s, Train loss: 256.6699]
+Fri 16 Jan 2026 18:34:08 INFO Epoch 61: valid_score: 0.0885
+Fri 16 Jan 2026 18:34:08 INFO Valid result: recall@20_pop: 0.0885    ndcg@20_pop: 0.0524    precision@20_pop: 0.0385    map@20_pop: 0.0260    
+Fri 16 Jan 2026 18:34:08 INFO Test result : recall@20_pop: 0.0844    ndcg@20_pop: 0.0514    precision@20_pop: 0.0392    map@20_pop: 0.0256    
+Fri 16 Jan 2026 18:41:46 INFO Epoch 62 training [time: 458.10s, Train loss: 256.9767]
+Fri 16 Jan 2026 18:41:58 INFO Epoch 62: valid_score: 0.0862
+Fri 16 Jan 2026 18:41:58 INFO Valid result: recall@20_pop: 0.0862    ndcg@20_pop: 0.0511    precision@20_pop: 0.0378    map@20_pop: 0.0253    
+Fri 16 Jan 2026 18:41:58 INFO Test result : recall@20_pop: 0.0812    ndcg@20_pop: 0.0492    precision@20_pop: 0.0376    map@20_pop: 0.0243    
+Fri 16 Jan 2026 18:49:37 INFO Epoch 63 training [time: 458.14s, Train loss: 256.1929]
+Fri 16 Jan 2026 18:49:49 INFO Epoch 63: valid_score: 0.0936
+Fri 16 Jan 2026 18:49:49 INFO Valid result: recall@20_pop: 0.0936    ndcg@20_pop: 0.0555    precision@20_pop: 0.0402    map@20_pop: 0.0279    
+Fri 16 Jan 2026 18:49:49 INFO Test result : recall@20_pop: 0.0907    ndcg@20_pop: 0.0552    precision@20_pop: 0.0413    map@20_pop: 0.0281    
+Fri 16 Jan 2026 18:49:49 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 18:57:27 INFO Epoch 64 training [time: 458.29s, Train loss: 255.3586]
+Fri 16 Jan 2026 18:57:39 INFO Epoch 64: valid_score: 0.0955
+Fri 16 Jan 2026 18:57:39 INFO Valid result: recall@20_pop: 0.0955    ndcg@20_pop: 0.0570    precision@20_pop: 0.0412    map@20_pop: 0.0289    
+Fri 16 Jan 2026 18:57:39 INFO Test result : recall@20_pop: 0.0901    ndcg@20_pop: 0.0548    precision@20_pop: 0.0412    map@20_pop: 0.0274    
+Fri 16 Jan 2026 18:57:39 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 19:05:17 INFO Epoch 65 training [time: 458.53s, Train loss: 256.1790]
+Fri 16 Jan 2026 19:05:28 INFO Epoch 65: valid_score: 0.0969
+Fri 16 Jan 2026 19:05:28 INFO Valid result: recall@20_pop: 0.0969    ndcg@20_pop: 0.0570    precision@20_pop: 0.0413    map@20_pop: 0.0284    
+Fri 16 Jan 2026 19:05:28 INFO Test result : recall@20_pop: 0.0924    ndcg@20_pop: 0.0556    precision@20_pop: 0.0416    map@20_pop: 0.0278    
+Fri 16 Jan 2026 19:05:28 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 19:13:06 INFO Epoch 66 training [time: 457.58s, Train loss: 255.8162]
+Fri 16 Jan 2026 19:13:18 INFO Epoch 66: valid_score: 0.0954
+Fri 16 Jan 2026 19:13:18 INFO Valid result: recall@20_pop: 0.0954    ndcg@20_pop: 0.0562    precision@20_pop: 0.0406    map@20_pop: 0.0279    
+Fri 16 Jan 2026 19:13:18 INFO Test result : recall@20_pop: 0.0901    ndcg@20_pop: 0.0547    precision@20_pop: 0.0413    map@20_pop: 0.0275    
+Fri 16 Jan 2026 19:20:56 INFO Epoch 67 training [time: 457.93s, Train loss: 254.3711]
+Fri 16 Jan 2026 19:21:07 INFO Epoch 67: valid_score: 0.0961
+Fri 16 Jan 2026 19:21:07 INFO Valid result: recall@20_pop: 0.0961    ndcg@20_pop: 0.0566    precision@20_pop: 0.0413    map@20_pop: 0.0280    
+Fri 16 Jan 2026 19:21:07 INFO Test result : recall@20_pop: 0.0899    ndcg@20_pop: 0.0548    precision@20_pop: 0.0412    map@20_pop: 0.0275    
+Fri 16 Jan 2026 19:28:45 INFO Epoch 68 training [time: 458.23s, Train loss: 254.0543]
+Fri 16 Jan 2026 19:28:57 INFO Epoch 68: valid_score: 0.0931
+Fri 16 Jan 2026 19:28:57 INFO Valid result: recall@20_pop: 0.0931    ndcg@20_pop: 0.0555    precision@20_pop: 0.0401    map@20_pop: 0.0282    
+Fri 16 Jan 2026 19:28:57 INFO Test result : recall@20_pop: 0.0876    ndcg@20_pop: 0.0537    precision@20_pop: 0.0405    map@20_pop: 0.0271    
+Fri 16 Jan 2026 19:36:36 INFO Epoch 69 training [time: 458.29s, Train loss: 253.3543]
+Fri 16 Jan 2026 19:36:47 INFO Epoch 69: valid_score: 0.0936
+Fri 16 Jan 2026 19:36:47 INFO Valid result: recall@20_pop: 0.0936    ndcg@20_pop: 0.0553    precision@20_pop: 0.0405    map@20_pop: 0.0276    
+Fri 16 Jan 2026 19:36:47 INFO Test result : recall@20_pop: 0.0883    ndcg@20_pop: 0.0540    precision@20_pop: 0.0403    map@20_pop: 0.0273    
+Fri 16 Jan 2026 19:44:25 INFO Epoch 70 training [time: 458.39s, Train loss: 253.0722]
+Fri 16 Jan 2026 19:44:37 INFO Epoch 70: valid_score: 0.0961
+Fri 16 Jan 2026 19:44:37 INFO Valid result: recall@20_pop: 0.0961    ndcg@20_pop: 0.0567    precision@20_pop: 0.0412    map@20_pop: 0.0283    
+Fri 16 Jan 2026 19:44:37 INFO Test result : recall@20_pop: 0.0923    ndcg@20_pop: 0.0562    precision@20_pop: 0.0422    map@20_pop: 0.0285    
+Fri 16 Jan 2026 19:52:15 INFO Epoch 71 training [time: 458.51s, Train loss: 253.6675]
+Fri 16 Jan 2026 19:52:27 INFO Epoch 71: valid_score: 0.0949
+Fri 16 Jan 2026 19:52:27 INFO Valid result: recall@20_pop: 0.0949    ndcg@20_pop: 0.0560    precision@20_pop: 0.0404    map@20_pop: 0.0280    
+Fri 16 Jan 2026 19:52:27 INFO Test result : recall@20_pop: 0.0898    ndcg@20_pop: 0.0545    precision@20_pop: 0.0411    map@20_pop: 0.0273    
+Fri 16 Jan 2026 20:00:05 INFO Epoch 72 training [time: 458.53s, Train loss: 252.3742]
+Fri 16 Jan 2026 20:00:17 INFO Epoch 72: valid_score: 0.0901
+Fri 16 Jan 2026 20:00:17 INFO Valid result: recall@20_pop: 0.0901    ndcg@20_pop: 0.0534    precision@20_pop: 0.0391    map@20_pop: 0.0267    
+Fri 16 Jan 2026 20:00:17 INFO Test result : recall@20_pop: 0.0873    ndcg@20_pop: 0.0530    precision@20_pop: 0.0401    map@20_pop: 0.0266    
+Fri 16 Jan 2026 20:07:55 INFO Epoch 73 training [time: 458.41s, Train loss: 251.8144]
+Fri 16 Jan 2026 20:08:07 INFO Epoch 73: valid_score: 0.0988
+Fri 16 Jan 2026 20:08:07 INFO Valid result: recall@20_pop: 0.0988    ndcg@20_pop: 0.0588    precision@20_pop: 0.0424    map@20_pop: 0.0298    
+Fri 16 Jan 2026 20:08:07 INFO Test result : recall@20_pop: 0.0945    ndcg@20_pop: 0.0573    precision@20_pop: 0.0429    map@20_pop: 0.0289    
+Fri 16 Jan 2026 20:08:07 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 20:15:45 INFO Epoch 74 training [time: 457.99s, Train loss: 251.0111]
+Fri 16 Jan 2026 20:15:57 INFO Epoch 74: valid_score: 0.0901
+Fri 16 Jan 2026 20:15:57 INFO Valid result: recall@20_pop: 0.0901    ndcg@20_pop: 0.0536    precision@20_pop: 0.0391    map@20_pop: 0.0267    
+Fri 16 Jan 2026 20:15:57 INFO Test result : recall@20_pop: 0.0860    ndcg@20_pop: 0.0522    precision@20_pop: 0.0393    map@20_pop: 0.0260    
+Fri 16 Jan 2026 20:23:35 INFO Epoch 75 training [time: 458.15s, Train loss: 251.4714]
+Fri 16 Jan 2026 20:23:47 INFO Epoch 75: valid_score: 0.0954
+Fri 16 Jan 2026 20:23:47 INFO Valid result: recall@20_pop: 0.0954    ndcg@20_pop: 0.0564    precision@20_pop: 0.0410    map@20_pop: 0.0283    
+Fri 16 Jan 2026 20:23:47 INFO Test result : recall@20_pop: 0.0905    ndcg@20_pop: 0.0547    precision@20_pop: 0.0411    map@20_pop: 0.0274    
+Fri 16 Jan 2026 20:31:25 INFO Epoch 76 training [time: 458.08s, Train loss: 249.3433]
+Fri 16 Jan 2026 20:31:37 INFO Epoch 76: valid_score: 0.0951
+Fri 16 Jan 2026 20:31:37 INFO Valid result: recall@20_pop: 0.0951    ndcg@20_pop: 0.0561    precision@20_pop: 0.0407    map@20_pop: 0.0279    
+Fri 16 Jan 2026 20:31:37 INFO Test result : recall@20_pop: 0.0898    ndcg@20_pop: 0.0545    precision@20_pop: 0.0410    map@20_pop: 0.0271    
+Fri 16 Jan 2026 20:39:15 INFO Epoch 77 training [time: 458.01s, Train loss: 249.8652]
+Fri 16 Jan 2026 20:39:26 INFO Epoch 77: valid_score: 0.0979
+Fri 16 Jan 2026 20:39:26 INFO Valid result: recall@20_pop: 0.0979    ndcg@20_pop: 0.0578    precision@20_pop: 0.0420    map@20_pop: 0.0289    
+Fri 16 Jan 2026 20:39:26 INFO Test result : recall@20_pop: 0.0947    ndcg@20_pop: 0.0575    precision@20_pop: 0.0429    map@20_pop: 0.0290    
+Fri 16 Jan 2026 20:47:05 INFO Epoch 78 training [time: 458.90s, Train loss: 249.2651]
+Fri 16 Jan 2026 20:47:17 INFO Epoch 78: valid_score: 0.0957
+Fri 16 Jan 2026 20:47:17 INFO Valid result: recall@20_pop: 0.0957    ndcg@20_pop: 0.0563    precision@20_pop: 0.0406    map@20_pop: 0.0280    
+Fri 16 Jan 2026 20:47:17 INFO Test result : recall@20_pop: 0.0885    ndcg@20_pop: 0.0542    precision@20_pop: 0.0403    map@20_pop: 0.0274    
+Fri 16 Jan 2026 20:54:55 INFO Epoch 79 training [time: 458.14s, Train loss: 249.1506]
+Fri 16 Jan 2026 20:55:07 INFO Epoch 79: valid_score: 0.0967
+Fri 16 Jan 2026 20:55:07 INFO Valid result: recall@20_pop: 0.0967    ndcg@20_pop: 0.0572    precision@20_pop: 0.0413    map@20_pop: 0.0286    
+Fri 16 Jan 2026 20:55:07 INFO Test result : recall@20_pop: 0.0915    ndcg@20_pop: 0.0556    precision@20_pop: 0.0415    map@20_pop: 0.0281    
+Fri 16 Jan 2026 21:02:45 INFO Epoch 80 training [time: 458.12s, Train loss: 248.7360]
+Fri 16 Jan 2026 21:02:57 INFO Epoch 80: valid_score: 0.0950
+Fri 16 Jan 2026 21:02:57 INFO Valid result: recall@20_pop: 0.0950    ndcg@20_pop: 0.0566    precision@20_pop: 0.0409    map@20_pop: 0.0284    
+Fri 16 Jan 2026 21:02:57 INFO Test result : recall@20_pop: 0.0911    ndcg@20_pop: 0.0556    precision@20_pop: 0.0415    map@20_pop: 0.0280    
+Fri 16 Jan 2026 21:10:35 INFO Epoch 81 training [time: 457.98s, Train loss: 248.0407]
+Fri 16 Jan 2026 21:10:47 INFO Epoch 81: valid_score: 0.0978
+Fri 16 Jan 2026 21:10:47 INFO Valid result: recall@20_pop: 0.0978    ndcg@20_pop: 0.0572    precision@20_pop: 0.0414    map@20_pop: 0.0284    
+Fri 16 Jan 2026 21:10:47 INFO Test result : recall@20_pop: 0.0925    ndcg@20_pop: 0.0563    precision@20_pop: 0.0419    map@20_pop: 0.0283    
+Fri 16 Jan 2026 21:18:25 INFO Epoch 82 training [time: 458.30s, Train loss: 248.2636]
+Fri 16 Jan 2026 21:18:37 INFO Epoch 82: valid_score: 0.0979
+Fri 16 Jan 2026 21:18:37 INFO Valid result: recall@20_pop: 0.0979    ndcg@20_pop: 0.0579    precision@20_pop: 0.0419    map@20_pop: 0.0289    
+Fri 16 Jan 2026 21:18:37 INFO Test result : recall@20_pop: 0.0974    ndcg@20_pop: 0.0583    precision@20_pop: 0.0432    map@20_pop: 0.0291    
+Fri 16 Jan 2026 21:26:15 INFO Epoch 83 training [time: 458.58s, Train loss: 248.2070]
+Fri 16 Jan 2026 21:26:27 INFO Epoch 83: valid_score: 0.0936
+Fri 16 Jan 2026 21:26:27 INFO Valid result: recall@20_pop: 0.0936    ndcg@20_pop: 0.0561    precision@20_pop: 0.0407    map@20_pop: 0.0285    
+Fri 16 Jan 2026 21:26:27 INFO Test result : recall@20_pop: 0.0898    ndcg@20_pop: 0.0549    precision@20_pop: 0.0412    map@20_pop: 0.0275    
+Fri 16 Jan 2026 21:34:05 INFO Epoch 84 training [time: 458.59s, Train loss: 247.1894]
+Fri 16 Jan 2026 21:34:16 INFO Epoch 84: valid_score: 0.0984
+Fri 16 Jan 2026 21:34:16 INFO Valid result: recall@20_pop: 0.0984    ndcg@20_pop: 0.0577    precision@20_pop: 0.0415    map@20_pop: 0.0286    
+Fri 16 Jan 2026 21:34:16 INFO Test result : recall@20_pop: 0.0942    ndcg@20_pop: 0.0571    precision@20_pop: 0.0424    map@20_pop: 0.0286    
+Fri 16 Jan 2026 21:41:55 INFO Epoch 85 training [time: 458.57s, Train loss: 247.1919]
+Fri 16 Jan 2026 21:42:07 INFO Epoch 85: valid_score: 0.0999
+Fri 16 Jan 2026 21:42:07 INFO Valid result: recall@20_pop: 0.0999    ndcg@20_pop: 0.0588    precision@20_pop: 0.0422    map@20_pop: 0.0295    
+Fri 16 Jan 2026 21:42:07 INFO Test result : recall@20_pop: 0.0943    ndcg@20_pop: 0.0575    precision@20_pop: 0.0427    map@20_pop: 0.0291    
+Fri 16 Jan 2026 21:42:07 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 21:49:45 INFO Epoch 86 training [time: 458.24s, Train loss: 247.7743]
+Fri 16 Jan 2026 21:49:57 INFO Epoch 86: valid_score: 0.1015
+Fri 16 Jan 2026 21:49:57 INFO Valid result: recall@20_pop: 0.1015    ndcg@20_pop: 0.0600    precision@20_pop: 0.0429    map@20_pop: 0.0300    
+Fri 16 Jan 2026 21:49:57 INFO Test result : recall@20_pop: 0.0967    ndcg@20_pop: 0.0589    precision@20_pop: 0.0434    map@20_pop: 0.0297    
+Fri 16 Jan 2026 21:49:57 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 21:57:35 INFO Epoch 87 training [time: 458.29s, Train loss: 246.5115]
+Fri 16 Jan 2026 21:57:47 INFO Epoch 87: valid_score: 0.0970
+Fri 16 Jan 2026 21:57:47 INFO Valid result: recall@20_pop: 0.0970    ndcg@20_pop: 0.0568    precision@20_pop: 0.0412    map@20_pop: 0.0282    
+Fri 16 Jan 2026 21:57:47 INFO Test result : recall@20_pop: 0.0932    ndcg@20_pop: 0.0562    precision@20_pop: 0.0421    map@20_pop: 0.0280    
+Fri 16 Jan 2026 22:05:26 INFO Epoch 88 training [time: 458.55s, Train loss: 246.6053]
+Fri 16 Jan 2026 22:05:37 INFO Epoch 88: valid_score: 0.1060
+Fri 16 Jan 2026 22:05:37 INFO Valid result: recall@20_pop: 0.1060    ndcg@20_pop: 0.0623    precision@20_pop: 0.0446    map@20_pop: 0.0311    
+Fri 16 Jan 2026 22:05:37 INFO Test result : recall@20_pop: 0.1007    ndcg@20_pop: 0.0613    precision@20_pop: 0.0451    map@20_pop: 0.0312    
+Fri 16 Jan 2026 22:05:37 INFO ██ DRAGON--Best validation results updated!!!
+Fri 16 Jan 2026 22:13:16 INFO Epoch 89 training [time: 458.55s, Train loss: 245.7244]
+Fri 16 Jan 2026 22:13:27 INFO Epoch 89: valid_score: 0.0948
+Fri 16 Jan 2026 22:13:27 INFO Valid result: recall@20_pop: 0.0948    ndcg@20_pop: 0.0566    precision@20_pop: 0.0410    map@20_pop: 0.0284    
+Fri 16 Jan 2026 22:13:27 INFO Test result : recall@20_pop: 0.0902    ndcg@20_pop: 0.0549    precision@20_pop: 0.0409    map@20_pop: 0.0275    
+Fri 16 Jan 2026 22:21:12 INFO Epoch 90 training [time: 465.02s, Train loss: 245.7431]
+Fri 16 Jan 2026 22:21:25 INFO Epoch 90: valid_score: 0.0997
+Fri 16 Jan 2026 22:21:25 INFO Valid result: recall@20_pop: 0.0997    ndcg@20_pop: 0.0596    precision@20_pop: 0.0424    map@20_pop: 0.0303    
+Fri 16 Jan 2026 22:21:25 INFO Test result : recall@20_pop: 0.0964    ndcg@20_pop: 0.0585    precision@20_pop: 0.0431    map@20_pop: 0.0298    
+Fri 16 Jan 2026 22:29:44 INFO Epoch 91 training [time: 498.80s, Train loss: 245.1198]
+Fri 16 Jan 2026 22:29:58 INFO Epoch 91: valid_score: 0.1034
+Fri 16 Jan 2026 22:29:58 INFO Valid result: recall@20_pop: 0.1034    ndcg@20_pop: 0.0610    precision@20_pop: 0.0436    map@20_pop: 0.0308    
+Fri 16 Jan 2026 22:29:58 INFO Test result : recall@20_pop: 0.0966    ndcg@20_pop: 0.0587    precision@20_pop: 0.0437    map@20_pop: 0.0296    
+Fri 16 Jan 2026 22:38:21 INFO Epoch 92 training [time: 502.53s, Train loss: 244.9244]
+Fri 16 Jan 2026 22:38:34 INFO Epoch 92: valid_score: 0.0948
+Fri 16 Jan 2026 22:38:34 INFO Valid result: recall@20_pop: 0.0948    ndcg@20_pop: 0.0556    precision@20_pop: 0.0406    map@20_pop: 0.0275    
+Fri 16 Jan 2026 22:38:34 INFO Test result : recall@20_pop: 0.0900    ndcg@20_pop: 0.0547    precision@20_pop: 0.0410    map@20_pop: 0.0273    
+Fri 16 Jan 2026 22:46:58 INFO Epoch 93 training [time: 504.43s, Train loss: 244.1480]
+Fri 16 Jan 2026 22:47:12 INFO Epoch 93: valid_score: 0.0984
+Fri 16 Jan 2026 22:47:12 INFO Valid result: recall@20_pop: 0.0984    ndcg@20_pop: 0.0578    precision@20_pop: 0.0417    map@20_pop: 0.0290    
+Fri 16 Jan 2026 22:47:12 INFO Test result : recall@20_pop: 0.0936    ndcg@20_pop: 0.0575    precision@20_pop: 0.0423    map@20_pop: 0.0294    
+Fri 16 Jan 2026 22:55:34 INFO Epoch 94 training [time: 502.49s, Train loss: 243.9972]
+Fri 16 Jan 2026 22:55:49 INFO Epoch 94: valid_score: 0.1034
+Fri 16 Jan 2026 22:55:49 INFO Valid result: recall@20_pop: 0.1034    ndcg@20_pop: 0.0606    precision@20_pop: 0.0435    map@20_pop: 0.0302    
+Fri 16 Jan 2026 22:55:49 INFO Test result : recall@20_pop: 0.0969    ndcg@20_pop: 0.0587    precision@20_pop: 0.0436    map@20_pop: 0.0296    
+Fri 16 Jan 2026 23:04:06 INFO Epoch 95 training [time: 496.49s, Train loss: 244.4136]
+Fri 16 Jan 2026 23:04:19 INFO Epoch 95: valid_score: 0.1023
+Fri 16 Jan 2026 23:04:19 INFO Valid result: recall@20_pop: 0.1023    ndcg@20_pop: 0.0604    precision@20_pop: 0.0433    map@20_pop: 0.0303    
+Fri 16 Jan 2026 23:04:19 INFO Test result : recall@20_pop: 0.0963    ndcg@20_pop: 0.0587    precision@20_pop: 0.0430    map@20_pop: 0.0299    
+Fri 16 Jan 2026 23:12:39 INFO Epoch 96 training [time: 500.07s, Train loss: 243.0317]
+Fri 16 Jan 2026 23:12:54 INFO Epoch 96: valid_score: 0.1003
+Fri 16 Jan 2026 23:12:54 INFO Valid result: recall@20_pop: 0.1003    ndcg@20_pop: 0.0586    precision@20_pop: 0.0420    map@20_pop: 0.0294    
+Fri 16 Jan 2026 23:12:54 INFO Test result : recall@20_pop: 0.0947    ndcg@20_pop: 0.0573    precision@20_pop: 0.0424    map@20_pop: 0.0289    
+Fri 16 Jan 2026 23:21:16 INFO Epoch 97 training [time: 502.29s, Train loss: 242.5044]
+Fri 16 Jan 2026 23:21:29 INFO Epoch 97: valid_score: 0.0979
+Fri 16 Jan 2026 23:21:29 INFO Valid result: recall@20_pop: 0.0979    ndcg@20_pop: 0.0582    precision@20_pop: 0.0418    map@20_pop: 0.0293    
+Fri 16 Jan 2026 23:21:29 INFO Test result : recall@20_pop: 0.0934    ndcg@20_pop: 0.0570    precision@20_pop: 0.0426    map@20_pop: 0.0288    
+Fri 16 Jan 2026 23:29:49 INFO Epoch 98 training [time: 500.65s, Train loss: 243.5518]
+Fri 16 Jan 2026 23:30:03 INFO Epoch 98: valid_score: 0.1000
+Fri 16 Jan 2026 23:30:03 INFO Valid result: recall@20_pop: 0.1000    ndcg@20_pop: 0.0595    precision@20_pop: 0.0428    map@20_pop: 0.0299    
+Fri 16 Jan 2026 23:30:03 INFO Test result : recall@20_pop: 0.0979    ndcg@20_pop: 0.0594    precision@20_pop: 0.0440    map@20_pop: 0.0301    
+Fri 16 Jan 2026 23:38:26 INFO Epoch 99 training [time: 503.33s, Train loss: 242.5358]
+Fri 16 Jan 2026 23:38:39 INFO Epoch 99: valid_score: 0.0960
+Fri 16 Jan 2026 23:38:39 INFO Valid result: recall@20_pop: 0.0960    ndcg@20_pop: 0.0566    precision@20_pop: 0.0411    map@20_pop: 0.0281    
+Fri 16 Jan 2026 23:38:39 INFO Test result : recall@20_pop: 0.0943    ndcg@20_pop: 0.0571    precision@20_pop: 0.0423    map@20_pop: 0.0288    
+Fri 16 Jan 2026 23:47:00 INFO Epoch 100 training [time: 500.22s, Train loss: 242.7705]
+Fri 16 Jan 2026 23:47:13 INFO Epoch 100: valid_score: 0.1010
+Fri 16 Jan 2026 23:47:13 INFO Valid result: recall@20_pop: 0.1010    ndcg@20_pop: 0.0600    precision@20_pop: 0.0429    map@20_pop: 0.0303    
+Fri 16 Jan 2026 23:47:13 INFO Test result : recall@20_pop: 0.0969    ndcg@20_pop: 0.0589    precision@20_pop: 0.0436    map@20_pop: 0.0298    
+Fri 16 Jan 2026 23:55:34 INFO Epoch 101 training [time: 500.99s, Train loss: 242.0483]
+Fri 16 Jan 2026 23:55:49 INFO Epoch 101: valid_score: 0.1020
+Fri 16 Jan 2026 23:55:49 INFO Valid result: recall@20_pop: 0.1020    ndcg@20_pop: 0.0604    precision@20_pop: 0.0433    map@20_pop: 0.0304    
+Fri 16 Jan 2026 23:55:49 INFO Test result : recall@20_pop: 0.0978    ndcg@20_pop: 0.0592    precision@20_pop: 0.0436    map@20_pop: 0.0298    
+Sat 17 Jan 2026 00:04:10 INFO Epoch 102 training [time: 501.32s, Train loss: 241.4909]
+Sat 17 Jan 2026 00:04:24 INFO Epoch 102: valid_score: 0.1005
+Sat 17 Jan 2026 00:04:24 INFO Valid result: recall@20_pop: 0.1005    ndcg@20_pop: 0.0599    precision@20_pop: 0.0429    map@20_pop: 0.0304    
+Sat 17 Jan 2026 00:04:24 INFO Test result : recall@20_pop: 0.0948    ndcg@20_pop: 0.0576    precision@20_pop: 0.0426    map@20_pop: 0.0289    
+Sat 17 Jan 2026 00:12:45 INFO Epoch 103 training [time: 500.36s, Train loss: 241.9539]
+Sat 17 Jan 2026 00:12:59 INFO Epoch 103: valid_score: 0.0959
+Sat 17 Jan 2026 00:12:59 INFO Valid result: recall@20_pop: 0.0959    ndcg@20_pop: 0.0571    precision@20_pop: 0.0413    map@20_pop: 0.0286    
+Sat 17 Jan 2026 00:12:59 INFO Test result : recall@20_pop: 0.0931    ndcg@20_pop: 0.0569    precision@20_pop: 0.0423    map@20_pop: 0.0288    
+Sat 17 Jan 2026 00:21:20 INFO Epoch 104 training [time: 501.09s, Train loss: 241.8005]
+Sat 17 Jan 2026 00:21:33 INFO Epoch 104: valid_score: 0.0990
+Sat 17 Jan 2026 00:21:33 INFO Valid result: recall@20_pop: 0.0990    ndcg@20_pop: 0.0586    precision@20_pop: 0.0421    map@20_pop: 0.0293    
+Sat 17 Jan 2026 00:21:33 INFO Test result : recall@20_pop: 0.0970    ndcg@20_pop: 0.0590    precision@20_pop: 0.0436    map@20_pop: 0.0299    
+Sat 17 Jan 2026 00:29:54 INFO Epoch 105 training [time: 500.65s, Train loss: 240.6157]
+Sat 17 Jan 2026 00:30:08 INFO Epoch 105: valid_score: 0.1022
+Sat 17 Jan 2026 00:30:08 INFO Valid result: recall@20_pop: 0.1022    ndcg@20_pop: 0.0602    precision@20_pop: 0.0431    map@20_pop: 0.0303    
+Sat 17 Jan 2026 00:30:08 INFO Test result : recall@20_pop: 0.0967    ndcg@20_pop: 0.0589    precision@20_pop: 0.0436    map@20_pop: 0.0297    
+Sat 17 Jan 2026 00:38:28 INFO Epoch 106 training [time: 500.71s, Train loss: 240.6791]
+Sat 17 Jan 2026 00:38:42 INFO Epoch 106: valid_score: 0.1028
+Sat 17 Jan 2026 00:38:42 INFO Valid result: recall@20_pop: 0.1028    ndcg@20_pop: 0.0614    precision@20_pop: 0.0438    map@20_pop: 0.0313    
+Sat 17 Jan 2026 00:38:42 INFO Test result : recall@20_pop: 0.0974    ndcg@20_pop: 0.0598    precision@20_pop: 0.0438    map@20_pop: 0.0306    
+Sat 17 Jan 2026 00:47:06 INFO Epoch 107 training [time: 503.72s, Train loss: 240.7533]
+Sat 17 Jan 2026 00:47:20 INFO Epoch 107: valid_score: 0.1013
+Sat 17 Jan 2026 00:47:20 INFO Valid result: recall@20_pop: 0.1013    ndcg@20_pop: 0.0603    precision@20_pop: 0.0430    map@20_pop: 0.0304    
+Sat 17 Jan 2026 00:47:20 INFO Test result : recall@20_pop: 0.0961    ndcg@20_pop: 0.0585    precision@20_pop: 0.0431    map@20_pop: 0.0295    
+Sat 17 Jan 2026 00:55:41 INFO Epoch 108 training [time: 501.59s, Train loss: 239.6078]
+Sat 17 Jan 2026 00:55:57 INFO Epoch 108: valid_score: 0.1032
+Sat 17 Jan 2026 00:55:57 INFO Valid result: recall@20_pop: 0.1032    ndcg@20_pop: 0.0613    precision@20_pop: 0.0435    map@20_pop: 0.0310    
+Sat 17 Jan 2026 00:55:57 INFO Test result : recall@20_pop: 0.1010    ndcg@20_pop: 0.0612    precision@20_pop: 0.0448    map@20_pop: 0.0308    
+Sat 17 Jan 2026 01:04:19 INFO Epoch 109 training [time: 502.50s, Train loss: 239.5354]
+Sat 17 Jan 2026 01:04:33 INFO Epoch 109: valid_score: 0.1023
+Sat 17 Jan 2026 01:04:33 INFO Valid result: recall@20_pop: 0.1023    ndcg@20_pop: 0.0607    precision@20_pop: 0.0433    map@20_pop: 0.0307    
+Sat 17 Jan 2026 01:04:33 INFO Test result : recall@20_pop: 0.0981    ndcg@20_pop: 0.0595    precision@20_pop: 0.0438    map@20_pop: 0.0300    
+Sat 17 Jan 2026 01:04:33 INFO +++++Finished training, best eval result in epoch 88
+Sat 17 Jan 2026 01:04:33 INFO best valid result: recall@20_pop: 0.1060    ndcg@20_pop: 0.0623    precision@20_pop: 0.0446    map@20_pop: 0.0311    
+Sat 17 Jan 2026 01:04:33 INFO test result: recall@20_pop: 0.1007    ndcg@20_pop: 0.0613    precision@20_pop: 0.0451    map@20_pop: 0.0312    
+Sat 17 Jan 2026 01:04:33 INFO ████Current BEST████:
+Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.1060    ndcg@20_pop: 0.0623    precision@20_pop: 0.0446    map@20_pop: 0.0311    ,
+Test: recall@20_pop: 0.1007    ndcg@20_pop: 0.0613    precision@20_pop: 0.0451    map@20_pop: 0.0312    
+
+
+
+Sat 17 Jan 2026 01:04:33 INFO 
+============All Over=====================
+Sat 17 Jan 2026 01:04:33 INFO Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+ best valid: recall@20_pop: 0.1060    ndcg@20_pop: 0.0623    precision@20_pop: 0.0446    map@20_pop: 0.0311    ,
+ best test: recall@20_pop: 0.1007    ndcg@20_pop: 0.0613    precision@20_pop: 0.0451    map@20_pop: 0.0312    
+Sat 17 Jan 2026 01:04:33 INFO 
+
+█████████████ BEST ████████████████
+Sat 17 Jan 2026 01:04:33 INFO 	Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.1060    ndcg@20_pop: 0.0623    precision@20_pop: 0.0446    map@20_pop: 0.0311    ,
+Test: recall@20_pop: 0.1007    ndcg@20_pop: 0.0613    precision@20_pop: 0.0451    map@20_pop: 0.0312    
+
+
+Sat 17 Jan 2026 01:04:33 INFO ██Server: 	bronx
+Sat 17 Jan 2026 01:04:33 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Sat 17 Jan 2026 01:04:33 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+keep_features_on_cpu=True
+use_checkpoint=True
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=[0.0001]
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=True
+candidate_sampling_type=popularity
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+use_fettle=False
+cf_extraction_method=average
+iladt_weight=0.05
+cla_weight=0.01
+clcr_gamma=0.05
+ga_gamma=0.1
+prototype_num=10
+hyper_parameters=['seed', 'aggr_mode', 'reg_weight', 'learning_rate']
+inter_file_name=cs_lowcount_10/clean_lowcount_coldstart_interactions.csv
+vision_feature_file=cs_lowcount_10/clean_audio_feat_mert.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+n_mm_layers=1
+n_layers=2
+knn_k=10
+mm_image_weight=0.1
+aggr_mode=['add']
+reg_weight=[0.001]
+model=DRAGON
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Sat 17 Jan 2026 01:04:34 INFO Music4All
+The number of users: 14127
+Average actions of users: 294.72605648757695
+The number of items: 99596
+Average actions of items: 41.804841559902
+The number of inters: 4163595
+The sparsity of the dataset: 99.70407842033056%
+Sat 17 Jan 2026 01:04:35 INFO 
+====Training====
+Music4All
+The number of users: 14127
+Average actions of users: 288.95342252424433
+The number of items: 98431
+Average actions of items: 41.47113206205362
+The number of inters: 4082045
+The sparsity of the dataset: 99.70644063097576%
+Sat 17 Jan 2026 01:04:35 INFO 
+====Validation====
+Music4All
+The number of users: 7491
+Average actions of users: 5.262047790682152
+The number of items: 23690
+Average actions of items: 1.6639088222878853
+The number of inters: 39418
+The sparsity of the dataset: 99.97778789450958%
+Sat 17 Jan 2026 01:04:35 INFO 
+====Testing====
+Music4All
+The number of users: 7662
+Average actions of users: 5.498825371965545
+The number of items: 24618
+Average actions of items: 1.7114306604923226
+The number of inters: 42132
+The sparsity of the dataset: 99.97766339519065%
+Sat 17 Jan 2026 01:04:38 INFO 
+
+=================================
+
+
+Sat 17 Jan 2026 01:04:38 INFO =========1/1: Parameters:['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001)=======
+Sat 17 Jan 2026 01:35:06 INFO DRAGON(
+  (MLP_v): Linear(in_features=64, out_features=64, bias=False)
+  (MLP_t): Linear(in_features=64, out_features=64, bias=False)
+  (image_embedding): Embedding(99596, 1024)
+  (image_trs): Linear(in_features=1024, out_features=64, bias=True)
+  (MLP_user): Linear(in_features=128, out_features=64, bias=True)
+  (v_gcn): GCN(
+    (MLP): Linear(in_features=1024, out_features=128, bias=True)
+    (MLP_1): Linear(in_features=128, out_features=64, bias=True)
+    (conv_embed_1): Base_gcn(64, 64)
+  )
+  (user_graph): User_Graph_sample()
+)
+Trainable parameters: 103339382
+Sat 17 Jan 2026 01:35:06 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Sat 17 Jan 2026 01:35:07 INFO ✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch
+Sat 17 Jan 2026 01:35:07 INFO Initialized tot_item_num: 99596
+Sat 17 Jan 2026 01:35:07 INFO Computing item popularity from training data...
+Sat 17 Jan 2026 01:35:16 INFO Computed item popularity: 98431/99596 items in training
+Sat 17 Jan 2026 01:35:16 INFO Smoothing parameter alpha=0.01, min_prob=2.45e-09, max_prob=1.66e-02
+Sat 17 Jan 2026 01:39:24 INFO Epoch 0 training [time: 248.38s, Train loss: 411.0544]
+Sat 17 Jan 2026 01:39:38 INFO Epoch 0: valid_score: 0.0000
+Sat 17 Jan 2026 01:39:38 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:39:38 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:39:38 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 01:43:44 INFO Epoch 1 training [time: 245.75s, Train loss: 337.9499]
+Sat 17 Jan 2026 01:43:56 INFO Epoch 1: valid_score: 0.0001
+Sat 17 Jan 2026 01:43:56 INFO Valid result: recall@20_pop: 0.0001    ndcg@20_pop: 0.0001    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:43:56 INFO Test result : recall@20_pop: 0.0001    ndcg@20_pop: 0.0001    precision@20_pop: 0.0001    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:43:56 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 01:48:02 INFO Epoch 2 training [time: 245.85s, Train loss: 319.8452]
+Sat 17 Jan 2026 01:48:13 INFO Epoch 2: valid_score: 0.0006
+Sat 17 Jan 2026 01:48:13 INFO Valid result: recall@20_pop: 0.0006    ndcg@20_pop: 0.0003    precision@20_pop: 0.0003    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:48:13 INFO Test result : recall@20_pop: 0.0006    ndcg@20_pop: 0.0003    precision@20_pop: 0.0003    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:48:13 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 01:52:19 INFO Epoch 3 training [time: 245.62s, Train loss: 308.2392]
+Sat 17 Jan 2026 01:52:30 INFO Epoch 3: valid_score: 0.0004
+Sat 17 Jan 2026 01:52:30 INFO Valid result: recall@20_pop: 0.0004    ndcg@20_pop: 0.0002    precision@20_pop: 0.0003    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:52:30 INFO Test result : recall@20_pop: 0.0005    ndcg@20_pop: 0.0003    precision@20_pop: 0.0003    map@20_pop: 0.0000    
+Sat 17 Jan 2026 01:56:36 INFO Epoch 4 training [time: 245.66s, Train loss: 301.0479]
+Sat 17 Jan 2026 01:56:49 INFO Epoch 4: valid_score: 0.0009
+Sat 17 Jan 2026 01:56:49 INFO Valid result: recall@20_pop: 0.0009    ndcg@20_pop: 0.0005    precision@20_pop: 0.0006    map@20_pop: 0.0001    
+Sat 17 Jan 2026 01:56:49 INFO Test result : recall@20_pop: 0.0011    ndcg@20_pop: 0.0006    precision@20_pop: 0.0006    map@20_pop: 0.0001    
+Sat 17 Jan 2026 01:56:49 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 02:00:54 INFO Epoch 5 training [time: 245.51s, Train loss: 295.1499]
+Sat 17 Jan 2026 02:01:06 INFO Epoch 5: valid_score: 0.0015
+Sat 17 Jan 2026 02:01:06 INFO Valid result: recall@20_pop: 0.0015    ndcg@20_pop: 0.0008    precision@20_pop: 0.0008    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:01:06 INFO Test result : recall@20_pop: 0.0017    ndcg@20_pop: 0.0008    precision@20_pop: 0.0008    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:01:06 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 02:05:12 INFO Epoch 6 training [time: 245.58s, Train loss: 290.4545]
+Sat 17 Jan 2026 02:05:23 INFO Epoch 6: valid_score: 0.0010
+Sat 17 Jan 2026 02:05:23 INFO Valid result: recall@20_pop: 0.0010    ndcg@20_pop: 0.0006    precision@20_pop: 0.0007    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:05:23 INFO Test result : recall@20_pop: 0.0013    ndcg@20_pop: 0.0007    precision@20_pop: 0.0008    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:09:29 INFO Epoch 7 training [time: 245.58s, Train loss: 287.4942]
+Sat 17 Jan 2026 02:09:41 INFO Epoch 7: valid_score: 0.0011
+Sat 17 Jan 2026 02:09:41 INFO Valid result: recall@20_pop: 0.0011    ndcg@20_pop: 0.0006    precision@20_pop: 0.0006    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:09:41 INFO Test result : recall@20_pop: 0.0012    ndcg@20_pop: 0.0007    precision@20_pop: 0.0007    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:13:46 INFO Epoch 8 training [time: 245.40s, Train loss: 284.5659]
+Sat 17 Jan 2026 02:13:58 INFO Epoch 8: valid_score: 0.0008
+Sat 17 Jan 2026 02:13:58 INFO Valid result: recall@20_pop: 0.0008    ndcg@20_pop: 0.0005    precision@20_pop: 0.0006    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:13:58 INFO Test result : recall@20_pop: 0.0012    ndcg@20_pop: 0.0006    precision@20_pop: 0.0007    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:18:04 INFO Epoch 9 training [time: 245.45s, Train loss: 282.6244]
+Sat 17 Jan 2026 02:18:15 INFO Epoch 9: valid_score: 0.0023
+Sat 17 Jan 2026 02:18:15 INFO Valid result: recall@20_pop: 0.0023    ndcg@20_pop: 0.0012    precision@20_pop: 0.0013    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:18:15 INFO Test result : recall@20_pop: 0.0022    ndcg@20_pop: 0.0012    precision@20_pop: 0.0012    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:18:15 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 02:22:21 INFO Epoch 10 training [time: 245.47s, Train loss: 280.2841]
+Sat 17 Jan 2026 02:22:32 INFO Epoch 10: valid_score: 0.0015
+Sat 17 Jan 2026 02:22:32 INFO Valid result: recall@20_pop: 0.0015    ndcg@20_pop: 0.0009    precision@20_pop: 0.0010    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:22:32 INFO Test result : recall@20_pop: 0.0016    ndcg@20_pop: 0.0009    precision@20_pop: 0.0010    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:26:38 INFO Epoch 11 training [time: 245.66s, Train loss: 278.7222]
+Sat 17 Jan 2026 02:26:50 INFO Epoch 11: valid_score: 0.0012
+Sat 17 Jan 2026 02:26:50 INFO Valid result: recall@20_pop: 0.0012    ndcg@20_pop: 0.0007    precision@20_pop: 0.0007    map@20_pop: 0.0001    
+Sat 17 Jan 2026 02:26:50 INFO Test result : recall@20_pop: 0.0016    ndcg@20_pop: 0.0009    precision@20_pop: 0.0009    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:30:55 INFO Epoch 12 training [time: 245.75s, Train loss: 276.8052]
+Sat 17 Jan 2026 02:31:08 INFO Epoch 12: valid_score: 0.0018
+Sat 17 Jan 2026 02:31:08 INFO Valid result: recall@20_pop: 0.0018    ndcg@20_pop: 0.0010    precision@20_pop: 0.0010    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:31:08 INFO Test result : recall@20_pop: 0.0017    ndcg@20_pop: 0.0010    precision@20_pop: 0.0010    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:35:14 INFO Epoch 13 training [time: 245.59s, Train loss: 274.8951]
+Sat 17 Jan 2026 02:35:25 INFO Epoch 13: valid_score: 0.0022
+Sat 17 Jan 2026 02:35:25 INFO Valid result: recall@20_pop: 0.0022    ndcg@20_pop: 0.0013    precision@20_pop: 0.0014    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:35:25 INFO Test result : recall@20_pop: 0.0024    ndcg@20_pop: 0.0014    precision@20_pop: 0.0014    map@20_pop: 0.0003    
+Sat 17 Jan 2026 02:39:30 INFO Epoch 14 training [time: 245.40s, Train loss: 273.0091]
+Sat 17 Jan 2026 02:39:42 INFO Epoch 14: valid_score: 0.0019
+Sat 17 Jan 2026 02:39:42 INFO Valid result: recall@20_pop: 0.0019    ndcg@20_pop: 0.0011    precision@20_pop: 0.0012    map@20_pop: 0.0002    
+Sat 17 Jan 2026 02:39:42 INFO Test result : recall@20_pop: 0.0024    ndcg@20_pop: 0.0014    precision@20_pop: 0.0015    map@20_pop: 0.0003    
+Sat 17 Jan 2026 02:43:48 INFO Epoch 15 training [time: 245.48s, Train loss: 271.4474]
+Sat 17 Jan 2026 02:44:00 INFO Epoch 15: valid_score: 0.0030
+Sat 17 Jan 2026 02:44:00 INFO Valid result: recall@20_pop: 0.0030    ndcg@20_pop: 0.0018    precision@20_pop: 0.0019    map@20_pop: 0.0003    
+Sat 17 Jan 2026 02:44:00 INFO Test result : recall@20_pop: 0.0036    ndcg@20_pop: 0.0021    precision@20_pop: 0.0021    map@20_pop: 0.0004    
+Sat 17 Jan 2026 02:44:00 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 02:48:06 INFO Epoch 16 training [time: 245.60s, Train loss: 270.0356]
+Sat 17 Jan 2026 02:48:17 INFO Epoch 16: valid_score: 0.0036
+Sat 17 Jan 2026 02:48:17 INFO Valid result: recall@20_pop: 0.0036    ndcg@20_pop: 0.0021    precision@20_pop: 0.0022    map@20_pop: 0.0004    
+Sat 17 Jan 2026 02:48:17 INFO Test result : recall@20_pop: 0.0038    ndcg@20_pop: 0.0023    precision@20_pop: 0.0023    map@20_pop: 0.0005    
+Sat 17 Jan 2026 02:48:17 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 02:52:23 INFO Epoch 17 training [time: 245.56s, Train loss: 268.6924]
+Sat 17 Jan 2026 02:52:35 INFO Epoch 17: valid_score: 0.0024
+Sat 17 Jan 2026 02:52:35 INFO Valid result: recall@20_pop: 0.0024    ndcg@20_pop: 0.0014    precision@20_pop: 0.0015    map@20_pop: 0.0003    
+Sat 17 Jan 2026 02:52:35 INFO Test result : recall@20_pop: 0.0027    ndcg@20_pop: 0.0016    precision@20_pop: 0.0017    map@20_pop: 0.0003    
+Sat 17 Jan 2026 02:56:40 INFO Epoch 18 training [time: 245.50s, Train loss: 267.2658]
+Sat 17 Jan 2026 02:56:52 INFO Epoch 18: valid_score: 0.0031
+Sat 17 Jan 2026 02:56:52 INFO Valid result: recall@20_pop: 0.0031    ndcg@20_pop: 0.0019    precision@20_pop: 0.0020    map@20_pop: 0.0004    
+Sat 17 Jan 2026 02:56:52 INFO Test result : recall@20_pop: 0.0034    ndcg@20_pop: 0.0020    precision@20_pop: 0.0020    map@20_pop: 0.0004    
+Sat 17 Jan 2026 03:00:58 INFO Epoch 19 training [time: 245.64s, Train loss: 265.2701]
+Sat 17 Jan 2026 03:01:11 INFO Epoch 19: valid_score: 0.0049
+Sat 17 Jan 2026 03:01:11 INFO Valid result: recall@20_pop: 0.0049    ndcg@20_pop: 0.0029    precision@20_pop: 0.0029    map@20_pop: 0.0006    
+Sat 17 Jan 2026 03:01:11 INFO Test result : recall@20_pop: 0.0048    ndcg@20_pop: 0.0029    precision@20_pop: 0.0030    map@20_pop: 0.0007    
+Sat 17 Jan 2026 03:01:11 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 03:05:16 INFO Epoch 20 training [time: 245.56s, Train loss: 264.2293]
+Sat 17 Jan 2026 03:05:27 INFO Epoch 20: valid_score: 0.0044
+Sat 17 Jan 2026 03:05:27 INFO Valid result: recall@20_pop: 0.0044    ndcg@20_pop: 0.0026    precision@20_pop: 0.0028    map@20_pop: 0.0005    
+Sat 17 Jan 2026 03:05:27 INFO Test result : recall@20_pop: 0.0041    ndcg@20_pop: 0.0025    precision@20_pop: 0.0026    map@20_pop: 0.0005    
+Sat 17 Jan 2026 03:09:33 INFO Epoch 21 training [time: 245.38s, Train loss: 263.5872]
+Sat 17 Jan 2026 03:09:45 INFO Epoch 21: valid_score: 0.0038
+Sat 17 Jan 2026 03:09:45 INFO Valid result: recall@20_pop: 0.0038    ndcg@20_pop: 0.0023    precision@20_pop: 0.0024    map@20_pop: 0.0005    
+Sat 17 Jan 2026 03:09:45 INFO Test result : recall@20_pop: 0.0043    ndcg@20_pop: 0.0025    precision@20_pop: 0.0025    map@20_pop: 0.0005    
+Sat 17 Jan 2026 03:13:51 INFO Epoch 22 training [time: 245.60s, Train loss: 262.2406]
+Sat 17 Jan 2026 03:14:03 INFO Epoch 22: valid_score: 0.0065
+Sat 17 Jan 2026 03:14:03 INFO Valid result: recall@20_pop: 0.0065    ndcg@20_pop: 0.0038    precision@20_pop: 0.0038    map@20_pop: 0.0010    
+Sat 17 Jan 2026 03:14:03 INFO Test result : recall@20_pop: 0.0061    ndcg@20_pop: 0.0038    precision@20_pop: 0.0038    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:14:03 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 03:18:08 INFO Epoch 23 training [time: 245.44s, Train loss: 260.9134]
+Sat 17 Jan 2026 03:18:20 INFO Epoch 23: valid_score: 0.0066
+Sat 17 Jan 2026 03:18:20 INFO Valid result: recall@20_pop: 0.0066    ndcg@20_pop: 0.0039    precision@20_pop: 0.0040    map@20_pop: 0.0010    
+Sat 17 Jan 2026 03:18:20 INFO Test result : recall@20_pop: 0.0063    ndcg@20_pop: 0.0040    precision@20_pop: 0.0040    map@20_pop: 0.0010    
+Sat 17 Jan 2026 03:18:20 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 03:22:25 INFO Epoch 24 training [time: 245.38s, Train loss: 260.2743]
+Sat 17 Jan 2026 03:22:36 INFO Epoch 24: valid_score: 0.0060
+Sat 17 Jan 2026 03:22:36 INFO Valid result: recall@20_pop: 0.0060    ndcg@20_pop: 0.0035    precision@20_pop: 0.0036    map@20_pop: 0.0008    
+Sat 17 Jan 2026 03:22:36 INFO Test result : recall@20_pop: 0.0062    ndcg@20_pop: 0.0038    precision@20_pop: 0.0037    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:26:42 INFO Epoch 25 training [time: 245.78s, Train loss: 258.4407]
+Sat 17 Jan 2026 03:26:54 INFO Epoch 25: valid_score: 0.0065
+Sat 17 Jan 2026 03:26:54 INFO Valid result: recall@20_pop: 0.0065    ndcg@20_pop: 0.0040    precision@20_pop: 0.0040    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:26:54 INFO Test result : recall@20_pop: 0.0068    ndcg@20_pop: 0.0041    precision@20_pop: 0.0041    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:31:00 INFO Epoch 26 training [time: 245.64s, Train loss: 258.3541]
+Sat 17 Jan 2026 03:31:12 INFO Epoch 26: valid_score: 0.0057
+Sat 17 Jan 2026 03:31:12 INFO Valid result: recall@20_pop: 0.0057    ndcg@20_pop: 0.0034    precision@20_pop: 0.0034    map@20_pop: 0.0008    
+Sat 17 Jan 2026 03:31:12 INFO Test result : recall@20_pop: 0.0057    ndcg@20_pop: 0.0035    precision@20_pop: 0.0036    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:35:18 INFO Epoch 27 training [time: 245.37s, Train loss: 256.0928]
+Sat 17 Jan 2026 03:35:29 INFO Epoch 27: valid_score: 0.0061
+Sat 17 Jan 2026 03:35:29 INFO Valid result: recall@20_pop: 0.0061    ndcg@20_pop: 0.0037    precision@20_pop: 0.0037    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:35:29 INFO Test result : recall@20_pop: 0.0059    ndcg@20_pop: 0.0037    precision@20_pop: 0.0037    map@20_pop: 0.0009    
+Sat 17 Jan 2026 03:39:34 INFO Epoch 28 training [time: 245.48s, Train loss: 255.5982]
+Sat 17 Jan 2026 03:39:47 INFO Epoch 28: valid_score: 0.0064
+Sat 17 Jan 2026 03:39:47 INFO Valid result: recall@20_pop: 0.0064    ndcg@20_pop: 0.0040    precision@20_pop: 0.0041    map@20_pop: 0.0010    
+Sat 17 Jan 2026 03:39:47 INFO Test result : recall@20_pop: 0.0067    ndcg@20_pop: 0.0042    precision@20_pop: 0.0042    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:43:52 INFO Epoch 29 training [time: 245.58s, Train loss: 254.6460]
+Sat 17 Jan 2026 03:44:05 INFO Epoch 29: valid_score: 0.0074
+Sat 17 Jan 2026 03:44:05 INFO Valid result: recall@20_pop: 0.0074    ndcg@20_pop: 0.0046    precision@20_pop: 0.0046    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:44:05 INFO Test result : recall@20_pop: 0.0068    ndcg@20_pop: 0.0043    precision@20_pop: 0.0043    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:44:05 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 03:48:10 INFO Epoch 30 training [time: 245.57s, Train loss: 254.2934]
+Sat 17 Jan 2026 03:48:22 INFO Epoch 30: valid_score: 0.0066
+Sat 17 Jan 2026 03:48:22 INFO Valid result: recall@20_pop: 0.0066    ndcg@20_pop: 0.0041    precision@20_pop: 0.0041    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:48:22 INFO Test result : recall@20_pop: 0.0063    ndcg@20_pop: 0.0041    precision@20_pop: 0.0041    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:52:27 INFO Epoch 31 training [time: 245.49s, Train loss: 253.5898]
+Sat 17 Jan 2026 03:52:39 INFO Epoch 31: valid_score: 0.0071
+Sat 17 Jan 2026 03:52:39 INFO Valid result: recall@20_pop: 0.0071    ndcg@20_pop: 0.0044    precision@20_pop: 0.0044    map@20_pop: 0.0011    
+Sat 17 Jan 2026 03:52:39 INFO Test result : recall@20_pop: 0.0077    ndcg@20_pop: 0.0048    precision@20_pop: 0.0048    map@20_pop: 0.0013    
+Sat 17 Jan 2026 03:56:45 INFO Epoch 32 training [time: 245.81s, Train loss: 252.1965]
+Sat 17 Jan 2026 03:56:57 INFO Epoch 32: valid_score: 0.0081
+Sat 17 Jan 2026 03:56:57 INFO Valid result: recall@20_pop: 0.0081    ndcg@20_pop: 0.0048    precision@20_pop: 0.0048    map@20_pop: 0.0013    
+Sat 17 Jan 2026 03:56:57 INFO Test result : recall@20_pop: 0.0077    ndcg@20_pop: 0.0048    precision@20_pop: 0.0048    map@20_pop: 0.0012    
+Sat 17 Jan 2026 03:56:57 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 04:01:03 INFO Epoch 33 training [time: 245.54s, Train loss: 252.1330]
+Sat 17 Jan 2026 04:01:14 INFO Epoch 33: valid_score: 0.0091
+Sat 17 Jan 2026 04:01:14 INFO Valid result: recall@20_pop: 0.0091    ndcg@20_pop: 0.0054    precision@20_pop: 0.0053    map@20_pop: 0.0015    
+Sat 17 Jan 2026 04:01:14 INFO Test result : recall@20_pop: 0.0089    ndcg@20_pop: 0.0056    precision@20_pop: 0.0055    map@20_pop: 0.0015    
+Sat 17 Jan 2026 04:01:14 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 04:05:20 INFO Epoch 34 training [time: 245.62s, Train loss: 250.4827]
+Sat 17 Jan 2026 04:05:31 INFO Epoch 34: valid_score: 0.0089
+Sat 17 Jan 2026 04:05:31 INFO Valid result: recall@20_pop: 0.0089    ndcg@20_pop: 0.0054    precision@20_pop: 0.0053    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:05:31 INFO Test result : recall@20_pop: 0.0087    ndcg@20_pop: 0.0056    precision@20_pop: 0.0055    map@20_pop: 0.0016    
+Sat 17 Jan 2026 04:09:36 INFO Epoch 35 training [time: 245.57s, Train loss: 250.2531]
+Sat 17 Jan 2026 04:09:49 INFO Epoch 35: valid_score: 0.0075
+Sat 17 Jan 2026 04:09:49 INFO Valid result: recall@20_pop: 0.0075    ndcg@20_pop: 0.0047    precision@20_pop: 0.0047    map@20_pop: 0.0012    
+Sat 17 Jan 2026 04:09:49 INFO Test result : recall@20_pop: 0.0077    ndcg@20_pop: 0.0049    precision@20_pop: 0.0048    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:13:56 INFO Epoch 36 training [time: 247.30s, Train loss: 249.7286]
+Sat 17 Jan 2026 04:14:08 INFO Epoch 36: valid_score: 0.0079
+Sat 17 Jan 2026 04:14:08 INFO Valid result: recall@20_pop: 0.0079    ndcg@20_pop: 0.0048    precision@20_pop: 0.0047    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:14:08 INFO Test result : recall@20_pop: 0.0073    ndcg@20_pop: 0.0049    precision@20_pop: 0.0047    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:18:13 INFO Epoch 37 training [time: 245.52s, Train loss: 248.7598]
+Sat 17 Jan 2026 04:18:25 INFO Epoch 37: valid_score: 0.0110
+Sat 17 Jan 2026 04:18:25 INFO Valid result: recall@20_pop: 0.0110    ndcg@20_pop: 0.0066    precision@20_pop: 0.0063    map@20_pop: 0.0018    
+Sat 17 Jan 2026 04:18:25 INFO Test result : recall@20_pop: 0.0101    ndcg@20_pop: 0.0063    precision@20_pop: 0.0062    map@20_pop: 0.0017    
+Sat 17 Jan 2026 04:18:25 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 04:22:30 INFO Epoch 38 training [time: 245.44s, Train loss: 248.0060]
+Sat 17 Jan 2026 04:22:42 INFO Epoch 38: valid_score: 0.0095
+Sat 17 Jan 2026 04:22:42 INFO Valid result: recall@20_pop: 0.0095    ndcg@20_pop: 0.0061    precision@20_pop: 0.0059    map@20_pop: 0.0018    
+Sat 17 Jan 2026 04:22:42 INFO Test result : recall@20_pop: 0.0090    ndcg@20_pop: 0.0059    precision@20_pop: 0.0058    map@20_pop: 0.0017    
+Sat 17 Jan 2026 04:26:48 INFO Epoch 39 training [time: 245.71s, Train loss: 247.5274]
+Sat 17 Jan 2026 04:27:00 INFO Epoch 39: valid_score: 0.0116
+Sat 17 Jan 2026 04:27:00 INFO Valid result: recall@20_pop: 0.0116    ndcg@20_pop: 0.0067    precision@20_pop: 0.0064    map@20_pop: 0.0018    
+Sat 17 Jan 2026 04:27:00 INFO Test result : recall@20_pop: 0.0108    ndcg@20_pop: 0.0069    precision@20_pop: 0.0066    map@20_pop: 0.0020    
+Sat 17 Jan 2026 04:27:00 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 04:31:06 INFO Epoch 40 training [time: 245.54s, Train loss: 246.6896]
+Sat 17 Jan 2026 04:31:17 INFO Epoch 40: valid_score: 0.0098
+Sat 17 Jan 2026 04:31:17 INFO Valid result: recall@20_pop: 0.0098    ndcg@20_pop: 0.0059    precision@20_pop: 0.0057    map@20_pop: 0.0017    
+Sat 17 Jan 2026 04:31:17 INFO Test result : recall@20_pop: 0.0092    ndcg@20_pop: 0.0058    precision@20_pop: 0.0057    map@20_pop: 0.0017    
+Sat 17 Jan 2026 04:35:22 INFO Epoch 41 training [time: 245.37s, Train loss: 245.7040]
+Sat 17 Jan 2026 04:35:34 INFO Epoch 41: valid_score: 0.0094
+Sat 17 Jan 2026 04:35:34 INFO Valid result: recall@20_pop: 0.0094    ndcg@20_pop: 0.0060    precision@20_pop: 0.0059    map@20_pop: 0.0018    
+Sat 17 Jan 2026 04:35:34 INFO Test result : recall@20_pop: 0.0091    ndcg@20_pop: 0.0059    precision@20_pop: 0.0057    map@20_pop: 0.0017    
+Sat 17 Jan 2026 04:39:39 INFO Epoch 42 training [time: 245.45s, Train loss: 245.2248]
+Sat 17 Jan 2026 04:39:51 INFO Epoch 42: valid_score: 0.0055
+Sat 17 Jan 2026 04:39:51 INFO Valid result: recall@20_pop: 0.0055    ndcg@20_pop: 0.0034    precision@20_pop: 0.0035    map@20_pop: 0.0009    
+Sat 17 Jan 2026 04:39:51 INFO Test result : recall@20_pop: 0.0055    ndcg@20_pop: 0.0036    precision@20_pop: 0.0035    map@20_pop: 0.0010    
+Sat 17 Jan 2026 04:43:57 INFO Epoch 43 training [time: 245.27s, Train loss: 245.0360]
+Sat 17 Jan 2026 04:44:09 INFO Epoch 43: valid_score: 0.0133
+Sat 17 Jan 2026 04:44:09 INFO Valid result: recall@20_pop: 0.0133    ndcg@20_pop: 0.0081    precision@20_pop: 0.0077    map@20_pop: 0.0024    
+Sat 17 Jan 2026 04:44:09 INFO Test result : recall@20_pop: 0.0124    ndcg@20_pop: 0.0078    precision@20_pop: 0.0075    map@20_pop: 0.0022    
+Sat 17 Jan 2026 04:44:09 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 04:48:14 INFO Epoch 44 training [time: 245.33s, Train loss: 244.2581]
+Sat 17 Jan 2026 04:48:25 INFO Epoch 44: valid_score: 0.0077
+Sat 17 Jan 2026 04:48:25 INFO Valid result: recall@20_pop: 0.0077    ndcg@20_pop: 0.0048    precision@20_pop: 0.0047    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:48:25 INFO Test result : recall@20_pop: 0.0075    ndcg@20_pop: 0.0049    precision@20_pop: 0.0049    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:52:31 INFO Epoch 45 training [time: 245.30s, Train loss: 243.4747]
+Sat 17 Jan 2026 04:52:43 INFO Epoch 45: valid_score: 0.0127
+Sat 17 Jan 2026 04:52:43 INFO Valid result: recall@20_pop: 0.0127    ndcg@20_pop: 0.0081    precision@20_pop: 0.0077    map@20_pop: 0.0025    
+Sat 17 Jan 2026 04:52:43 INFO Test result : recall@20_pop: 0.0134    ndcg@20_pop: 0.0087    precision@20_pop: 0.0082    map@20_pop: 0.0028    
+Sat 17 Jan 2026 04:56:48 INFO Epoch 46 training [time: 245.25s, Train loss: 243.1617]
+Sat 17 Jan 2026 04:57:00 INFO Epoch 46: valid_score: 0.0069
+Sat 17 Jan 2026 04:57:00 INFO Valid result: recall@20_pop: 0.0069    ndcg@20_pop: 0.0047    precision@20_pop: 0.0046    map@20_pop: 0.0014    
+Sat 17 Jan 2026 04:57:00 INFO Test result : recall@20_pop: 0.0072    ndcg@20_pop: 0.0047    precision@20_pop: 0.0045    map@20_pop: 0.0014    
+Sat 17 Jan 2026 05:01:06 INFO Epoch 47 training [time: 245.35s, Train loss: 242.4572]
+Sat 17 Jan 2026 05:01:17 INFO Epoch 47: valid_score: 0.0141
+Sat 17 Jan 2026 05:01:17 INFO Valid result: recall@20_pop: 0.0141    ndcg@20_pop: 0.0089    precision@20_pop: 0.0082    map@20_pop: 0.0028    
+Sat 17 Jan 2026 05:01:17 INFO Test result : recall@20_pop: 0.0130    ndcg@20_pop: 0.0087    precision@20_pop: 0.0080    map@20_pop: 0.0029    
+Sat 17 Jan 2026 05:01:17 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 05:05:22 INFO Epoch 48 training [time: 245.21s, Train loss: 242.2084]
+Sat 17 Jan 2026 05:05:33 INFO Epoch 48: valid_score: 0.0142
+Sat 17 Jan 2026 05:05:33 INFO Valid result: recall@20_pop: 0.0142    ndcg@20_pop: 0.0084    precision@20_pop: 0.0079    map@20_pop: 0.0024    
+Sat 17 Jan 2026 05:05:33 INFO Test result : recall@20_pop: 0.0134    ndcg@20_pop: 0.0084    precision@20_pop: 0.0081    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:05:33 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 05:09:39 INFO Epoch 49 training [time: 245.40s, Train loss: 241.8067]
+Sat 17 Jan 2026 05:09:51 INFO Epoch 49: valid_score: 0.0126
+Sat 17 Jan 2026 05:09:51 INFO Valid result: recall@20_pop: 0.0126    ndcg@20_pop: 0.0077    precision@20_pop: 0.0071    map@20_pop: 0.0023    
+Sat 17 Jan 2026 05:09:51 INFO Test result : recall@20_pop: 0.0117    ndcg@20_pop: 0.0077    precision@20_pop: 0.0073    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:13:56 INFO Epoch 50 training [time: 245.25s, Train loss: 241.0851]
+Sat 17 Jan 2026 05:14:08 INFO Epoch 50: valid_score: 0.0091
+Sat 17 Jan 2026 05:14:08 INFO Valid result: recall@20_pop: 0.0091    ndcg@20_pop: 0.0060    precision@20_pop: 0.0057    map@20_pop: 0.0019    
+Sat 17 Jan 2026 05:14:08 INFO Test result : recall@20_pop: 0.0090    ndcg@20_pop: 0.0057    precision@20_pop: 0.0055    map@20_pop: 0.0017    
+Sat 17 Jan 2026 05:18:14 INFO Epoch 51 training [time: 245.92s, Train loss: 240.5895]
+Sat 17 Jan 2026 05:18:26 INFO Epoch 51: valid_score: 0.0108
+Sat 17 Jan 2026 05:18:26 INFO Valid result: recall@20_pop: 0.0108    ndcg@20_pop: 0.0069    precision@20_pop: 0.0066    map@20_pop: 0.0022    
+Sat 17 Jan 2026 05:18:26 INFO Test result : recall@20_pop: 0.0110    ndcg@20_pop: 0.0072    precision@20_pop: 0.0068    map@20_pop: 0.0023    
+Sat 17 Jan 2026 05:22:32 INFO Epoch 52 training [time: 245.93s, Train loss: 240.3761]
+Sat 17 Jan 2026 05:22:43 INFO Epoch 52: valid_score: 0.0121
+Sat 17 Jan 2026 05:22:43 INFO Valid result: recall@20_pop: 0.0121    ndcg@20_pop: 0.0075    precision@20_pop: 0.0071    map@20_pop: 0.0023    
+Sat 17 Jan 2026 05:22:43 INFO Test result : recall@20_pop: 0.0115    ndcg@20_pop: 0.0077    precision@20_pop: 0.0072    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:26:48 INFO Epoch 53 training [time: 245.41s, Train loss: 240.0074]
+Sat 17 Jan 2026 05:27:00 INFO Epoch 53: valid_score: 0.0086
+Sat 17 Jan 2026 05:27:00 INFO Valid result: recall@20_pop: 0.0086    ndcg@20_pop: 0.0055    precision@20_pop: 0.0053    map@20_pop: 0.0017    
+Sat 17 Jan 2026 05:27:00 INFO Test result : recall@20_pop: 0.0085    ndcg@20_pop: 0.0055    precision@20_pop: 0.0053    map@20_pop: 0.0018    
+Sat 17 Jan 2026 05:31:06 INFO Epoch 54 training [time: 245.30s, Train loss: 239.0728]
+Sat 17 Jan 2026 05:31:17 INFO Epoch 54: valid_score: 0.0092
+Sat 17 Jan 2026 05:31:17 INFO Valid result: recall@20_pop: 0.0092    ndcg@20_pop: 0.0060    precision@20_pop: 0.0058    map@20_pop: 0.0019    
+Sat 17 Jan 2026 05:31:17 INFO Test result : recall@20_pop: 0.0096    ndcg@20_pop: 0.0062    precision@20_pop: 0.0059    map@20_pop: 0.0019    
+Sat 17 Jan 2026 05:35:22 INFO Epoch 55 training [time: 245.18s, Train loss: 238.7318]
+Sat 17 Jan 2026 05:35:34 INFO Epoch 55: valid_score: 0.0113
+Sat 17 Jan 2026 05:35:34 INFO Valid result: recall@20_pop: 0.0113    ndcg@20_pop: 0.0071    precision@20_pop: 0.0068    map@20_pop: 0.0022    
+Sat 17 Jan 2026 05:35:34 INFO Test result : recall@20_pop: 0.0118    ndcg@20_pop: 0.0077    precision@20_pop: 0.0073    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:39:39 INFO Epoch 56 training [time: 245.32s, Train loss: 238.1860]
+Sat 17 Jan 2026 05:39:51 INFO Epoch 56: valid_score: 0.0124
+Sat 17 Jan 2026 05:39:51 INFO Valid result: recall@20_pop: 0.0124    ndcg@20_pop: 0.0078    precision@20_pop: 0.0073    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:39:51 INFO Test result : recall@20_pop: 0.0121    ndcg@20_pop: 0.0078    precision@20_pop: 0.0073    map@20_pop: 0.0025    
+Sat 17 Jan 2026 05:43:57 INFO Epoch 57 training [time: 245.41s, Train loss: 238.1865]
+Sat 17 Jan 2026 05:44:09 INFO Epoch 57: valid_score: 0.0100
+Sat 17 Jan 2026 05:44:09 INFO Valid result: recall@20_pop: 0.0100    ndcg@20_pop: 0.0063    precision@20_pop: 0.0061    map@20_pop: 0.0019    
+Sat 17 Jan 2026 05:44:09 INFO Test result : recall@20_pop: 0.0109    ndcg@20_pop: 0.0071    precision@20_pop: 0.0067    map@20_pop: 0.0023    
+Sat 17 Jan 2026 05:48:14 INFO Epoch 58 training [time: 245.50s, Train loss: 237.3640]
+Sat 17 Jan 2026 05:48:26 INFO Epoch 58: valid_score: 0.0065
+Sat 17 Jan 2026 05:48:26 INFO Valid result: recall@20_pop: 0.0065    ndcg@20_pop: 0.0042    precision@20_pop: 0.0043    map@20_pop: 0.0013    
+Sat 17 Jan 2026 05:48:26 INFO Test result : recall@20_pop: 0.0066    ndcg@20_pop: 0.0045    precision@20_pop: 0.0043    map@20_pop: 0.0015    
+Sat 17 Jan 2026 05:52:31 INFO Epoch 59 training [time: 245.24s, Train loss: 236.6287]
+Sat 17 Jan 2026 05:52:43 INFO Epoch 59: valid_score: 0.0103
+Sat 17 Jan 2026 05:52:43 INFO Valid result: recall@20_pop: 0.0103    ndcg@20_pop: 0.0066    precision@20_pop: 0.0064    map@20_pop: 0.0021    
+Sat 17 Jan 2026 05:52:43 INFO Test result : recall@20_pop: 0.0100    ndcg@20_pop: 0.0068    precision@20_pop: 0.0063    map@20_pop: 0.0022    
+Sat 17 Jan 2026 05:56:48 INFO Epoch 60 training [time: 245.34s, Train loss: 236.6336]
+Sat 17 Jan 2026 05:57:00 INFO Epoch 60: valid_score: 0.0141
+Sat 17 Jan 2026 05:57:00 INFO Valid result: recall@20_pop: 0.0141    ndcg@20_pop: 0.0085    precision@20_pop: 0.0081    map@20_pop: 0.0024    
+Sat 17 Jan 2026 05:57:00 INFO Test result : recall@20_pop: 0.0142    ndcg@20_pop: 0.0087    precision@20_pop: 0.0083    map@20_pop: 0.0026    
+Sat 17 Jan 2026 06:01:06 INFO Epoch 61 training [time: 245.39s, Train loss: 236.2941]
+Sat 17 Jan 2026 06:01:17 INFO Epoch 61: valid_score: 0.0104
+Sat 17 Jan 2026 06:01:17 INFO Valid result: recall@20_pop: 0.0104    ndcg@20_pop: 0.0066    precision@20_pop: 0.0062    map@20_pop: 0.0021    
+Sat 17 Jan 2026 06:01:17 INFO Test result : recall@20_pop: 0.0100    ndcg@20_pop: 0.0066    precision@20_pop: 0.0063    map@20_pop: 0.0021    
+Sat 17 Jan 2026 06:05:22 INFO Epoch 62 training [time: 245.06s, Train loss: 235.8841]
+Sat 17 Jan 2026 06:05:33 INFO Epoch 62: valid_score: 0.0103
+Sat 17 Jan 2026 06:05:33 INFO Valid result: recall@20_pop: 0.0103    ndcg@20_pop: 0.0069    precision@20_pop: 0.0065    map@20_pop: 0.0022    
+Sat 17 Jan 2026 06:05:33 INFO Test result : recall@20_pop: 0.0096    ndcg@20_pop: 0.0066    precision@20_pop: 0.0063    map@20_pop: 0.0021    
+Sat 17 Jan 2026 06:09:39 INFO Epoch 63 training [time: 245.43s, Train loss: 235.5246]
+Sat 17 Jan 2026 06:09:51 INFO Epoch 63: valid_score: 0.0155
+Sat 17 Jan 2026 06:09:51 INFO Valid result: recall@20_pop: 0.0155    ndcg@20_pop: 0.0097    precision@20_pop: 0.0091    map@20_pop: 0.0032    
+Sat 17 Jan 2026 06:09:51 INFO Test result : recall@20_pop: 0.0155    ndcg@20_pop: 0.0100    precision@20_pop: 0.0096    map@20_pop: 0.0033    
+Sat 17 Jan 2026 06:09:51 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 06:13:56 INFO Epoch 64 training [time: 245.35s, Train loss: 235.1586]
+Sat 17 Jan 2026 06:14:08 INFO Epoch 64: valid_score: 0.0152
+Sat 17 Jan 2026 06:14:08 INFO Valid result: recall@20_pop: 0.0152    ndcg@20_pop: 0.0096    precision@20_pop: 0.0090    map@20_pop: 0.0031    
+Sat 17 Jan 2026 06:14:08 INFO Test result : recall@20_pop: 0.0152    ndcg@20_pop: 0.0098    precision@20_pop: 0.0093    map@20_pop: 0.0032    
+Sat 17 Jan 2026 06:18:13 INFO Epoch 65 training [time: 245.62s, Train loss: 234.4521]
+Sat 17 Jan 2026 06:18:25 INFO Epoch 65: valid_score: 0.0096
+Sat 17 Jan 2026 06:18:25 INFO Valid result: recall@20_pop: 0.0096    ndcg@20_pop: 0.0062    precision@20_pop: 0.0060    map@20_pop: 0.0020    
+Sat 17 Jan 2026 06:18:25 INFO Test result : recall@20_pop: 0.0093    ndcg@20_pop: 0.0062    precision@20_pop: 0.0059    map@20_pop: 0.0020    
+Sat 17 Jan 2026 06:22:30 INFO Epoch 66 training [time: 245.27s, Train loss: 234.5523]
+Sat 17 Jan 2026 06:22:41 INFO Epoch 66: valid_score: 0.0103
+Sat 17 Jan 2026 06:22:41 INFO Valid result: recall@20_pop: 0.0103    ndcg@20_pop: 0.0067    precision@20_pop: 0.0063    map@20_pop: 0.0021    
+Sat 17 Jan 2026 06:22:41 INFO Test result : recall@20_pop: 0.0113    ndcg@20_pop: 0.0073    precision@20_pop: 0.0069    map@20_pop: 0.0025    
+Sat 17 Jan 2026 06:26:47 INFO Epoch 67 training [time: 245.47s, Train loss: 234.0269]
+Sat 17 Jan 2026 06:26:59 INFO Epoch 67: valid_score: 0.0139
+Sat 17 Jan 2026 06:26:59 INFO Valid result: recall@20_pop: 0.0139    ndcg@20_pop: 0.0090    precision@20_pop: 0.0085    map@20_pop: 0.0030    
+Sat 17 Jan 2026 06:26:59 INFO Test result : recall@20_pop: 0.0146    ndcg@20_pop: 0.0096    precision@20_pop: 0.0089    map@20_pop: 0.0032    
+Sat 17 Jan 2026 06:31:04 INFO Epoch 68 training [time: 245.28s, Train loss: 234.1923]
+Sat 17 Jan 2026 06:31:16 INFO Epoch 68: valid_score: 0.0162
+Sat 17 Jan 2026 06:31:16 INFO Valid result: recall@20_pop: 0.0162    ndcg@20_pop: 0.0103    precision@20_pop: 0.0094    map@20_pop: 0.0034    
+Sat 17 Jan 2026 06:31:16 INFO Test result : recall@20_pop: 0.0158    ndcg@20_pop: 0.0102    precision@20_pop: 0.0093    map@20_pop: 0.0033    
+Sat 17 Jan 2026 06:31:16 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 06:35:21 INFO Epoch 69 training [time: 245.32s, Train loss: 233.9067]
+Sat 17 Jan 2026 06:35:33 INFO Epoch 69: valid_score: 0.0124
+Sat 17 Jan 2026 06:35:33 INFO Valid result: recall@20_pop: 0.0124    ndcg@20_pop: 0.0080    precision@20_pop: 0.0075    map@20_pop: 0.0027    
+Sat 17 Jan 2026 06:35:33 INFO Test result : recall@20_pop: 0.0123    ndcg@20_pop: 0.0082    precision@20_pop: 0.0077    map@20_pop: 0.0027    
+Sat 17 Jan 2026 06:39:38 INFO Epoch 70 training [time: 245.53s, Train loss: 233.1998]
+Sat 17 Jan 2026 06:39:50 INFO Epoch 70: valid_score: 0.0146
+Sat 17 Jan 2026 06:39:50 INFO Valid result: recall@20_pop: 0.0146    ndcg@20_pop: 0.0094    precision@20_pop: 0.0088    map@20_pop: 0.0031    
+Sat 17 Jan 2026 06:39:50 INFO Test result : recall@20_pop: 0.0146    ndcg@20_pop: 0.0097    precision@20_pop: 0.0090    map@20_pop: 0.0033    
+Sat 17 Jan 2026 06:43:56 INFO Epoch 71 training [time: 245.63s, Train loss: 232.7747]
+Sat 17 Jan 2026 06:44:08 INFO Epoch 71: valid_score: 0.0139
+Sat 17 Jan 2026 06:44:08 INFO Valid result: recall@20_pop: 0.0139    ndcg@20_pop: 0.0091    precision@20_pop: 0.0085    map@20_pop: 0.0030    
+Sat 17 Jan 2026 06:44:08 INFO Test result : recall@20_pop: 0.0139    ndcg@20_pop: 0.0092    precision@20_pop: 0.0086    map@20_pop: 0.0031    
+Sat 17 Jan 2026 06:48:13 INFO Epoch 72 training [time: 245.50s, Train loss: 232.0757]
+Sat 17 Jan 2026 06:48:25 INFO Epoch 72: valid_score: 0.0177
+Sat 17 Jan 2026 06:48:25 INFO Valid result: recall@20_pop: 0.0177    ndcg@20_pop: 0.0110    precision@20_pop: 0.0100    map@20_pop: 0.0036    
+Sat 17 Jan 2026 06:48:25 INFO Test result : recall@20_pop: 0.0173    ndcg@20_pop: 0.0112    precision@20_pop: 0.0103    map@20_pop: 0.0038    
+Sat 17 Jan 2026 06:48:25 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 06:52:30 INFO Epoch 73 training [time: 245.25s, Train loss: 231.7835]
+Sat 17 Jan 2026 06:52:42 INFO Epoch 73: valid_score: 0.0189
+Sat 17 Jan 2026 06:52:42 INFO Valid result: recall@20_pop: 0.0189    ndcg@20_pop: 0.0117    precision@20_pop: 0.0106    map@20_pop: 0.0037    
+Sat 17 Jan 2026 06:52:42 INFO Test result : recall@20_pop: 0.0185    ndcg@20_pop: 0.0120    precision@20_pop: 0.0110    map@20_pop: 0.0040    
+Sat 17 Jan 2026 06:52:42 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 06:56:47 INFO Epoch 74 training [time: 245.39s, Train loss: 231.7090]
+Sat 17 Jan 2026 06:56:59 INFO Epoch 74: valid_score: 0.0104
+Sat 17 Jan 2026 06:56:59 INFO Valid result: recall@20_pop: 0.0104    ndcg@20_pop: 0.0066    precision@20_pop: 0.0064    map@20_pop: 0.0020    
+Sat 17 Jan 2026 06:56:59 INFO Test result : recall@20_pop: 0.0105    ndcg@20_pop: 0.0070    precision@20_pop: 0.0068    map@20_pop: 0.0022    
+Sat 17 Jan 2026 07:01:05 INFO Epoch 75 training [time: 245.35s, Train loss: 231.7267]
+Sat 17 Jan 2026 07:01:16 INFO Epoch 75: valid_score: 0.0125
+Sat 17 Jan 2026 07:01:16 INFO Valid result: recall@20_pop: 0.0125    ndcg@20_pop: 0.0081    precision@20_pop: 0.0076    map@20_pop: 0.0026    
+Sat 17 Jan 2026 07:01:16 INFO Test result : recall@20_pop: 0.0123    ndcg@20_pop: 0.0081    precision@20_pop: 0.0076    map@20_pop: 0.0027    
+Sat 17 Jan 2026 07:05:21 INFO Epoch 76 training [time: 245.06s, Train loss: 231.2831]
+Sat 17 Jan 2026 07:05:33 INFO Epoch 76: valid_score: 0.0120
+Sat 17 Jan 2026 07:05:33 INFO Valid result: recall@20_pop: 0.0120    ndcg@20_pop: 0.0077    precision@20_pop: 0.0074    map@20_pop: 0.0025    
+Sat 17 Jan 2026 07:05:33 INFO Test result : recall@20_pop: 0.0120    ndcg@20_pop: 0.0080    precision@20_pop: 0.0075    map@20_pop: 0.0027    
+Sat 17 Jan 2026 07:09:38 INFO Epoch 77 training [time: 245.22s, Train loss: 230.7856]
+Sat 17 Jan 2026 07:09:50 INFO Epoch 77: valid_score: 0.0091
+Sat 17 Jan 2026 07:09:50 INFO Valid result: recall@20_pop: 0.0091    ndcg@20_pop: 0.0059    precision@20_pop: 0.0057    map@20_pop: 0.0018    
+Sat 17 Jan 2026 07:09:50 INFO Test result : recall@20_pop: 0.0095    ndcg@20_pop: 0.0063    precision@20_pop: 0.0059    map@20_pop: 0.0021    
+Sat 17 Jan 2026 07:13:56 INFO Epoch 78 training [time: 245.68s, Train loss: 230.8523]
+Sat 17 Jan 2026 07:14:07 INFO Epoch 78: valid_score: 0.0149
+Sat 17 Jan 2026 07:14:07 INFO Valid result: recall@20_pop: 0.0149    ndcg@20_pop: 0.0092    precision@20_pop: 0.0087    map@20_pop: 0.0029    
+Sat 17 Jan 2026 07:14:07 INFO Test result : recall@20_pop: 0.0144    ndcg@20_pop: 0.0093    precision@20_pop: 0.0089    map@20_pop: 0.0030    
+Sat 17 Jan 2026 07:18:13 INFO Epoch 79 training [time: 245.51s, Train loss: 230.0785]
+Sat 17 Jan 2026 07:18:24 INFO Epoch 79: valid_score: 0.0147
+Sat 17 Jan 2026 07:18:24 INFO Valid result: recall@20_pop: 0.0147    ndcg@20_pop: 0.0093    precision@20_pop: 0.0086    map@20_pop: 0.0031    
+Sat 17 Jan 2026 07:18:24 INFO Test result : recall@20_pop: 0.0140    ndcg@20_pop: 0.0094    precision@20_pop: 0.0088    map@20_pop: 0.0033    
+Sat 17 Jan 2026 07:22:30 INFO Epoch 80 training [time: 245.27s, Train loss: 230.2467]
+Sat 17 Jan 2026 07:22:41 INFO Epoch 80: valid_score: 0.0104
+Sat 17 Jan 2026 07:22:41 INFO Valid result: recall@20_pop: 0.0104    ndcg@20_pop: 0.0068    precision@20_pop: 0.0065    map@20_pop: 0.0022    
+Sat 17 Jan 2026 07:22:41 INFO Test result : recall@20_pop: 0.0103    ndcg@20_pop: 0.0070    precision@20_pop: 0.0066    map@20_pop: 0.0023    
+Sat 17 Jan 2026 07:26:46 INFO Epoch 81 training [time: 245.36s, Train loss: 229.9926]
+Sat 17 Jan 2026 07:26:59 INFO Epoch 81: valid_score: 0.0095
+Sat 17 Jan 2026 07:26:59 INFO Valid result: recall@20_pop: 0.0095    ndcg@20_pop: 0.0062    precision@20_pop: 0.0060    map@20_pop: 0.0020    
+Sat 17 Jan 2026 07:26:59 INFO Test result : recall@20_pop: 0.0099    ndcg@20_pop: 0.0065    precision@20_pop: 0.0062    map@20_pop: 0.0021    
+Sat 17 Jan 2026 07:31:04 INFO Epoch 82 training [time: 245.30s, Train loss: 228.9406]
+Sat 17 Jan 2026 07:31:15 INFO Epoch 82: valid_score: 0.0206
+Sat 17 Jan 2026 07:31:15 INFO Valid result: recall@20_pop: 0.0206    ndcg@20_pop: 0.0126    precision@20_pop: 0.0116    map@20_pop: 0.0042    
+Sat 17 Jan 2026 07:31:15 INFO Test result : recall@20_pop: 0.0207    ndcg@20_pop: 0.0131    precision@20_pop: 0.0122    map@20_pop: 0.0044    
+Sat 17 Jan 2026 07:31:15 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 07:35:21 INFO Epoch 83 training [time: 245.43s, Train loss: 229.1347]
+Sat 17 Jan 2026 07:35:32 INFO Epoch 83: valid_score: 0.0167
+Sat 17 Jan 2026 07:35:32 INFO Valid result: recall@20_pop: 0.0167    ndcg@20_pop: 0.0104    precision@20_pop: 0.0098    map@20_pop: 0.0033    
+Sat 17 Jan 2026 07:35:32 INFO Test result : recall@20_pop: 0.0162    ndcg@20_pop: 0.0104    precision@20_pop: 0.0096    map@20_pop: 0.0033    
+Sat 17 Jan 2026 07:39:37 INFO Epoch 84 training [time: 245.40s, Train loss: 228.8962]
+Sat 17 Jan 2026 07:39:50 INFO Epoch 84: valid_score: 0.0156
+Sat 17 Jan 2026 07:39:50 INFO Valid result: recall@20_pop: 0.0156    ndcg@20_pop: 0.0099    precision@20_pop: 0.0092    map@20_pop: 0.0033    
+Sat 17 Jan 2026 07:39:50 INFO Test result : recall@20_pop: 0.0156    ndcg@20_pop: 0.0105    precision@20_pop: 0.0097    map@20_pop: 0.0037    
+Sat 17 Jan 2026 07:43:55 INFO Epoch 85 training [time: 245.47s, Train loss: 228.6990]
+Sat 17 Jan 2026 07:44:07 INFO Epoch 85: valid_score: 0.0156
+Sat 17 Jan 2026 07:44:07 INFO Valid result: recall@20_pop: 0.0156    ndcg@20_pop: 0.0096    precision@20_pop: 0.0088    map@20_pop: 0.0031    
+Sat 17 Jan 2026 07:44:07 INFO Test result : recall@20_pop: 0.0156    ndcg@20_pop: 0.0100    precision@20_pop: 0.0092    map@20_pop: 0.0033    
+Sat 17 Jan 2026 07:48:13 INFO Epoch 86 training [time: 245.49s, Train loss: 228.7204]
+Sat 17 Jan 2026 07:48:24 INFO Epoch 86: valid_score: 0.0164
+Sat 17 Jan 2026 07:48:24 INFO Valid result: recall@20_pop: 0.0164    ndcg@20_pop: 0.0105    precision@20_pop: 0.0097    map@20_pop: 0.0036    
+Sat 17 Jan 2026 07:48:24 INFO Test result : recall@20_pop: 0.0161    ndcg@20_pop: 0.0106    precision@20_pop: 0.0096    map@20_pop: 0.0037    
+Sat 17 Jan 2026 07:52:29 INFO Epoch 87 training [time: 245.20s, Train loss: 227.9257]
+Sat 17 Jan 2026 07:52:41 INFO Epoch 87: valid_score: 0.0164
+Sat 17 Jan 2026 07:52:41 INFO Valid result: recall@20_pop: 0.0164    ndcg@20_pop: 0.0104    precision@20_pop: 0.0096    map@20_pop: 0.0034    
+Sat 17 Jan 2026 07:52:41 INFO Test result : recall@20_pop: 0.0161    ndcg@20_pop: 0.0107    precision@20_pop: 0.0099    map@20_pop: 0.0038    
+Sat 17 Jan 2026 07:56:47 INFO Epoch 88 training [time: 245.35s, Train loss: 228.0934]
+Sat 17 Jan 2026 07:56:59 INFO Epoch 88: valid_score: 0.0136
+Sat 17 Jan 2026 07:56:59 INFO Valid result: recall@20_pop: 0.0136    ndcg@20_pop: 0.0087    precision@20_pop: 0.0081    map@20_pop: 0.0029    
+Sat 17 Jan 2026 07:56:59 INFO Test result : recall@20_pop: 0.0136    ndcg@20_pop: 0.0090    precision@20_pop: 0.0084    map@20_pop: 0.0031    
+Sat 17 Jan 2026 08:01:04 INFO Epoch 89 training [time: 245.28s, Train loss: 227.8201]
+Sat 17 Jan 2026 08:01:16 INFO Epoch 89: valid_score: 0.0150
+Sat 17 Jan 2026 08:01:16 INFO Valid result: recall@20_pop: 0.0150    ndcg@20_pop: 0.0098    precision@20_pop: 0.0091    map@20_pop: 0.0034    
+Sat 17 Jan 2026 08:01:16 INFO Test result : recall@20_pop: 0.0146    ndcg@20_pop: 0.0098    precision@20_pop: 0.0090    map@20_pop: 0.0034    
+Sat 17 Jan 2026 08:05:21 INFO Epoch 90 training [time: 245.06s, Train loss: 227.2320]
+Sat 17 Jan 2026 08:05:32 INFO Epoch 90: valid_score: 0.0175
+Sat 17 Jan 2026 08:05:32 INFO Valid result: recall@20_pop: 0.0175    ndcg@20_pop: 0.0111    precision@20_pop: 0.0102    map@20_pop: 0.0036    
+Sat 17 Jan 2026 08:05:32 INFO Test result : recall@20_pop: 0.0172    ndcg@20_pop: 0.0114    precision@20_pop: 0.0106    map@20_pop: 0.0039    
+Sat 17 Jan 2026 08:09:37 INFO Epoch 91 training [time: 245.27s, Train loss: 227.0585]
+Sat 17 Jan 2026 08:09:49 INFO Epoch 91: valid_score: 0.0150
+Sat 17 Jan 2026 08:09:49 INFO Valid result: recall@20_pop: 0.0150    ndcg@20_pop: 0.0096    precision@20_pop: 0.0088    map@20_pop: 0.0032    
+Sat 17 Jan 2026 08:09:49 INFO Test result : recall@20_pop: 0.0148    ndcg@20_pop: 0.0097    precision@20_pop: 0.0090    map@20_pop: 0.0033    
+Sat 17 Jan 2026 08:13:55 INFO Epoch 92 training [time: 245.52s, Train loss: 226.8410]
+Sat 17 Jan 2026 08:14:07 INFO Epoch 92: valid_score: 0.0098
+Sat 17 Jan 2026 08:14:07 INFO Valid result: recall@20_pop: 0.0098    ndcg@20_pop: 0.0068    precision@20_pop: 0.0064    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:14:07 INFO Test result : recall@20_pop: 0.0104    ndcg@20_pop: 0.0070    precision@20_pop: 0.0064    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:18:12 INFO Epoch 93 training [time: 245.35s, Train loss: 226.7533]
+Sat 17 Jan 2026 08:18:23 INFO Epoch 93: valid_score: 0.0146
+Sat 17 Jan 2026 08:18:23 INFO Valid result: recall@20_pop: 0.0146    ndcg@20_pop: 0.0095    precision@20_pop: 0.0089    map@20_pop: 0.0032    
+Sat 17 Jan 2026 08:18:23 INFO Test result : recall@20_pop: 0.0150    ndcg@20_pop: 0.0098    precision@20_pop: 0.0091    map@20_pop: 0.0033    
+Sat 17 Jan 2026 08:22:28 INFO Epoch 94 training [time: 245.21s, Train loss: 226.0895]
+Sat 17 Jan 2026 08:22:40 INFO Epoch 94: valid_score: 0.0124
+Sat 17 Jan 2026 08:22:40 INFO Valid result: recall@20_pop: 0.0124    ndcg@20_pop: 0.0078    precision@20_pop: 0.0074    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:22:40 INFO Test result : recall@20_pop: 0.0119    ndcg@20_pop: 0.0078    precision@20_pop: 0.0075    map@20_pop: 0.0025    
+Sat 17 Jan 2026 08:26:45 INFO Epoch 95 training [time: 245.35s, Train loss: 226.6727]
+Sat 17 Jan 2026 08:26:58 INFO Epoch 95: valid_score: 0.0109
+Sat 17 Jan 2026 08:26:58 INFO Valid result: recall@20_pop: 0.0109    ndcg@20_pop: 0.0073    precision@20_pop: 0.0070    map@20_pop: 0.0025    
+Sat 17 Jan 2026 08:26:58 INFO Test result : recall@20_pop: 0.0103    ndcg@20_pop: 0.0071    precision@20_pop: 0.0067    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:31:03 INFO Epoch 96 training [time: 245.25s, Train loss: 226.3358]
+Sat 17 Jan 2026 08:31:15 INFO Epoch 96: valid_score: 0.0170
+Sat 17 Jan 2026 08:31:15 INFO Valid result: recall@20_pop: 0.0170    ndcg@20_pop: 0.0110    precision@20_pop: 0.0101    map@20_pop: 0.0038    
+Sat 17 Jan 2026 08:31:15 INFO Test result : recall@20_pop: 0.0169    ndcg@20_pop: 0.0114    precision@20_pop: 0.0103    map@20_pop: 0.0041    
+Sat 17 Jan 2026 08:35:21 INFO Epoch 97 training [time: 245.45s, Train loss: 226.1735]
+Sat 17 Jan 2026 08:35:32 INFO Epoch 97: valid_score: 0.0188
+Sat 17 Jan 2026 08:35:32 INFO Valid result: recall@20_pop: 0.0188    ndcg@20_pop: 0.0122    precision@20_pop: 0.0108    map@20_pop: 0.0045    
+Sat 17 Jan 2026 08:35:32 INFO Test result : recall@20_pop: 0.0178    ndcg@20_pop: 0.0119    precision@20_pop: 0.0108    map@20_pop: 0.0044    
+Sat 17 Jan 2026 08:39:37 INFO Epoch 98 training [time: 245.34s, Train loss: 225.4188]
+Sat 17 Jan 2026 08:39:50 INFO Epoch 98: valid_score: 0.0155
+Sat 17 Jan 2026 08:39:50 INFO Valid result: recall@20_pop: 0.0155    ndcg@20_pop: 0.0100    precision@20_pop: 0.0093    map@20_pop: 0.0036    
+Sat 17 Jan 2026 08:39:50 INFO Test result : recall@20_pop: 0.0156    ndcg@20_pop: 0.0105    precision@20_pop: 0.0097    map@20_pop: 0.0037    
+Sat 17 Jan 2026 08:43:55 INFO Epoch 99 training [time: 245.57s, Train loss: 224.9503]
+Sat 17 Jan 2026 08:44:07 INFO Epoch 99: valid_score: 0.0173
+Sat 17 Jan 2026 08:44:07 INFO Valid result: recall@20_pop: 0.0173    ndcg@20_pop: 0.0111    precision@20_pop: 0.0103    map@20_pop: 0.0037    
+Sat 17 Jan 2026 08:44:07 INFO Test result : recall@20_pop: 0.0171    ndcg@20_pop: 0.0114    precision@20_pop: 0.0104    map@20_pop: 0.0040    
+Sat 17 Jan 2026 08:48:12 INFO Epoch 100 training [time: 245.30s, Train loss: 225.2292]
+Sat 17 Jan 2026 08:48:24 INFO Epoch 100: valid_score: 0.0114
+Sat 17 Jan 2026 08:48:24 INFO Valid result: recall@20_pop: 0.0114    ndcg@20_pop: 0.0073    precision@20_pop: 0.0067    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:48:24 INFO Test result : recall@20_pop: 0.0107    ndcg@20_pop: 0.0071    precision@20_pop: 0.0068    map@20_pop: 0.0024    
+Sat 17 Jan 2026 08:52:29 INFO Epoch 101 training [time: 245.22s, Train loss: 224.8916]
+Sat 17 Jan 2026 08:52:41 INFO Epoch 101: valid_score: 0.0130
+Sat 17 Jan 2026 08:52:41 INFO Valid result: recall@20_pop: 0.0130    ndcg@20_pop: 0.0084    precision@20_pop: 0.0078    map@20_pop: 0.0029    
+Sat 17 Jan 2026 08:52:41 INFO Test result : recall@20_pop: 0.0119    ndcg@20_pop: 0.0081    precision@20_pop: 0.0075    map@20_pop: 0.0029    
+Sat 17 Jan 2026 08:56:46 INFO Epoch 102 training [time: 245.31s, Train loss: 224.5664]
+Sat 17 Jan 2026 08:56:58 INFO Epoch 102: valid_score: 0.0139
+Sat 17 Jan 2026 08:56:58 INFO Valid result: recall@20_pop: 0.0139    ndcg@20_pop: 0.0092    precision@20_pop: 0.0086    map@20_pop: 0.0032    
+Sat 17 Jan 2026 08:56:58 INFO Test result : recall@20_pop: 0.0131    ndcg@20_pop: 0.0088    precision@20_pop: 0.0083    map@20_pop: 0.0029    
+Sat 17 Jan 2026 09:01:04 INFO Epoch 103 training [time: 245.36s, Train loss: 224.8207]
+Sat 17 Jan 2026 09:01:15 INFO Epoch 103: valid_score: 0.0229
+Sat 17 Jan 2026 09:01:15 INFO Valid result: recall@20_pop: 0.0229    ndcg@20_pop: 0.0139    precision@20_pop: 0.0125    map@20_pop: 0.0047    
+Sat 17 Jan 2026 09:01:15 INFO Test result : recall@20_pop: 0.0216    ndcg@20_pop: 0.0138    precision@20_pop: 0.0126    map@20_pop: 0.0047    
+Sat 17 Jan 2026 09:01:15 INFO ██ DRAGON--Best validation results updated!!!
+Sat 17 Jan 2026 09:05:20 INFO Epoch 104 training [time: 245.24s, Train loss: 224.1348]
+Sat 17 Jan 2026 09:05:32 INFO Epoch 104: valid_score: 0.0168
+Sat 17 Jan 2026 09:05:32 INFO Valid result: recall@20_pop: 0.0168    ndcg@20_pop: 0.0108    precision@20_pop: 0.0100    map@20_pop: 0.0037    
+Sat 17 Jan 2026 09:05:32 INFO Test result : recall@20_pop: 0.0180    ndcg@20_pop: 0.0116    precision@20_pop: 0.0106    map@20_pop: 0.0041    
+Sat 17 Jan 2026 09:09:37 INFO Epoch 105 training [time: 245.30s, Train loss: 224.1235]
+Sat 17 Jan 2026 09:09:49 INFO Epoch 105: valid_score: 0.0148
+Sat 17 Jan 2026 09:09:49 INFO Valid result: recall@20_pop: 0.0148    ndcg@20_pop: 0.0094    precision@20_pop: 0.0088    map@20_pop: 0.0032    
+Sat 17 Jan 2026 09:09:49 INFO Test result : recall@20_pop: 0.0131    ndcg@20_pop: 0.0088    precision@20_pop: 0.0084    map@20_pop: 0.0030    
+Sat 17 Jan 2026 09:13:54 INFO Epoch 106 training [time: 245.52s, Train loss: 223.9231]
+Sat 17 Jan 2026 09:14:07 INFO Epoch 106: valid_score: 0.0148
+Sat 17 Jan 2026 09:14:07 INFO Valid result: recall@20_pop: 0.0148    ndcg@20_pop: 0.0095    precision@20_pop: 0.0089    map@20_pop: 0.0031    
+Sat 17 Jan 2026 09:14:07 INFO Test result : recall@20_pop: 0.0149    ndcg@20_pop: 0.0098    precision@20_pop: 0.0091    map@20_pop: 0.0034    
+Sat 17 Jan 2026 09:18:12 INFO Epoch 107 training [time: 245.30s, Train loss: 223.7299]
+Sat 17 Jan 2026 09:18:23 INFO Epoch 107: valid_score: 0.0120
+Sat 17 Jan 2026 09:18:23 INFO Valid result: recall@20_pop: 0.0120    ndcg@20_pop: 0.0078    precision@20_pop: 0.0073    map@20_pop: 0.0027    
+Sat 17 Jan 2026 09:18:23 INFO Test result : recall@20_pop: 0.0114    ndcg@20_pop: 0.0079    precision@20_pop: 0.0073    map@20_pop: 0.0028    
+Sat 17 Jan 2026 09:22:29 INFO Epoch 108 training [time: 245.24s, Train loss: 224.0588]
+Sat 17 Jan 2026 09:22:40 INFO Epoch 108: valid_score: 0.0147
+Sat 17 Jan 2026 09:22:40 INFO Valid result: recall@20_pop: 0.0147    ndcg@20_pop: 0.0094    precision@20_pop: 0.0088    map@20_pop: 0.0031    
+Sat 17 Jan 2026 09:22:40 INFO Test result : recall@20_pop: 0.0147    ndcg@20_pop: 0.0098    precision@20_pop: 0.0091    map@20_pop: 0.0033    
+Sat 17 Jan 2026 09:26:46 INFO Epoch 109 training [time: 245.40s, Train loss: 223.0160]
+Sat 17 Jan 2026 09:26:58 INFO Epoch 109: valid_score: 0.0196
+Sat 17 Jan 2026 09:26:58 INFO Valid result: recall@20_pop: 0.0196    ndcg@20_pop: 0.0122    precision@20_pop: 0.0112    map@20_pop: 0.0040    
+Sat 17 Jan 2026 09:26:58 INFO Test result : recall@20_pop: 0.0191    ndcg@20_pop: 0.0123    precision@20_pop: 0.0115    map@20_pop: 0.0041    
+Sat 17 Jan 2026 09:31:03 INFO Epoch 110 training [time: 245.55s, Train loss: 223.1009]
+Sat 17 Jan 2026 09:31:15 INFO Epoch 110: valid_score: 0.0187
+Sat 17 Jan 2026 09:31:15 INFO Valid result: recall@20_pop: 0.0187    ndcg@20_pop: 0.0115    precision@20_pop: 0.0105    map@20_pop: 0.0037    
+Sat 17 Jan 2026 09:31:15 INFO Test result : recall@20_pop: 0.0183    ndcg@20_pop: 0.0116    precision@20_pop: 0.0107    map@20_pop: 0.0039    
+Sat 17 Jan 2026 09:35:21 INFO Epoch 111 training [time: 245.11s, Train loss: 223.1017]
+Sat 17 Jan 2026 09:35:32 INFO Epoch 111: valid_score: 0.0129
+Sat 17 Jan 2026 09:35:32 INFO Valid result: recall@20_pop: 0.0129    ndcg@20_pop: 0.0084    precision@20_pop: 0.0078    map@20_pop: 0.0029    
+Sat 17 Jan 2026 09:35:32 INFO Test result : recall@20_pop: 0.0122    ndcg@20_pop: 0.0082    precision@20_pop: 0.0075    map@20_pop: 0.0028    
+Sat 17 Jan 2026 09:39:37 INFO Epoch 112 training [time: 245.51s, Train loss: 222.9039]
+Sat 17 Jan 2026 09:39:50 INFO Epoch 112: valid_score: 0.0092
+Sat 17 Jan 2026 09:39:50 INFO Valid result: recall@20_pop: 0.0092    ndcg@20_pop: 0.0061    precision@20_pop: 0.0058    map@20_pop: 0.0020    
+Sat 17 Jan 2026 09:39:50 INFO Test result : recall@20_pop: 0.0092    ndcg@20_pop: 0.0063    precision@20_pop: 0.0059    map@20_pop: 0.0022    
+Sat 17 Jan 2026 09:43:55 INFO Epoch 113 training [time: 245.29s, Train loss: 222.7022]
+Sat 17 Jan 2026 09:44:07 INFO Epoch 113: valid_score: 0.0119
+Sat 17 Jan 2026 09:44:07 INFO Valid result: recall@20_pop: 0.0119    ndcg@20_pop: 0.0076    precision@20_pop: 0.0073    map@20_pop: 0.0024    
+Sat 17 Jan 2026 09:44:07 INFO Test result : recall@20_pop: 0.0122    ndcg@20_pop: 0.0082    precision@20_pop: 0.0077    map@20_pop: 0.0028    
+Sat 17 Jan 2026 09:48:13 INFO Epoch 114 training [time: 245.25s, Train loss: 222.1896]
+Sat 17 Jan 2026 09:48:24 INFO Epoch 114: valid_score: 0.0196
+Sat 17 Jan 2026 09:48:24 INFO Valid result: recall@20_pop: 0.0196    ndcg@20_pop: 0.0129    precision@20_pop: 0.0115    map@20_pop: 0.0048    
+Sat 17 Jan 2026 09:48:24 INFO Test result : recall@20_pop: 0.0187    ndcg@20_pop: 0.0129    precision@20_pop: 0.0116    map@20_pop: 0.0048    
+Sat 17 Jan 2026 09:52:29 INFO Epoch 115 training [time: 245.30s, Train loss: 222.6191]
+Sat 17 Jan 2026 09:52:41 INFO Epoch 115: valid_score: 0.0181
+Sat 17 Jan 2026 09:52:41 INFO Valid result: recall@20_pop: 0.0181    ndcg@20_pop: 0.0117    precision@20_pop: 0.0106    map@20_pop: 0.0041    
+Sat 17 Jan 2026 09:52:41 INFO Test result : recall@20_pop: 0.0173    ndcg@20_pop: 0.0116    precision@20_pop: 0.0106    map@20_pop: 0.0042    
+Sat 17 Jan 2026 09:56:47 INFO Epoch 116 training [time: 245.45s, Train loss: 222.3096]
+Sat 17 Jan 2026 09:56:59 INFO Epoch 116: valid_score: 0.0139
+Sat 17 Jan 2026 09:56:59 INFO Valid result: recall@20_pop: 0.0139    ndcg@20_pop: 0.0094    precision@20_pop: 0.0087    map@20_pop: 0.0034    
+Sat 17 Jan 2026 09:56:59 INFO Test result : recall@20_pop: 0.0144    ndcg@20_pop: 0.0098    precision@20_pop: 0.0089    map@20_pop: 0.0036    
+Sat 17 Jan 2026 10:01:04 INFO Epoch 117 training [time: 245.42s, Train loss: 221.4851]
+Sat 17 Jan 2026 10:01:16 INFO Epoch 117: valid_score: 0.0216
+Sat 17 Jan 2026 10:01:16 INFO Valid result: recall@20_pop: 0.0216    ndcg@20_pop: 0.0136    precision@20_pop: 0.0122    map@20_pop: 0.0047    
+Sat 17 Jan 2026 10:01:16 INFO Test result : recall@20_pop: 0.0210    ndcg@20_pop: 0.0134    precision@20_pop: 0.0124    map@20_pop: 0.0044    
+Sat 17 Jan 2026 10:05:21 INFO Epoch 118 training [time: 245.27s, Train loss: 221.7776]
+Sat 17 Jan 2026 10:05:32 INFO Epoch 118: valid_score: 0.0179
+Sat 17 Jan 2026 10:05:32 INFO Valid result: recall@20_pop: 0.0179    ndcg@20_pop: 0.0117    precision@20_pop: 0.0105    map@20_pop: 0.0043    
+Sat 17 Jan 2026 10:05:32 INFO Test result : recall@20_pop: 0.0176    ndcg@20_pop: 0.0118    precision@20_pop: 0.0107    map@20_pop: 0.0043    
+Sat 17 Jan 2026 10:09:38 INFO Epoch 119 training [time: 245.38s, Train loss: 221.6112]
+Sat 17 Jan 2026 10:09:49 INFO Epoch 119: valid_score: 0.0181
+Sat 17 Jan 2026 10:09:49 INFO Valid result: recall@20_pop: 0.0181    ndcg@20_pop: 0.0115    precision@20_pop: 0.0107    map@20_pop: 0.0039    
+Sat 17 Jan 2026 10:09:49 INFO Test result : recall@20_pop: 0.0171    ndcg@20_pop: 0.0112    precision@20_pop: 0.0107    map@20_pop: 0.0039    
+Sat 17 Jan 2026 10:13:55 INFO Epoch 120 training [time: 245.54s, Train loss: 221.7737]
+Sat 17 Jan 2026 10:14:07 INFO Epoch 120: valid_score: 0.0226
+Sat 17 Jan 2026 10:14:07 INFO Valid result: recall@20_pop: 0.0226    ndcg@20_pop: 0.0146    precision@20_pop: 0.0131    map@20_pop: 0.0052    
+Sat 17 Jan 2026 10:14:07 INFO Test result : recall@20_pop: 0.0230    ndcg@20_pop: 0.0152    precision@20_pop: 0.0134    map@20_pop: 0.0055    
+Sat 17 Jan 2026 10:18:12 INFO Epoch 121 training [time: 245.18s, Train loss: 220.8814]
+Sat 17 Jan 2026 10:18:23 INFO Epoch 121: valid_score: 0.0193
+Sat 17 Jan 2026 10:18:23 INFO Valid result: recall@20_pop: 0.0193    ndcg@20_pop: 0.0123    precision@20_pop: 0.0112    map@20_pop: 0.0043    
+Sat 17 Jan 2026 10:18:23 INFO Test result : recall@20_pop: 0.0186    ndcg@20_pop: 0.0123    precision@20_pop: 0.0111    map@20_pop: 0.0043    
+Sat 17 Jan 2026 10:22:29 INFO Epoch 122 training [time: 245.26s, Train loss: 220.9083]
+Sat 17 Jan 2026 10:22:40 INFO Epoch 122: valid_score: 0.0132
+Sat 17 Jan 2026 10:22:40 INFO Valid result: recall@20_pop: 0.0132    ndcg@20_pop: 0.0086    precision@20_pop: 0.0081    map@20_pop: 0.0030    
+Sat 17 Jan 2026 10:22:40 INFO Test result : recall@20_pop: 0.0129    ndcg@20_pop: 0.0086    precision@20_pop: 0.0080    map@20_pop: 0.0030    
+Sat 17 Jan 2026 10:26:46 INFO Epoch 123 training [time: 245.39s, Train loss: 220.9909]
+Sat 17 Jan 2026 10:26:58 INFO Epoch 123: valid_score: 0.0144
+Sat 17 Jan 2026 10:26:58 INFO Valid result: recall@20_pop: 0.0144    ndcg@20_pop: 0.0094    precision@20_pop: 0.0087    map@20_pop: 0.0034    
+Sat 17 Jan 2026 10:26:58 INFO Test result : recall@20_pop: 0.0132    ndcg@20_pop: 0.0091    precision@20_pop: 0.0086    map@20_pop: 0.0033    
+Sat 17 Jan 2026 10:31:03 INFO Epoch 124 training [time: 245.49s, Train loss: 220.8260]
+Sat 17 Jan 2026 10:31:15 INFO Epoch 124: valid_score: 0.0197
+Sat 17 Jan 2026 10:31:15 INFO Valid result: recall@20_pop: 0.0197    ndcg@20_pop: 0.0122    precision@20_pop: 0.0111    map@20_pop: 0.0042    
+Sat 17 Jan 2026 10:31:15 INFO Test result : recall@20_pop: 0.0182    ndcg@20_pop: 0.0120    precision@20_pop: 0.0111    map@20_pop: 0.0042    
+Sat 17 Jan 2026 10:31:15 INFO +++++Finished training, best eval result in epoch 103
+Sat 17 Jan 2026 10:31:15 INFO best valid result: recall@20_pop: 0.0229    ndcg@20_pop: 0.0139    precision@20_pop: 0.0125    map@20_pop: 0.0047    
+Sat 17 Jan 2026 10:31:15 INFO test result: recall@20_pop: 0.0216    ndcg@20_pop: 0.0138    precision@20_pop: 0.0126    map@20_pop: 0.0047    
+Sat 17 Jan 2026 10:31:15 INFO ████Current BEST████:
+Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.0229    ndcg@20_pop: 0.0139    precision@20_pop: 0.0125    map@20_pop: 0.0047    ,
+Test: recall@20_pop: 0.0216    ndcg@20_pop: 0.0138    precision@20_pop: 0.0126    map@20_pop: 0.0047    
+
+
+
+Sat 17 Jan 2026 10:31:15 INFO 
+============All Over=====================
+Sat 17 Jan 2026 10:31:15 INFO Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+ best valid: recall@20_pop: 0.0229    ndcg@20_pop: 0.0139    precision@20_pop: 0.0125    map@20_pop: 0.0047    ,
+ best test: recall@20_pop: 0.0216    ndcg@20_pop: 0.0138    precision@20_pop: 0.0126    map@20_pop: 0.0047    
+Sat 17 Jan 2026 10:31:15 INFO 
+
+█████████████ BEST ████████████████
+Sat 17 Jan 2026 10:31:15 INFO 	Parameters: ['seed', 'aggr_mode', 'reg_weight', 'learning_rate']=(999, 'add', 0.001, 0.0001),
+Valid: recall@20_pop: 0.0229    ndcg@20_pop: 0.0139    precision@20_pop: 0.0125    map@20_pop: 0.0047    ,
+Test: recall@20_pop: 0.0216    ndcg@20_pop: 0.0138    precision@20_pop: 0.0126    map@20_pop: 0.0047    
+
+
