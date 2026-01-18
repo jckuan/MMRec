@@ -10,6 +10,7 @@ import numpy as np
 import os
 import torch
 import torch.nn as nn
+from torch.utils.checkpoint import checkpoint
 
 from common.abstract_recommender import GeneralRecommender
 from common.loss import BPRLoss, EmbLoss
@@ -44,6 +45,9 @@ class VBPR(GeneralRecommender):
         self.item_linear = nn.Linear(self.item_raw_features.shape[1], self.i_embedding_size)
         self.loss = BPRLoss()
         self.reg_loss = EmbLoss()
+        
+        # Memory optimization: gradient checkpointing
+        self.use_checkpoint = config['use_checkpoint']
 
         # FETTLE integration - need separate linear layers for each modality
         self.iladt_loss, self.cla_loss = initialize_fettle_losses(config, self.i_embedding_size)
@@ -79,12 +83,25 @@ class VBPR(GeneralRecommender):
         """
         return self.item_embedding[item, :]
 
+    def _item_linear_transform(self, features):
+        """Helper for checkpointing linear transformation"""
+        return self.item_linear(features)
+    
     def forward(self, dropout=0.0):
-        item_embeddings = self.item_linear(self.item_raw_features)
+        # Memory optimization: use gradient checkpointing for expensive linear transformation
+        if self.use_checkpoint and self.training:
+            # Transfer features from CPU to GPU if needed
+            features = self.item_raw_features.to(self.device) if self.item_raw_features.device != self.device else self.item_raw_features
+            item_embeddings = checkpoint(self._item_linear_transform, features, use_reentrant=False)
+        else:
+            features = self.item_raw_features.to(self.device) if self.item_raw_features.device != self.device else self.item_raw_features
+            item_embeddings = self.item_linear(features)
+        
         item_embeddings = torch.cat((self.i_embedding, item_embeddings), -1)
 
-        user_e = F.dropout(self.u_embedding, dropout)
-        item_e = F.dropout(item_embeddings, dropout)
+        # Memory optimization: in-place dropout
+        user_e = F.dropout(self.u_embedding, dropout, inplace=True) if dropout > 0 else self.u_embedding
+        item_e = F.dropout(item_embeddings, dropout, inplace=True) if dropout > 0 else item_embeddings
         return user_e, item_e
 
     def calculate_loss(self, interaction):

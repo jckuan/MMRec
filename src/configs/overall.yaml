@@ -55,7 +55,7 @@ eval_batch_size: 4096
 
 # Candidate sampling for evaluation (improves interpretability for cold-start)
 use_candidate_sampling: True        # Enable candidate sampling during evaluation
-candidate_sampling_type: 'popularity'  # Options: 'uniform', 'popularity', 'both', 'none'
+candidate_sampling_type: 'uniform'  # Options: 'uniform', 'popularity', 'both', 'none'
                                     # uniform: randomly sample negative items
                                     # popularity: sample negatives based on item popularity
                                     # both: report both uniform and popularity-based metrics
