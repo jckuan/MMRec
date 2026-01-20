@@ -1,0 +1,158 @@
+Tue 20 Jan 2026 03:37:02 INFO ██Server: 	bronx
+Tue 20 Jan 2026 03:37:02 INFO ██Dir: 	C:\Users\guanj\Dev\MMRec\src
+
+Tue 20 Jan 2026 03:37:02 INFO 
+gpu_id=0
+use_gpu=True
+seed=[999]
+use_amp=True
+keep_features_on_cpu=True
+use_checkpoint=True
+use_torch_compile=True
+clip_grad_norm={'max_norm': 5.0, 'norm_type': 2}
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=200
+stopping_step=20
+train_batch_size=4096
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=False
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[20]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_candidate_sampling=True
+candidate_sampling_type=popularity
+num_negative_candidates=99
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+use_fettle=False
+cf_extraction_method=average
+iladt_weight=0.05
+cla_weight=0.01
+clcr_gamma=0.05
+ga_gamma=0.1
+prototype_num=10
+hyper_parameters=['seed', 'n_layers', 'reg_weight', 'dropout']
+inter_file_name=cs_temporal_02/clean_temporal_coldstart_interactions.csv
+vision_feature_file=cs_temporal_02/clean_audio_feat_mert.npy
+text_feature_file=cs_temporal_02/clean_text_feat.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+n_layers=[1]
+dropout=[0.4]
+reg_weight=[0.1]
+cl_weight=2.0
+model=BM3
+dataset=Music4All
+valid_metric_bigger=True
+device=cuda
+
+
+Tue 20 Jan 2026 03:37:03 INFO Music4All
+The number of users: 14127
+Average actions of users: 361.6898138316698
+The number of items: 99596
+Average actions of items: 51.303184866862125
+The number of inters: 5109592
+The sparsity of the dataset: 99.63684303201768%
+Tue 20 Jan 2026 03:37:03 INFO 
+====Training====
+Music4All
+The number of users: 14123
+Average actions of users: 326.6103519082348
+The number of items: 79677
+Average actions of items: 57.89271684425869
+The number of inters: 4612718
+The sparsity of the dataset: 99.59008201625534%
+Tue 20 Jan 2026 03:37:03 INFO 
+====Validation====
+Music4All
+The number of users: 8711
+Average actions of users: 28.44725060268626
+The number of items: 16105
+Average actions of items: 15.38677429369761
+The number of inters: 247804
+The sparsity of the dataset: 99.82336385841238%
+Tue 20 Jan 2026 03:37:03 INFO 
+====Testing====
+Music4All
+The number of users: 7073
+Average actions of users: 35.054008200197934
+The number of items: 15797
+Average actions of items: 15.695195290244984
+The number of inters: 247937
+The sparsity of the dataset: 99.77809705513579%
+Tue 20 Jan 2026 03:37:07 INFO 
+
+=================================
+
+
+Tue 20 Jan 2026 03:37:07 INFO =========1/1: Parameters:['seed', 'n_layers', 'reg_weight', 'dropout']=(999, 1, 0.1, 0.4)=======
+Tue 20 Jan 2026 03:37:12 INFO BM3(
+  (user_embedding): Embedding(14127, 64)
+  (item_id_embedding): Embedding(99596, 64)
+  (predictor): Linear(in_features=64, out_features=64, bias=True)
+  (reg_loss): EmbLoss()
+  (image_embedding): Embedding(99596, 1024)
+  (image_trs): Linear(in_features=1024, out_features=64, bias=True)
+  (text_embedding): Embedding(99596, 384)
+  (text_trs): Linear(in_features=384, out_features=64, bias=True)
+)
+Trainable parameters: 147603840
+Tue 20 Jan 2026 03:37:12 INFO Mixed Precision Training (FP16) enabled - expect ~40-50% memory reduction
+Tue 20 Jan 2026 03:37:13 INFO ✅ Model compiled with torch.compile - expect ~20-30% speedup after first epoch
+Tue 20 Jan 2026 03:37:13 INFO Initialized tot_item_num: 99596
+Tue 20 Jan 2026 03:37:13 INFO Computing item popularity from training data...
+Tue 20 Jan 2026 03:37:14 INFO Computed item popularity: 79677/99596 items in training
+Tue 20 Jan 2026 03:37:14 INFO Smoothing parameter alpha=0.01, min_prob=2.17e-09, max_prob=1.80e-02
+Tue 20 Jan 2026 03:39:29 INFO Epoch 0 training [time: 135.33s, Train loss: 3705.8367]
+Tue 20 Jan 2026 03:39:40 INFO Epoch 0: valid_score: 0.0000
+Tue 20 Jan 2026 03:39:40 INFO Valid result: recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:39:40 INFO Test result : recall@20_full: 0.0000    ndcg@20_full: 0.0000    precision@20_full: 0.0000    map@20_full: 0.0000    recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:39:40 INFO ██ BM3--Best validation results updated!!!
+Tue 20 Jan 2026 03:41:55 INFO Epoch 1 training [time: 134.86s, Train loss: 3478.6495]
+Tue 20 Jan 2026 03:42:07 INFO Epoch 1: valid_score: 0.0001
+Tue 20 Jan 2026 03:42:07 INFO Valid result: recall@20_pop: 0.0001    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:42:07 INFO Test result : recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:42:07 INFO ██ BM3--Best validation results updated!!!
+Tue 20 Jan 2026 03:44:22 INFO Epoch 2 training [time: 134.84s, Train loss: 3491.5257]
+Tue 20 Jan 2026 03:44:32 INFO Epoch 2: valid_score: 0.0001
+Tue 20 Jan 2026 03:44:32 INFO Valid result: recall@20_pop: 0.0001    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:44:32 INFO Test result : recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:46:47 INFO Epoch 3 training [time: 134.94s, Train loss: 3483.9687]
+Tue 20 Jan 2026 03:46:59 INFO Epoch 3: valid_score: 0.0001
+Tue 20 Jan 2026 03:46:59 INFO Valid result: recall@20_pop: 0.0001    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:46:59 INFO Test result : recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:49:13 INFO Epoch 4 training [time: 134.82s, Train loss: 3514.2798]
+Tue 20 Jan 2026 03:49:23 INFO Epoch 4: valid_score: 0.0002
+Tue 20 Jan 2026 03:49:23 INFO Valid result: recall@20_pop: 0.0002    ndcg@20_pop: 0.0001    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:49:23 INFO Test result : recall@20_pop: 0.0000    ndcg@20_pop: 0.0000    precision@20_pop: 0.0000    map@20_pop: 0.0000    
+Tue 20 Jan 2026 03:49:23 INFO ██ BM3--Best validation results updated!!!

@@ -4,11 +4,11 @@ TIME_FIELD: timestamp
 
 filter_out_cod_start_users: True
 
-inter_file_name: 'cs_lowcount_10/clean_lowcount_coldstart_interactions.csv'
+inter_file_name: 'v1_timestamp_m2v/clean_clean_v1_timestamp_interactions.csv'
 
 # name of frozen features
-vision_feature_file: 'cs_lowcount_10/clean_audio_feat_mert.npy'
-text_feature_file: 'cs_lowcount_10/clean_text_feat.npy'
+vision_feature_file: 'v1_timestamp_m2v/clean_clean_audio_feat_m2v.npy'
+text_feature_file: 'v1_timestamp_m2v/clean_clean_text_feat.npy'
 user_graph_dict_file: 'user_graph_dict.npy'       # Run generate-u-u-matrix.py
 
 field_separator: "\t"
